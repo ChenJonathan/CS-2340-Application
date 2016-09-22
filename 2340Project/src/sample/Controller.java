@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 public class Controller {
 	
@@ -9,7 +10,7 @@ public class Controller {
 	public void setMainApp(Main main) {
 		mainApplication = main;
 	}
-	
+
 	@FXML
 	public void handleLoginPressed() {
 		mainApplication.showLoginDialog();

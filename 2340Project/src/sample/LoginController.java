@@ -3,6 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -12,17 +13,30 @@ public class LoginController {
 	@FXML
 	private PasswordField passwordField;
 	
+	private Stage _dialogStage;
+	
+	private Main mainApplication;
+	
+	public void setDialogStage(Stage dialogStage) {
+		_dialogStage = dialogStage;
+	}
+	
+	public void setMainApp(Main main) {
+		mainApplication = main;
+	}
+	
 	@FXML
 	public void handleOKPressed() {
 		String user = userField.getText();
 		String passwd = passwordField.getText();
 		
-		System.out.println("user: " + user);
-		System.out.println("passwd: " + passwd);
-		if (user.equals("JWASP") && passwd.equals("/etc/passwd")) {
-			System.out.println("authenticated");
+		if (user.equals("JWASP") && passwd.equals("/etc/shadow")) {
+			_dialogStage.close();
+			mainApplication.showMainScreen();
 		} else {
-			System.out.println("not authenticated");
+			userField.setText("Invalid login");
 		}
+		
+		
 	}
 }
