@@ -12,6 +12,7 @@
       <Label layoutX="98.0" layoutY="108.0" text="Username" />
       <PasswordField fx:id="passwordField" layoutX="215.0" layoutY="206.0" />
       <Label layoutX="100.0" layoutY="211.0" text="Password" />
-      <Button layoutX="272.0" layoutY="304.0" onAction="#handleOKPressed" mnemonicParsing="false" text="OK" />
+      <Button layoutX="178.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
+      <Button layoutX="354.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
    </children>
 </Pane>

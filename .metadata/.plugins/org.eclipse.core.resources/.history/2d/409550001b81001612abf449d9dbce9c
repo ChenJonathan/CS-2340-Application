@@ -13,6 +13,6 @@
       <PasswordField fx:id="passwordField" layoutX="215.0" layoutY="206.0" />
       <Label layoutX="100.0" layoutY="211.0" text="Password" />
       <Button layoutX="178.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
-      <Button layoutX="354.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+      <Button layoutX="354.0" layoutY="306.0" mnemonicParsing="false" text="Cancel" />
    </children>
 </Pane>

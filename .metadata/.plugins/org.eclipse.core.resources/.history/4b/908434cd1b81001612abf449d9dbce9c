@@ -75,14 +75,14 @@ public class Main extends Application {
     public void showWelcomeScreen() {
     	try {
     		FXMLLoader loader = new FXMLLoader();
-    		loader.setLocation(Main.class.getResource("WelcomeWindow.fxml"));
+    		loader.setLocation(Main.class.getResource("MainScreen.fxml"));
 
          	Parent root = loader.load();
         	mainScreen.setTitle("Hello World");
         	mainScreen.setScene(new Scene(root, 300, 275));
         	mainScreen.show();
 
-    		Controller controller = loader.getController();
+    		MainScreenController controller = loader.getController();
     		controller.setMainApp(this);
 
     	} catch (IOException e) {

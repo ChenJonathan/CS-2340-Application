@@ -82,7 +82,7 @@ public class Main extends Application {
         	mainScreen.setScene(new Scene(root, 300, 275));
         	mainScreen.show();
 
-    		Controller controller = loader.getController();
+    		MainScreenController controller = loader.getController();
     		controller.setMainApp(this);
 
     	} catch (IOException e) {

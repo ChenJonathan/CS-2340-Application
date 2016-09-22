@@ -39,9 +39,4 @@ public class LoginController {
 		
 		
 	}
-	
-	@FXML
-	public void handleCancelPressed() {
-		_dialogStage.close();
-	}
 }

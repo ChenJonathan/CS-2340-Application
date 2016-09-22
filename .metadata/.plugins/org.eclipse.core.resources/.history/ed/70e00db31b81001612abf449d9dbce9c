@@ -23,7 +23,7 @@
                   <Font size="96.0" />
                </font>
             </TextField>
-            <Button layoutX="703.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="Log Out" />
+            <Button layoutX="703.0" layoutY="474.0" mnemonicParsing="false" text="Log Out" />
          </children>
       </Pane>
    </children>
