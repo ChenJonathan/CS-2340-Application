@@ -24,7 +24,7 @@
                   <Font size="96.0" />
                </font>
             </TextField>
-            <Button layoutX="1119.0" layoutY="500.0" mnemonicParsing="false" text="Login" />
+            <Button layoutX="1119.0" layoutY="500.0" onAction="#handleLoginPressed" mnemonicParsing="false" text="Login" />
             <Button layoutX="318.0" layoutY="500.0" mnemonicParsing="false" text="Register" />
          </children>
       </Pane>
