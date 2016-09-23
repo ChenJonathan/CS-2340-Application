@@ -26,6 +26,7 @@ public class Main extends Application {
     	primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
+        primaryStage.setMaximized(true);
 
         
         Controller controller = loader.getController();
@@ -40,6 +41,29 @@ public class Main extends Application {
     		
     		Stage dialogStage = new Stage();
     		dialogStage.setTitle("Login");
+    		dialogStage.initModality(Modality.WINDOW_MODAL);
+    		dialogStage.initOwner(mainScreen);
+    		Scene scene = new Scene(page);
+    		dialogStage.setScene(scene);
+    		
+    		LoginController controller = loader.getController();
+    		controller.setDialogStage(dialogStage);
+    		controller.setMainApp(this);
+
+    		dialogStage.showAndWait();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    }
+    
+    public void showRegisterDialog() {
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		loader.setLocation(Main.class.getResource("RegisterDialog.fxml"));
+    		Pane page = loader.load();
+    		
+    		Stage dialogStage = new Stage();
+    		dialogStage.setTitle("Register");
     		dialogStage.initModality(Modality.WINDOW_MODAL);
     		dialogStage.initOwner(mainScreen);
     		Scene scene = new Scene(page);

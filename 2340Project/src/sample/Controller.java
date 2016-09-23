@@ -14,4 +14,9 @@ public class Controller {
 	public void handleLoginPressed() {
 		mainApplication.showLoginDialog();
 	}
+	
+	@FXML
+	public void handleRegisterPressed() {
+		mainApplication.showRegisterDialog();
+	}
 }
