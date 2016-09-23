@@ -1,0 +1,11 @@
+package sample;
+
+public class LoginController {
+	
+	private Main mainApplication;
+	
+	@FXML
+	public void handleOKPressed() {
+		mainApplication.showLoginDialog();
+	}
+}
