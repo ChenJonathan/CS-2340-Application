@@ -1,0 +1,24 @@
+package sample;
+
+import javafx.fxml.FXML;
+import javafx.stage.Stage;
+
+public class Controller {
+	
+	private Main mainApplication;
+	
+	private Stage _dialogStage;
+	
+	public void setMainApp(Main main) {
+		mainApplication = main;
+	}
+	
+	public void setDialogStage(Stage dialogStage) {
+		_dialogStage = dialogStage;
+	}
+	
+	@FXML
+	public void handleLoginPressed() {
+		mainApplication.showLoginDialog();
+	}
+}
