@@ -31,7 +31,7 @@ public enum AuthorizationLevel {
     *
     * @return   the full class name
     */
-   private String getName() { return name; }
+   public String getName() { return name; }
 
 
    /**

@@ -37,8 +37,6 @@ public class LoginController {
 		} else {
 			userField.setText("Invalid login");
 		}
-		
-		
 	}
 	
 	@FXML

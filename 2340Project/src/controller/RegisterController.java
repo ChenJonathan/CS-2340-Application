@@ -4,7 +4,10 @@ import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+
+import model.AuthorizationLevel;
 
 public class RegisterController {
 
@@ -13,6 +16,9 @@ public class RegisterController {
 	
 	@FXML
 	private PasswordField passwordField;
+	
+	@FXML
+	private ComboBox authBox;
 	
 	private Stage _dialogStage;
 	
@@ -24,6 +30,13 @@ public class RegisterController {
 	
 	public void setMainApp(Main main) {
 		mainApplication = main;
+	}
+	
+	@FXML
+	private void initialize() {
+		for (AuthorizationLevel level : AuthorizationLevel.values()) {
+			authBox.getItems().add(level.getName());
+		}
 	}
 	
 	@FXML

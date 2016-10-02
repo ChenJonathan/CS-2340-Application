@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import controller.Controller;
 import controller.LoginController;
+import controller.RegisterController;
 import controller.MainScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -71,7 +72,7 @@ public class Main extends Application {
     		Scene scene = new Scene(page);
     		dialogStage.setScene(scene);
     		
-    		LoginController controller = loader.getController();
+    		RegisterController controller = loader.getController();
     		controller.setDialogStage(dialogStage);
     		controller.setMainApp(this);
 
