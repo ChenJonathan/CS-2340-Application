@@ -7,7 +7,7 @@ import javafx.beans.property.StringProperty;
 /**
  * Created by Wesley on 9/28/16.
  *
- * Represents a single student in the system
+ * Represents a single user in the system
  *
  * Information Holder
  */
@@ -28,42 +28,42 @@ public class User {
     public String getName() { return _name.get(); }
     public void setName(String name) { _name.set(name); }
 
-    public String getMajor() {return _password.get(); }
-    public void setMajor(String major) { _password.set(major); }
+    public String getPassword() {return _password.get(); }
+    public void setPassword(String password) { _password.set(password); }
 
-    public AuthorizationLevel getStanding() {return _auth;}
-	public void setStanding(AuthorizationLevel standing) {_auth = standing;}
+    public AuthorizationLevel getAuth() {return _auth;}
+	public void setAuth(AuthorizationLevel auth) {_auth = auth;}
 	
 	/**
-     * Make a new student
+     * Make a new user
      * @param name      the user's name
-     * @param password     the user's major
+     * @param password     the user's password
      * @param AuthorizationLevel     the user's Authorization Level
      */
-    public User(String name, String major, AuthorizationLevel auth) {
+    public User(String name, String password, AuthorizationLevel auth) {
         _name.set(name);
-        _password.set(major);
+        _password.set(password);
         _auth = auth;
     }
     
     /**
-     * Make a new student without class standing (old)
-     * @param name      the student's name
-     * @param major     the student's major
+     * Make a new user without class standing (old)
+     * @param name      the user's name
+     * @param password     the user's password
      */
-    public User(String name, String major) {
+    public User(String name, String password) {
         _name.set(name);
-        _password.set(major);
+        _password.set(password);
         _auth = AuthorizationLevel.USER;
     }
 
     /**
      * No param constructor -- DO NOT CALL NORMALLY
-     * This constructor only for GUI use in edit/new student dialog
+     * This constructor only for GUI use in edit/new user dialog
      */
     public User() {
         _name.set("enter new name");
-        _password.set("enter new major");
+        _password.set("enter new password");
         this._auth = AuthorizationLevel.USER;
     }
 
