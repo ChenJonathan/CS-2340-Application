@@ -1,0 +1,11 @@
+package model;
+
+/**
+ * This class serves as a Facade into the application model.
+ * 
+ * @author Alok Tripathy
+ *
+ */
+public class Model {
+
+}

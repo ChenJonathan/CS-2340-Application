@@ -1,8 +1,12 @@
 package controller;
 
 import fxapp.Main;
+import model.Model;
+import model.User;
+import model.UserDB;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
@@ -36,11 +40,17 @@ public class LoginController {
 		String user = userField.getText();
 		String passwd = passwordField.getText();
 		
-		if (user.equals("JWASP") && passwd.equals("/etc/shadow")) {
+		UserDB database = Model.getInstance().getDB();
+		if (database.userExists(user, passwd)) {
 			_dialogStage.close();
 			mainApplication.showMainScreen();
 		} else {
-			userField.setText("Invalid login");
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.initOwner(mainApplication.getMainScreen());
+			alert.setTitle("User Not Found");
+			alert.setHeaderText("User Not Found");
+			alert.setContentText("Username or password incorrect");
+			alert.showAndWait();
 		}
 	}
 	

@@ -32,7 +32,7 @@ public class User {
     public void setPassword(String password) { _password.set(password); }
 
     public AuthorizationLevel getAuth() {return _auth;}
-	public void setAuth(AuthorizationLevel standing) {_auth = standing;}
+	public void setAuth(AuthorizationLevel auth) {_auth = auth;}
 	
 	/**
      * Make a new user
