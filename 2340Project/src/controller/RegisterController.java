@@ -9,6 +9,12 @@ import javafx.stage.Stage;
 
 import model.AuthorizationLevel;
 
+/**
+ * 
+ * Controller for the Register Dialog.
+ * @author Alok Tripathy
+ *
+ */
 public class RegisterController {
 
 	@FXML
@@ -32,6 +38,9 @@ public class RegisterController {
 		mainApplication = main;
 	}
 	
+	/**
+	 * Loads all authorization levels into auth ComboBox on launch.
+	 */
 	@FXML
 	private void initialize() {
 		for (AuthorizationLevel level : AuthorizationLevel.values()) {

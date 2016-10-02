@@ -13,7 +13,6 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 

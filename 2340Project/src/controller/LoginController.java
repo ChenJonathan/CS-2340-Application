@@ -6,6 +6,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
 
+/**
+ * Controller for the Login Dialog.
+ * @author Alok Tripathy
+ *
+ */
 public class LoginController {
 
 	@FXML
