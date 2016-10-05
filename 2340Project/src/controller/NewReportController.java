@@ -10,14 +10,16 @@ import model.ReportDB;
 
 public class NewReportController {
 	
-	@FXML
-	private TextField location;
+	
 	
 	@FXML
 	private TextField waterType;
 	
 	@FXML
 	private TextArea description;
+	
+	@FXML
+	private TextField theLocation;
 
 	private Stage _dialogStage;
 
@@ -39,7 +41,7 @@ public class NewReportController {
 	
 	@FXML
 	public void handleSave() {
-		String loc = location.getText();
+		String loc = theLocation.getText();
 		String wt = waterType.getText();
 		String des = description.getText();
 		Report newReport = new Report(loc, wt, des);
