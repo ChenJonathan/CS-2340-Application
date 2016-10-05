@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.101" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainScreenController">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -24,6 +24,9 @@
                </font>
             </TextField>
             <Button layoutX="703.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="Log Out" />
+            <Button layoutX="855.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="View Report" />
+            <Button layoutX="1003.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="New Report" />
+         
          </children>
       </Pane>
    </children>
