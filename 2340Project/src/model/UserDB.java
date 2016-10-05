@@ -1,6 +1,8 @@
 package model;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * 
@@ -10,22 +12,23 @@ import java.util.LinkedList;
  */
 public class UserDB {
 
-	private LinkedList<User> _userList; 
+	private Map<String, User> _userList = new HashMap<>();
+	private static User _currentUser;
 	
 	/**
 	 * No-arg constructor. Just creates a new List.
 	 */
 	public UserDB() {
-		_userList = new LinkedList<>();
+		_userList = new HashMap<>();
 	}
 	
 	/**
 	 * Initializes _userList with contents of given list.
 	 * @param userList given list to initialize our list with.
 	 */
-	public UserDB(LinkedList<User> userList) {
-		for (User user: userList) {
-			_userList.add(user);
+	public UserDB(Map<String, User> userMap) {
+		for (String username: userMap.keySet()) {
+			_userList.put(username, userMap.get(username));
 		}
 	}
 	
@@ -33,8 +36,12 @@ public class UserDB {
 	 * getter for our collection of users.
 	 * @return userMap.
 	 */
-	public LinkedList<User> getUsers() {
+	public Map<String, User> getUsers() {
 		return _userList;
+	}
+	
+	public static User getCurrentUser() {
+		return _currentUser;
 	}
 	
 	/**
@@ -43,18 +50,13 @@ public class UserDB {
 	 * @return true if the user was added, false if another user had the same name. 
 	 */
 	public boolean addUser(User user) {
-		for (User u : _userList) {
-			boolean namesMatch = u.getName().equals(user.getName());
+		for (String userName : _userList.keySet()) {
+			boolean namesMatch = user.getName().equals(userName);
 			if (namesMatch) {
-				return false;
+				return false; // username already exists
 			}
 		}
-		_userList.add(user);
-
-		for (User u : _userList) {
-			System.out.println(u.getName() + " " + u.getPassword() + " " + u.getAuth().getName());
-		}
-		System.out.println();
+		_userList.put(user.getName(), user);
 		return true;
 	}
 	
@@ -65,11 +67,15 @@ public class UserDB {
 	 * @return User with corresponding name and password.
 	 */
 	public User authenticate(String name, String pass) {
-		for (User u : _userList) {
-			boolean namesMatch = u.getName().equals(name);
-			boolean passwMatch = u.getPassword().equals(pass);
-			if (namesMatch && passwMatch) {
-				return u;
+		for (String userName : _userList.keySet()) {
+			boolean namesMatch = name.equals(userName);
+			if (namesMatch) {
+				if (pass.equals(_userList.get(userName).getPassword())) {
+					
+					return _userList.get(userName);
+				} else {
+					return null;
+				}
 			}
 		}
 		return null;
@@ -82,6 +88,7 @@ public class UserDB {
 	 * @return true if user exists, false otherwise.s
 	 */
 	public boolean userExists(String name, String pass) {
-		return authenticate(name, pass) != null;
+		_currentUser = authenticate(name, pass);
+		return _currentUser != null;
 	}
 }

@@ -15,4 +15,14 @@ public class MainScreenController {
 	public void handleLogoutPressed() {
 		mainApplication.showWelcomeScreen();
 	}
+	
+	@FXML
+	public void handleNewReportCreation() {
+		mainApplication.showNewReportDialog();
+	}
+	
+	@FXML
+	public void handleViewReportPressed() {
+		
+	}
 }

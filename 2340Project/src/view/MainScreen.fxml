@@ -24,8 +24,8 @@
                </font>
             </TextField>
             <Button layoutX="703.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="Log Out" />
-            <Button layoutX="855.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="View Report" />
-            <Button layoutX="1003.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleLogoutPressed" text="New Report" />
+            <Button layoutX="855.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleViewReportPressed" text="View Report" />
+            <Button layoutX="1003.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleNewReportCreation" text="New Report" />
          
          </children>
       </Pane>

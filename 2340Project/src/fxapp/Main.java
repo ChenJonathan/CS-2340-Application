@@ -6,6 +6,7 @@ import controller.Controller;
 import controller.LoginController;
 import controller.RegisterController;
 import controller.MainScreenController;
+import controller.NewReportController;
 import model.User;
 
 import javafx.application.Application;
@@ -85,6 +86,29 @@ public class Main extends Application {
     	} catch (IOException e) {
     		e.printStackTrace();
     		return false;
+    	}
+    }
+    
+    public void showNewReportDialog() {
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+    		loader.setLocation(Main.class.getResource("../view/NewReport.fxml"));
+    		Pane page = loader.load();
+    		
+    		Stage dialogStage = new Stage();
+    		dialogStage.setTitle("Create New Report");
+    		dialogStage.initModality(Modality.WINDOW_MODAL);
+    		dialogStage.initOwner(mainScreen);
+    		Scene scene = new Scene(page);
+    		dialogStage.setScene(scene);
+    		
+    		NewReportController controller = loader.getController();
+    		controller.setDialogStage(dialogStage);
+    		controller.setMainApp(this);
+
+    		dialogStage.showAndWait();
+    	} catch (IOException e) {
+    		e.printStackTrace();
     	}
     }
     
