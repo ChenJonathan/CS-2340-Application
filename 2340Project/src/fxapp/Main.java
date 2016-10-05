@@ -86,6 +86,9 @@ public class Main extends Application {
     	} catch (IOException e) {
     		e.printStackTrace();
     		return false;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+    		return false;
     	}
     }
     

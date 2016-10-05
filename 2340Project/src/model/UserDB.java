@@ -20,6 +20,7 @@ public class UserDB {
 	 */
 	public UserDB() {
 		_userList = new HashMap<>();
+		_userList.put("test", new User("test", "test", AuthorizationLevel.USER));
 	}
 	
 	/**
