@@ -51,12 +51,18 @@ public class UserDB {
 	 * @return true if the user was added, false if another user had the same name. 
 	 */
 	public boolean addUser(User user) {
-		for (String userName : _userList.keySet()) {
+		/*for (String userName : _userList.keySet()) {
 			boolean namesMatch = user.getName().equals(userName);
 			if (namesMatch) {
 				return false; // username already exists
 			}
+		}*/
+		//
+		User existing = _userList.get(user.getName());
+		if (existing != null) { //user already exists
+			return false;
 		}
+		//
 		_userList.put(user.getName(), user);
 		return true;
 	}
