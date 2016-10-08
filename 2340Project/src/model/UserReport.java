@@ -13,7 +13,7 @@ public class UserReport extends Report {
 
 	private String _waterType;
 	private String _waterCond;
-	
+
 	/**
 	 * @param location
 	 * @param description
@@ -36,7 +36,7 @@ public class UserReport extends Report {
 		_waterType = "N/A";
 		_waterCond = "N/A";
 	}
-	
+
 	/**
 	 * @param location
 	 * @param waterType
@@ -54,13 +54,12 @@ public class UserReport extends Report {
 	public String get_waterType() {
 		return _waterType;
 	}
+
 	/**
 	 * @return the _waterCond
 	 */
 	public String get_waterCond() {
 		return _waterCond;
 	}
-	
-	
 
 }

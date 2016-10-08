@@ -12,7 +12,7 @@ public class WorkerReport extends Report {
 	private String _overallCond;
 	private double _virusPPM;
 	private double _contaminantPPM;
-	
+
 	/**
 	 * @param location
 	 * @param description
@@ -54,7 +54,7 @@ public class WorkerReport extends Report {
 		this._virusPPM = _virusPPM;
 		this._contaminantPPM = _contaminantPPM;
 	}
-	
+
 	/**
 	 * @return the _overallCond
 	 */
