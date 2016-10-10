@@ -1,7 +1,10 @@
 package controller;
 
+import database.Model;
+import database.UserDB;
 import fxapp.Main;
 import javafx.fxml.FXML;
+import model.User;
 
 public class MainScreenController {
 	
@@ -24,5 +27,11 @@ public class MainScreenController {
 	@FXML
 	public void handleViewReportPressed() {
 		mainApplication.showViewReportDialog();
+	}
+	
+	public void handleProfilePressed() {
+		User user = UserDB.getCurrentUser();
+		mainApplication.showProfilePage(user);
+
 	}
 }

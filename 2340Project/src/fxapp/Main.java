@@ -172,6 +172,35 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	public void showProfilePage(User user) {    	
+    	try {
+    		FXMLLoader loader = new FXMLLoader();
+        	loader.setLocation(Main.class.getResource("../view/ProfilePage.fxml"));
+    		Pane page = loader.load();
+    		
+    		Stage dialogStage = new Stage();
+    		dialogStage.setTitle("Profile Page");
+    		dialogStage.initModality(Modality.WINDOW_MODAL);
+    		dialogStage.initOwner(mainScreen);
+    		Scene scene = new Scene(page);
+    		dialogStage.setScene(scene);
+    		
+    		ProfileController controller = loader.getController();
+    		controller.setDialogStage(dialogStage);
+    		controller.setMainApp(this);
+    		controller.setUser(user);
+    		controller.setAddressField(user.getAddress());
+    		controller.setEmailField(user.getEmail());
+    		controller.setNumberField(user.getPhoneNumber());
+    		
+
+    		dialogStage.showAndWait();
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	
+    }
 
 	/**
 	 * return a reference to the main window stage

@@ -21,6 +21,9 @@ public class User {
     private final StringProperty _name = new SimpleStringProperty();
     private final StringProperty _password = new SimpleStringProperty();
     private AuthorizationLevel _auth = null;
+    private StringProperty _email = new SimpleStringProperty();
+    private StringProperty _numb = new SimpleStringProperty();
+    private StringProperty _address = new SimpleStringProperty();
     
     /* **********************
      * Getters and setters for properties
@@ -33,6 +36,15 @@ public class User {
 
     public AuthorizationLevel getAuth() {return _auth;}
 	public void setAuth(AuthorizationLevel auth) {_auth = auth;}
+	
+	public String getEmail() { return _email.get(); }
+	public void setEmail(String email) { _email.set(email); }
+	
+	public String getPhoneNumber() { return _numb.get(); }
+	public void setNumber(String numb) { _numb.set(numb); }
+	
+	public String getAddress() { return _address.get(); }
+	public void setAddress(String address) { _address.set(address); }
 	
 	/**
      * Make a new user
