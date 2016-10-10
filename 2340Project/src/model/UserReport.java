@@ -1,9 +1,9 @@
-/**
- * 
- */
+
 package model;
 
 import java.util.Calendar;
+
+import javafx.collections.ObservableList;
 
 /**
  * @author Wes
@@ -31,8 +31,8 @@ public class UserReport extends Report {
 	 * @param waterType
 	 * @param description
 	 */
-	public UserReport(String location, String waterType, String description) {
-		super(location, description);
+	public UserReport(String location, String waterType, String description, User user) {
+		super(location, description, user);
 		_waterType = "N/A";
 		_waterCond = "N/A";
 	}
@@ -42,8 +42,8 @@ public class UserReport extends Report {
 	 * @param waterType
 	 * @param description
 	 */
-	public UserReport(String location, String description, String waterType, String waterCond) {
-		super(location, description);
+	public UserReport(String location, String description, User user, String waterType, String waterCond) {
+		super(location, description, user);
 		_waterType = waterType;
 		_waterCond = waterCond;
 	}
@@ -60,6 +60,12 @@ public class UserReport extends Report {
 	 */
 	public String get_waterCond() {
 		return _waterCond;
+	}
+
+	@Override
+	public ObservableList<String> getDetails() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

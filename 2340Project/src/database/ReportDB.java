@@ -8,11 +8,18 @@ import javafx.collections.ObservableList;
 import model.Report;
 
 public class ReportDB {
-	
-	public static ObservableList<Report> reports = FXCollections.observableList(new LinkedList<Report>());
-	
-	public static void addReport(Report newReport) {
-		reports.add(newReport);
+
+	private int index = 0;
+
+	private ObservableList<Report> reports = FXCollections.observableList(new LinkedList<Report>());
+
+	public boolean addReport(Report newReport) {
+		index++;
+		return reports.add(newReport);
+	}
+
+	public int getIndex() {
+		return index;
 	}
 
 }

@@ -1,7 +1,7 @@
 package controller;
 
+import database.Model;
 import fxapp.Main;
-import model.Model;
 import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;

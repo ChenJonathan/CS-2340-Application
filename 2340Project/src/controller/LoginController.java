@@ -1,8 +1,8 @@
 package controller;
 
+import database.Model;
 import database.UserDB;
 import fxapp.Main;
-import model.Model;
 import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -40,7 +40,7 @@ public class LoginController {
 		String user = userField.getText();
 		String passwd = passwordField.getText();
 		
-		UserDB database = Model.getInstance().getDB();
+		UserDB database = Model.getInstance().getUsers();
 		if (database.userExists(user, passwd)) {
 			_dialogStage.close();
 			mainApplication.showMainScreen();

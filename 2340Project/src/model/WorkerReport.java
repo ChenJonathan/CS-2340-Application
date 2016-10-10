@@ -3,6 +3,8 @@ package model;
 
 import java.util.Calendar;
 
+import javafx.collections.ObservableList;
+
 /**
  * @author Wes
  *
@@ -31,8 +33,8 @@ public class WorkerReport extends Report {
 	 * @param waterType
 	 * @param description
 	 */
-	public WorkerReport(String location, String waterType, String description) {
-		super(location, description);
+	public WorkerReport(String location, String waterType, String description, User user) {
+		super(location, description, user);
 		_overallCond = "N/A";
 		_virusPPM = -1.0;
 		_contaminantPPM = -1.0;
@@ -74,6 +76,12 @@ public class WorkerReport extends Report {
 	 */
 	public double get_contaminantPPM() {
 		return _contaminantPPM;
+	}
+
+	@Override
+	public ObservableList<String> getDetails() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -10,7 +10,9 @@ import javafx.stage.Stage;
 import model.AuthorizationLevel;
 import model.Report;
 import model.UserReport;
+import database.Model;
 import database.ReportDB;
+import database.UserDB;
 
 public class NewReportController {
 
@@ -59,8 +61,8 @@ public class NewReportController {
 			String loc = theLocation.getText();
 			String wt = waterType.getSelectionModel().getSelectedItem().toString();
 			String des = description.getText();
-			Report newReport = new UserReport(loc, wt, des);
-			ReportDB.addReport(newReport);
+			Report newReport = new UserReport(loc, wt, des, UserDB.getCurrentUser());
+			Model.getInstance().addReport(newReport);
 			_dialogStage.close();
 		} catch (Exception e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);

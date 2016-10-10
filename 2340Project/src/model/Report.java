@@ -6,7 +6,11 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import database.UserDB;
+import database.Model;
+import database.ReportDB;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
 
 /**
  * Created by Sathvik Kadaveru on 10/04/16.
@@ -16,9 +20,10 @@ import javafx.beans.property.StringProperty;
  */
 public abstract class Report {
 
-	private String _location;
-	private String _description;
-	private String _author;
+	private final StringProperty _location = new SimpleStringProperty();
+	private final StringProperty _description = new SimpleStringProperty();
+	private final StringProperty _author = new SimpleStringProperty();
+	private final StringProperty _number = new SimpleStringProperty();
 	private Calendar _timestamp;
 
 	/**
@@ -32,34 +37,52 @@ public abstract class Report {
 	 *            The user who created the report
 	 */
 	public Report(String location, String description, Calendar timestamp, User user) {
-		_location = location;
-		_description = description;
-		_author = user.getName();
+		_location.set(location);
+		_description.set(description);
+		_author.set(user.getName());
+		_number.set("" + Model.getInstance().getReports().getIndex());
 		_timestamp = timestamp;
 	}
 
-	public Report(String location, String description) {
-		_location = location;
-		_description = description;
-		_author = UserDB.getCurrentUser().getName();
+	/**
+	 * Make a new report with all required information
+	 * 
+	 * @param location
+	 *            the location covered by report
+	 * @param description
+	 *            TBD
+	 * @param user
+	 *            The user who created the report
+	 */
+	public Report(String location, String description, User user) {
+		_location.set(location);
+		_description.set(description);
+		_author.set(user.getName());
+		_number.set("" + Model.getInstance().getReports().getIndex());
 		_timestamp = new GregorianCalendar();
 	}
 
-	public String getLocation() {
+	public StringProperty getNumber() {
+		return _number;
+	}
+
+	public StringProperty getLocation() {
 		return _location;
 	}
 
-	public String getDescription() {
+	public StringProperty getDescription() {
 		return _description;
 	}
 
-	public String getAuthor() {
+	public StringProperty getAuthor() {
 		return _author;
 	}
 
 	public long getUnix() {
 		return _timestamp.getTimeInMillis();
 	}
+
+	public abstract ObservableList<String> getDetails();
 
 	public String getTimestamp() {
 		return String.format("%d", _timestamp.get(Calendar.MONTH)) + "/"
