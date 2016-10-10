@@ -3,11 +3,12 @@ package model;
 
 import java.util.Calendar;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
  * @author Wes
- *
+ *	The implementation of a report for a worker
  */
 public class WorkerReport extends Report {
 
@@ -79,9 +80,29 @@ public class WorkerReport extends Report {
 	}
 
 	@Override
+	public ObservableList<String> getAttributes() {
+		ObservableList<String> details = FXCollections.observableArrayList();
+		details.add("Report Number");
+		details.add("Author");
+		details.add("Location");
+		details.add("Timestamp");
+		details.add("Overall Condition");
+		details.add("Contaminant PPM");
+		details.add("Virus PPM");
+		return details;
+	}
+
+	@Override
 	public ObservableList<String> getDetails() {
-		// TODO Auto-generated method stub
-		return null;
+		ObservableList<String> attributes = FXCollections.observableArrayList();
+		attributes.add(this.getNumber().get());
+		attributes.add(this.getAuthor().get());
+		attributes.add(this.getLocation().get());
+		attributes.add(this.getTimestamp());
+		attributes.add(this.get_overallCond());
+		attributes.add("" + this.get_contaminantPPM());
+		attributes.add("" + this.get_virusPPM());
+		return attributes;
 	}
 
 }

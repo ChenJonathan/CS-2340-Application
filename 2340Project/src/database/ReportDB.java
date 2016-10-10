@@ -17,6 +17,10 @@ public class ReportDB {
 		index++;
 		return reports.add(newReport);
 	}
+	
+	public ObservableList<Report> getReports() {
+		return reports;
+	}
 
 	public int getIndex() {
 		return index;

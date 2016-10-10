@@ -20,11 +20,11 @@ import javafx.collections.ObservableList;
  */
 public abstract class Report {
 
-	private final StringProperty _location = new SimpleStringProperty();
-	private final StringProperty _description = new SimpleStringProperty();
-	private final StringProperty _author = new SimpleStringProperty();
-	private final StringProperty _number = new SimpleStringProperty();
-	private Calendar _timestamp;
+	protected final StringProperty _location = new SimpleStringProperty();
+	protected final StringProperty _description = new SimpleStringProperty();
+	protected final StringProperty _author = new SimpleStringProperty();
+	protected final StringProperty _number = new SimpleStringProperty();
+	protected Calendar _timestamp;
 
 	/**
 	 * Make a new report with all required information
@@ -40,7 +40,7 @@ public abstract class Report {
 		_location.set(location);
 		_description.set(description);
 		_author.set(user.getName());
-		_number.set("" + Model.getInstance().getReports().getIndex());
+		_number.set("" + Model.getInstance().getReports().getIndex() + 1);
 		_timestamp = timestamp;
 	}
 
@@ -84,9 +84,11 @@ public abstract class Report {
 
 	public abstract ObservableList<String> getDetails();
 
+	public abstract ObservableList<String> getAttributes();
+
 	public String getTimestamp() {
-		return String.format("%d", _timestamp.get(Calendar.MONTH)) + "/"
-				+ String.format("%d", _timestamp.get(Calendar.DATE) + 1) + "/"
+		return String.format("%d", _timestamp.get(Calendar.MONTH) + 1) + "/"
+				+ String.format("%d", _timestamp.get(Calendar.DATE)) + "/"
 				+ String.format("%d", _timestamp.get(Calendar.YEAR)) + " "
 				+ String.format("%d", _timestamp.get(Calendar.HOUR_OF_DAY)) + ":"
 				+ String.format("%d", _timestamp.get(Calendar.MINUTE)) + "."

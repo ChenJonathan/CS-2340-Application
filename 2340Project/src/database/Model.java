@@ -20,9 +20,6 @@ public class Model {
 		return instance;
 	}
 
-	/** a list of all the reports in the database */
-	private final ObservableList<Report> reports = FXCollections.observableArrayList();
-
 	/** Remember the currently selected report */
 	private Report currentReport;
 
@@ -62,5 +59,9 @@ public class Model {
 
 	public void setCurrentReport(Report r) {
 		currentReport = r;
+	}
+
+	public Report getCurrentReport() {
+		return currentReport;
 	}
 }

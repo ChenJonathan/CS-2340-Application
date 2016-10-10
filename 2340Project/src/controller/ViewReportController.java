@@ -20,6 +20,9 @@ public class ViewReportController {
 
 	/* references to the widgets in the fxml file */
 	@FXML
+	private ListView<String> attributesList;
+
+	@FXML
 	private ListView<String> detailsList;
 
 	@FXML
@@ -40,9 +43,13 @@ public class ViewReportController {
 	 */
 	@FXML
 	private void initialize() {
+		// set the table view to contain the list of courses from the model
+		reportTable.setItems(Model.getInstance().getReports().getReports());
+
 		// Initialize the course table with the two columns.
 		reportNumberColumn.setCellValueFactory(cellData -> cellData.getValue().getNumber());
 		reportAuthorColumn.setCellValueFactory(cellData -> cellData.getValue().getAuthor());
+		reportLocationColumn.setCellValueFactory(cellData -> cellData.getValue().getLocation());
 
 		// Listen for selection changes and show the course student list when
 		// changed.
@@ -58,6 +65,7 @@ public class ViewReportController {
 	 */
 	private void showReportDetails(Report r) {
 
+		attributesList.setItems(r.getAttributes());
 		detailsList.setItems(r.getDetails());
 
 		Model.getInstance().setCurrentReport(r);

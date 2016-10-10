@@ -60,8 +60,9 @@ public class NewReportController {
 		try {
 			String loc = theLocation.getText();
 			String wt = waterType.getSelectionModel().getSelectedItem().toString();
+			String wc = waterCond.getSelectionModel().getSelectedItem().toString();
 			String des = description.getText();
-			Report newReport = new UserReport(loc, wt, des, UserDB.getCurrentUser());
+			Report newReport = new UserReport(loc, des, UserDB.getCurrentUser(), wt, wc);
 			Model.getInstance().addReport(newReport);
 			_dialogStage.close();
 		} catch (Exception e) {

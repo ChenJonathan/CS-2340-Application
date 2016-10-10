@@ -3,10 +3,12 @@ package model;
 
 import java.util.Calendar;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * @author Wes
+ * @author Wes 
+ * The implementation for a user report
  *
  */
 public class UserReport extends Report {
@@ -63,9 +65,27 @@ public class UserReport extends Report {
 	}
 
 	@Override
+	public ObservableList<String> getAttributes() {
+		ObservableList<String> details = FXCollections.observableArrayList();
+		details.add("Report Number");
+		details.add("Author");
+		details.add("Location");
+		details.add("Timestamp");
+		details.add("Water Type");
+		details.add("Water Condition");
+		return details;
+	}
+
+	@Override
 	public ObservableList<String> getDetails() {
-		// TODO Auto-generated method stub
-		return null;
+		ObservableList<String> attributes = FXCollections.observableArrayList();
+		attributes.add(this.getNumber().get());
+		attributes.add(this.getAuthor().get());
+		attributes.add(this.getLocation().get());
+		attributes.add(this.getTimestamp());
+		attributes.add(this.get_waterType());
+		attributes.add(this.get_waterCond());
+		return attributes;
 	}
 
 }
