@@ -38,7 +38,7 @@ public class NewReportController {
 	@FXML
 	private void initialize() {
 		waterType.getItems().addAll("Bottled", "Well", "Stream", "Lake", "Spring", "Other");
-		waterCond.getItems().addAll("Potable", "Treatable-Muddy", "Treatable-Clear", "Waste");
+		waterCond.getItems().addAll("Portable", "Treatable-Muddy", "Treatable-Clear", "Waste");
 	}
 
 	public void setDialogStage(Stage dialogStage) {
