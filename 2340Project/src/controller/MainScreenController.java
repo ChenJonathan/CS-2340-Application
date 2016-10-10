@@ -23,6 +23,6 @@ public class MainScreenController {
 	
 	@FXML
 	public void handleViewReportPressed() {
-		
+		mainApplication.showViewReportDialog();
 	}
 }
