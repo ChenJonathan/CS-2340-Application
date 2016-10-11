@@ -1,22 +1,15 @@
 package controller;
 
-import fxapp.Main;
 import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.stage.Stage;
 
 /**
  * Controller for working with the profile page
- * when it is brought up from the main page
- * @author Pravan
- *
+ * @author Pravan Kalaga
  */
-public class ProfileController {
+public class ProfileController extends DialogController {
 	
-	////////////////Instance Variables//////////////////////////
 	@FXML
 	private TextField emailField;
 	
@@ -26,31 +19,7 @@ public class ProfileController {
 	@FXML
 	private TextField addressField;
 	
-	@FXML
-	private Stage _dialogStage;
-	
-	@FXML
-	private Main mainApp;
-	
 	private User user;
-	
-	//////////////////////////////////////////////////////////////
-	
-	/**
-	 * 
-	 * @param ds what to set the dialog stage to
-	 */
-	public void setDialogStage(Stage ds) {
-		_dialogStage = ds;	
-	}
-	
-	/**
-	 * 
-	 * @param main what to set the mainApp to
-	 */
-	public void setMainApp(Main main) {
-		mainApp = main;
-	}
 	
 	/**
 	 * 
@@ -103,7 +72,7 @@ public class ProfileController {
 		user.setEmail(email);
 		user.setNumber(phone);
 		
-		_dialogStage.close();
+		dialogStage.close();
 	}
 	
 	@FXML
@@ -111,7 +80,7 @@ public class ProfileController {
 	 * closes the pop up upon pressing cancel
 	 */
 	public void handleCancelPressed() {
-		_dialogStage.close();
+		dialogStage.close();
 	}
 	
 	

@@ -1,37 +1,29 @@
 package controller;
 
-import database.Model;
 import database.UserDB;
-import fxapp.Main;
 import javafx.fxml.FXML;
 import model.User;
 
-public class MainScreenController {
-	
-	private Main mainApplication;
-	
-	public void setMainApp(Main main) {
-		mainApplication = main;
-	}
+public class MainScreenController extends Controller {
 	
 	@FXML
 	public void handleLogoutPressed() {
-		mainApplication.showWelcomeScreen();
+		showScreen("../view/WelcomeScreen.fxml", "Welcome!");
 	}
 	
 	@FXML
 	public void handleNewReportCreation() {
-		mainApplication.showNewReportDialog();
+        showDialog("../view/NewReport.fxml", "New Report");
 	}
 	
 	@FXML
 	public void handleViewReportPressed() {
-		mainApplication.showViewReportDialog();
+        showDialog("../view/ViewReport.fxml", "View Reports");
 	}
 	
 	public void handleProfilePressed() {
-		User user = UserDB.getCurrentUser();
-		mainApplication.showProfilePage(user);
-
+        User user = UserDB.getCurrentUser();
+        ProfileController controller = (ProfileController)showDialog("../view/ProfilePage.fxml", user.getName() + "'s Profile Page");
+        controller.setUser(user);
 	}
 }

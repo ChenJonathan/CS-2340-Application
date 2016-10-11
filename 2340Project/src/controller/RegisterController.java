@@ -1,23 +1,20 @@
 package controller;
 
+import database.Model;
 import fxapp.Main;
 import model.User;
-
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ComboBox;
-import javafx.stage.Stage;
-
 import model.AuthorizationLevel;
 
 /**
- * 
  * Controller for the Register Dialog.
  * @author Alok Tripathy
- *
  */
-public class RegisterController {
+public class RegisterController extends DialogController {
 
 	@FXML
 	private TextField userField;
@@ -26,32 +23,19 @@ public class RegisterController {
 	private PasswordField passwordField;
 	
 	@FXML
-	private ComboBox authBox;
+	private ComboBox<String> authBox;
 	
-	private Stage _dialogStage;
-	
-	private Main mainApplication;
-	
-	private User _user;
-	
-	private boolean _okClicked;
-	
-	public void setDialogStage(Stage dialogStage) {
-		_dialogStage = dialogStage;
-	}
-	
-	public void setMainApp(Main main) {
-		mainApplication = main;
-	}
+	private User user;
 	
 	/**
-	 * Loads all authorization levels into auth ComboBox on launch.
+	 * Loads all authorization levels into the authorization ComboBox on launch.
 	 */
 	@FXML
 	private void initialize() {
 		for (AuthorizationLevel level : AuthorizationLevel.values()) {
 			authBox.getItems().add(level.getName());
 		}
+		user = new User();
 	}
 	
 	/**
@@ -59,37 +43,30 @@ public class RegisterController {
 	 */
 	@FXML
 	public void handleOKPressed() {
-		_user.setName(userField.getText());
-		_user.setPassword(passwordField.getText());
+		user.setName(userField.getText());
+		user.setPassword(passwordField.getText());
 		String auth = authBox.getSelectionModel().getSelectedItem().toString();
 		for (AuthorizationLevel authLevel : AuthorizationLevel.values()) {
 			if (auth.equals(authLevel.getName())) {
-				_user.setAuth(authLevel);
+				user.setAuth(authLevel);
 				break;
 			}
 		}
-		_okClicked = true;
-		_dialogStage.close();
-	}
-	
-	/**
-	 * Getter for whether the OK button has been clicked.
-	 * @return
-	 */
-	public boolean isOkClicked() {
-		return _okClicked;
-	}
-	
-	/**
-	 * Sets the user to be edited in the dialog.
-	 * @param user the user who will be edited.
-	 */
-	public void setUser(User user) {
-		_user = user;
+
+		if(!Model.getInstance().addUser(user)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("User already exists");
+            alert.setHeaderText("User already exists");
+            alert.setContentText("A user with this username already exists");
+            alert.showAndWait();
+        }
+		
+		dialogStage.close();
 	}
 	
 	@FXML
 	public void handleCancelPressed() {
-		_dialogStage.close();
+		dialogStage.close();
 	}
 }

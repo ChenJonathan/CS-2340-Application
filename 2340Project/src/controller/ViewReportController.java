@@ -1,24 +1,14 @@
 package controller;
 
 import database.Model;
-import database.ReportDB;
-import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import model.Report;
 
-public class ViewReportController {
+public class ViewReportController extends DialogController {
 
-	private Stage _dialogStage;
-
-	private Main mainApplication;
-
-	/* references to the widgets in the fxml file */
 	@FXML
 	private ListView<String> attributesList;
 
@@ -59,35 +49,23 @@ public class ViewReportController {
 
 	/**
 	 * Called when the table selection changes
-	 * 
-	 * @param c
-	 *            the course that has been selected in the table
+	 * @param c the course that has been selected in the table
 	 */
 	private void showReportDetails(Report r) {
-
 		attributesList.setItems(r.getAttributes());
 		detailsList.setItems(r.getDetails());
 
 		Model.getInstance().setCurrentReport(r);
 	}
 
-	public void setDialogStage(Stage dialogStage) {
-		_dialogStage = dialogStage;
-
-	}
-
-	public void setMainApp(Main main) {
-		mainApplication = main;
-	}
-
 	@FXML
 	public void handleClose() {
-		_dialogStage.close();
+		dialogStage.close();
 	}
 
 	@FXML
 	public void handleNewReport() {
-		mainApplication.showNewReportDialog();
+        showDialog("../view/NewReport.fxml", "New Report");
 	}
 
 }
