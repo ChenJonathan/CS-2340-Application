@@ -34,7 +34,7 @@ public class ViewReportController extends DialogController {
 	@FXML
 	private void initialize() {
 		// set the table view to contain the list of courses from the model
-		reportTable.setItems(Model.getInstance().getReports().getReports());
+		reportTable.setItems(Model.instance().getReports());
 
 		// Initialize the course table with the two columns.
 		reportNumberColumn.setCellValueFactory(cellData -> cellData.getValue().getNumber());
@@ -55,7 +55,7 @@ public class ViewReportController extends DialogController {
 		attributesList.setItems(r.getAttributes());
 		detailsList.setItems(r.getDetails());
 
-		Model.getInstance().setCurrentReport(r);
+		Model.instance().setCurrentReport(r);
 	}
 
 	@FXML
@@ -67,5 +67,4 @@ public class ViewReportController extends DialogController {
 	public void handleNewReport() {
         showDialog("../view/NewReport.fxml", "New Report");
 	}
-
 }

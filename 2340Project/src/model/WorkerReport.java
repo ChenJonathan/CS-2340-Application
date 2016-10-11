@@ -7,7 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * @author Wes
+ * @author Wesley
  *	The implementation of a report for a worker
  */
 public class WorkerReport extends Report {
@@ -104,5 +104,4 @@ public class WorkerReport extends Report {
 		attributes.add("" + this.get_virusPPM());
 		return attributes;
 	}
-
 }

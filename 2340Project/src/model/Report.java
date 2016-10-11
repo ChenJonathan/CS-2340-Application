@@ -1,22 +1,15 @@
 package model;
 
-import java.time.Instant;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 
-import database.UserDB;
-import database.Model;
-import database.ReportDB;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 
 /**
  * Created by Sathvik Kadaveru on 10/04/16.
- *
  * Represents a single water report
- *
  */
 public abstract class Report {
 
@@ -40,7 +33,7 @@ public abstract class Report {
 		_location.set(location);
 		_description.set(description);
 		_author.set(user.getName());
-		_number.set("" + Model.getInstance().getReports().getIndex() + 1);
+		_number.set("-1");
 		_timestamp = timestamp;
 	}
 
@@ -58,13 +51,17 @@ public abstract class Report {
 		_location.set(location);
 		_description.set(description);
 		_author.set(user.getName());
-		_number.set("" + Model.getInstance().getReports().getIndex());
+        _number.set("-1");
 		_timestamp = new GregorianCalendar();
 	}
 
-	public StringProperty getNumber() {
-		return _number;
-	}
+    public StringProperty getNumber() {
+        return _number;
+    }
+
+    public void setNumber(int number) {
+        _number.set("" + number);
+    }
 
 	public StringProperty getLocation() {
 		return _location;
@@ -98,5 +95,4 @@ public abstract class Report {
 	public String toString() {
 		return _location + " " + _author + " " + getTimestamp() + " ";
 	}
-
 }

@@ -3,7 +3,6 @@ package model;
 /**
  * Created by Wesley on 9/28/16. This enumeration represents all the auth levels
  * a user may hold
- *
  */
 public enum AuthorizationLevel {
 	USER("User", 0), WORKER("Worker", 1), MANAGER("Manager", 2), ADMIN("Admin", 3);
@@ -14,11 +13,8 @@ public enum AuthorizationLevel {
 
 	/**
 	 * Constructor for the enumeration
-	 *
-	 * @param name
-	 *            full name of the auth level
-	 * @param level
-	 *            the numeric level of rights of the user
+	 * @param name full name of the auth level
+	 * @param level the numeric level of rights of the user
 	 */
 	private AuthorizationLevel(String name, int level) {
 		this.name = name;

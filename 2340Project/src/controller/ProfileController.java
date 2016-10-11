@@ -3,15 +3,21 @@ package controller;
 import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 /**
  * Controller for working with the profile page
  * @author Pravan Kalaga
  */
 public class ProfileController extends DialogController {
-	
-	@FXML
-	private TextField emailField;
+
+    private User user;
+    
+    @FXML
+    private Text nameText;
+    
+    @FXML
+    private TextField emailField;
 	
 	@FXML
 	private TextField numberField;
@@ -19,20 +25,19 @@ public class ProfileController extends DialogController {
 	@FXML
 	private TextField addressField;
 	
-	private User user;
-	
 	/**
-	 * 
 	 * @param u set the current user
 	 */
-	public void setUser(User u) {
-		user = u;
+	public void setUser(User user) {
+		this.user = user;
+		nameText.setText(user.getName() + "'s Profile Page");
+        emailField.setText(user.getEmail());
+        numberField.setText(user.getPhoneNumber());
+        addressField.setText(user.getAddress());
 	}
 	
 	/**
-	 * 
-	 * @param email set previous email info in
-	 * 	emailField from User info
+	 * @param email set previous email info in emailField from User info
 	 */
 	public void setEmailField(String email) {
 		emailField.setText(email);
@@ -59,8 +64,8 @@ public class ProfileController extends DialogController {
 	
 	@FXML
 	/**
-	 * sets users email, phone, and address variables
-	 * to the values in the text fields and closes the popup
+	 * Sets users email, phone, and address variables
+	 * to the values in the text fields and closes the dialog
 	 * upon pressing the save button
 	 */
 	public void handleSavePressed() {
@@ -82,7 +87,4 @@ public class ProfileController extends DialogController {
 	public void handleCancelPressed() {
 		dialogStage.close();
 	}
-	
-	
-	
 }

@@ -78,5 +78,4 @@ public class User {
         _password.set("enter new password");
         this._auth = AuthorizationLevel.USER;
     }
-
 }

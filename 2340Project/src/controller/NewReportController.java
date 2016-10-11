@@ -44,7 +44,7 @@ public class NewReportController extends DialogController {
 			String wc = waterCond.getSelectionModel().getSelectedItem().toString();
 			String des = description.getText();
 			Report newReport = new UserReport(loc, des, UserDB.getCurrentUser(), wt, wc);
-			Model.getInstance().addReport(newReport);
+			Model.instance().addReport(newReport);
 			dialogStage.close();
 		} catch (Exception e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -55,5 +55,4 @@ public class NewReportController extends DialogController {
 			alert.showAndWait();
 		}
 	}
-
 }

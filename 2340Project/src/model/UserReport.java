@@ -87,5 +87,4 @@ public class UserReport extends Report {
 		attributes.add(this.get_waterCond());
 		return attributes;
 	}
-
 }

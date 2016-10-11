@@ -66,11 +66,10 @@ public abstract class Controller {
             dialogStage.initOwner(Main.stage());
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
+            dialogStage.show();
 
             DialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-
-            dialogStage.showAndWait();
             return controller;
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,6 +86,37 @@ public abstract class Controller {
     protected DialogController showDialog(String path, String title) {
         DialogController controller = showDialog(path);
         controller.stage().setTitle(title);
+        return controller;
+    }
+
+    /**
+     * Displays a dialog in a new window and waits for the dialog to be closed.
+     * @param path the relative path to the FXML to be loaded
+     * @return the controller associated with the dialog
+     */
+    protected DialogController showDialogAndWait(String path) {
+        DialogController controller = showDialog(path);
+        try {
+            controller.dialogStage.wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return controller;
+    }
+    
+    /**
+     * Displays a dialog in a new window and waits for the dialog to be closed.
+     * @param path the relative path to the FXML to be loaded
+     * @param title the title of the new window
+     * @return the controller associated with the dialog
+     */
+    protected DialogController showDialogAndWait(String path, String title) {
+        DialogController controller = showDialog(path, title);
+        try {
+            controller.dialogStage.wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return controller;
     }
 }

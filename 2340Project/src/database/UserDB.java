@@ -1,7 +1,6 @@
 package database;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
 
 import model.AuthorizationLevel;
@@ -104,10 +103,8 @@ public class UserDB {
 	 * Returns true if a user exists with the corresponding username and
 	 * password.
 	 * 
-	 * @param name
-	 *            username to search for.
-	 * @param pass
-	 *            password to search for
+	 * @param name username to search for.
+	 * @param pass password to search for
 	 * @return true if user exists, false otherwise.s
 	 */
 	public boolean userExists(String name, String pass) {

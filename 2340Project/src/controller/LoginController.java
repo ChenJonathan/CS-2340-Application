@@ -1,7 +1,6 @@
 package controller;
 
 import database.Model;
-import database.UserDB;
 import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -23,10 +22,9 @@ public class LoginController extends DialogController {
 	@FXML
 	public void handleOKPressed() {
 		String user = userField.getText();
-		String passwd = passwordField.getText();
+		String pass = passwordField.getText();
 		
-		UserDB database = Model.getInstance().getUsers();
-		if (database.userExists(user, passwd)) {
+		if (Model.instance().authenticateUser(user, pass)) {
 			dialogStage.close();
 			showScreen("../view/MainScreen.fxml", "Main screen");
 		} else {
