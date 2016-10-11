@@ -2,6 +2,8 @@ package fxapp;
 
 import java.io.IOException;
 
+import com.sun.prism.Image;
+
 import controller.*;
 import model.User;
 
@@ -26,6 +28,7 @@ public class Main extends Application {
 		mainScreen = primaryStage;
 
 		FXMLLoader loader = new FXMLLoader();
+		//primaryStage.getIcons().add(new Image("../../download.png"));
 		loader.setLocation(Main.class.getResource("../view/WelcomeWindow.fxml"));
 		Parent root = loader.load();
 		primaryStage.setTitle("Hello World");
