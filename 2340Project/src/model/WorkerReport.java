@@ -7,8 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * @author Wesley
- *	The implementation of a report for a worker
+ * @author Wesley The implementation of a report for a worker
  */
 public class WorkerReport extends Report {
 
@@ -61,47 +60,49 @@ public class WorkerReport extends Report {
 	/**
 	 * @return the _overallCond
 	 */
-	public String get_overallCond() {
+	public String getOverallCond() {
 		return _overallCond;
 	}
 
 	/**
 	 * @return the _virusPPM
 	 */
-	public double get_virusPPM() {
+	public double getVirusPPM() {
 		return _virusPPM;
 	}
 
 	/**
 	 * @return the _contaminantPPM
 	 */
-	public double get_contaminantPPM() {
+	public double getContaminantPPM() {
 		return _contaminantPPM;
 	}
 
 	@Override
 	public ObservableList<String> getAttributes() {
-		ObservableList<String> details = FXCollections.observableArrayList();
-		details.add("Report Number");
-		details.add("Author");
-		details.add("Location");
-		details.add("Timestamp");
-		details.add("Overall Condition");
-		details.add("Contaminant PPM");
-		details.add("Virus PPM");
-		return details;
+		ObservableList<String> attributes = FXCollections.observableArrayList();
+		attributes.add("Report Number");
+		attributes.add("Author");
+		attributes.add("Location");
+		attributes.add("Timestamp");
+		attributes.add("Overall Condition");
+		attributes.add("Contaminant PPM");
+		attributes.add("Virus PPM");
+		attributes.add("Description");
+		return attributes;
 	}
 
 	@Override
 	public ObservableList<String> getDetails() {
-		ObservableList<String> attributes = FXCollections.observableArrayList();
-		attributes.add(this.getNumber().get());
-		attributes.add(this.getAuthor().get());
-		attributes.add(this.getLocation().get());
-		attributes.add(this.getTimestamp());
-		attributes.add(this.get_overallCond());
-		attributes.add("" + this.get_contaminantPPM());
-		attributes.add("" + this.get_virusPPM());
-		return attributes;
+		ObservableList<String> details = FXCollections.observableArrayList();
+		details.add(this.getNumber().get());
+		details.add(this.getAuthor().get());
+		details.add(this.getLocation().get());
+		details.add(this.getTimestamp());
+		details.add(this.getOverallCond());
+		details.add("" + this.getContaminantPPM());
+		details.add("" + this.getVirusPPM());
+		details.add(this.getDescription().get());
+		return details;
 	}
 }

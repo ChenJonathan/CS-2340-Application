@@ -7,8 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 /**
- * @author Wes 
- * The implementation for a user report
+ * @author Wes The implementation for a user report
  *
  */
 public class UserReport extends Report {
@@ -53,38 +52,40 @@ public class UserReport extends Report {
 	/**
 	 * @return the _waterType
 	 */
-	public String get_waterType() {
+	public String getwaterType() {
 		return _waterType;
 	}
 
 	/**
 	 * @return the _waterCond
 	 */
-	public String get_waterCond() {
+	public String getwaterCond() {
 		return _waterCond;
 	}
 
 	@Override
 	public ObservableList<String> getAttributes() {
-		ObservableList<String> details = FXCollections.observableArrayList();
-		details.add("Report Number");
-		details.add("Author");
-		details.add("Location");
-		details.add("Timestamp");
-		details.add("Water Type");
-		details.add("Water Condition");
-		return details;
+		ObservableList<String> attributes = FXCollections.observableArrayList();
+		attributes.add("Report Number");
+		attributes.add("Author");
+		attributes.add("Location");
+		attributes.add("Timestamp");
+		attributes.add("Water Type");
+		attributes.add("Water Condition");
+		attributes.add("Description");
+		return attributes;
 	}
 
 	@Override
 	public ObservableList<String> getDetails() {
-		ObservableList<String> attributes = FXCollections.observableArrayList();
-		attributes.add(this.getNumber().get());
-		attributes.add(this.getAuthor().get());
-		attributes.add(this.getLocation().get());
-		attributes.add(this.getTimestamp());
-		attributes.add(this.get_waterType());
-		attributes.add(this.get_waterCond());
-		return attributes;
+		ObservableList<String> details = FXCollections.observableArrayList();
+		details.add(this.getNumber().get());
+		details.add(this.getAuthor().get());
+		details.add(this.getLocation().get());
+		details.add(this.getTimestamp());
+		details.add(this.getwaterType());
+		details.add(this.getwaterCond());
+		details.add(this.getDescription().get());
+		return details;
 	}
 }

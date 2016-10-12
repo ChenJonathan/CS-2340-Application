@@ -1,5 +1,6 @@
+/application/
 /controller/
+/database/
 /fxapp/
 /model/
 /view/
-/database/
