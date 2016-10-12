@@ -11,48 +11,61 @@ import model.UserReport;
 import database.Model;
 import database.UserDB;
 
+/**
+ * A controller that controls the new report window
+ * @author Sathvik Kadaveru
+ */
 public class NewReportController extends DialogController {
 
-	@FXML
-	private ComboBox<String> waterType;
+    @FXML
+    private ComboBox<String> waterType;
 
-	@FXML
-	private ComboBox<String> waterCond;
+    @FXML
+    private ComboBox<String> waterCond;
 
-	@FXML
-	private TextArea description;
+    @FXML
+    private TextArea description;
 
-	@FXML
-	private TextField theLocation;
+    @FXML
+    private TextField theLocation;
 
-	@FXML
-	private void initialize() {
-		waterType.getItems().addAll("Bottled", "Well", "Stream", "Lake", "Spring", "Other");
-		waterCond.getItems().addAll("Portable", "Treatable-Muddy", "Treatable-Clear", "Waste");
-	}
+    /**
+     * Initializes combobox fields
+     */
+    @FXML
+    private void initialize() {
+        waterType.getItems().addAll("Bottled", "Well", "Stream", "Lake", "Spring", "Other");
+        waterCond.getItems().addAll("Portable", "Treatable-Muddy", "Treatable-Clear", "Waste");
+    }
 
-	@FXML
-	public void handleCancel() {
-		dialogStage.close();
-	}
+    /**
+     * Handler for when the cancel button on the new report dialog is clicked.
+     */
+    @FXML
+    public void handleCancel() {
+        dialogStage.close();
+    }
 
-	@FXML
-	public void handleSave() {
-		try {
-			String loc = theLocation.getText();
-			String wt = waterType.getSelectionModel().getSelectedItem().toString();
-			String wc = waterCond.getSelectionModel().getSelectedItem().toString();
-			String des = description.getText();
-			Report newReport = new UserReport(loc, des, UserDB.getCurrentUser(), wt, wc);
-			Model.instance().addReport(newReport);
-			dialogStage.close();
-		} catch (Exception e) {
-			Alert alert = new Alert(Alert.AlertType.ERROR);
-			alert.initOwner(Main.stage());
-			alert.setTitle("Fields Incomplete");
-			alert.setHeaderText("Fields Incomplete");
-			alert.setContentText("One or more field is incomplete");
-			alert.showAndWait();
-		}
-	}
+    /**
+     * Handler for when the save button on the new report dialog is clicked.
+     */
+    @FXML
+    public void handleSave() {
+        try {
+            String loc = theLocation.getText();
+            String wt = waterType.getSelectionModel().getSelectedItem().toString();
+            String wc = waterCond.getSelectionModel().getSelectedItem().toString();
+            String des = description.getText();
+            Report newReport = new UserReport(loc, des, UserDB.getCurrentUser(), wt, wc);
+            Model.instance().addReport(newReport);
+            dialogStage.close();
+        } catch (Exception e) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("Fields Incomplete");
+            alert.setHeaderText("Fields Incomplete");
+            alert.setContentText("One or more field is incomplete");
+            alert.showAndWait();
+        }
+    }
 }

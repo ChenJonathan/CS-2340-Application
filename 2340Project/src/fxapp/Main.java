@@ -14,32 +14,32 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-	private static Stage mainStage;
+    private static Stage mainStage;
 
-	/**
-	 * @return the single instance of the main stage.
-	 */
-	public static Stage stage() {
-		return mainStage;
-	}
+    /**
+     * @return the single instance of the main stage.
+     */
+    public static Stage stage() {
+        return mainStage;
+    }
 
-	public static final Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
+    public static final Rectangle2D primaryScreenBounds = Screen.getPrimary().getVisualBounds();
 
-	@Override
-	public void start(Stage stage) throws Exception {
-		mainStage = stage;
+    @Override
+    public void start(Stage stage) throws Exception {
+        mainStage = stage;
 
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("../view/WelcomeScreen.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("../view/WelcomeScreen.fxml"));
 
-		Parent root = loader.load();
-		stage.setScene(new Scene(root, Main.primaryScreenBounds.getWidth(), Main.primaryScreenBounds.getHeight()));
-		stage.getIcons().add(new Image("file:water.png"));
-		stage.setMaximized(true);
-		stage.show();
-	}
+        Parent root = loader.load();
+        stage.setScene(new Scene(root, Main.primaryScreenBounds.getWidth(), Main.primaryScreenBounds.getHeight()));
+        stage.getIcons().add(new Image("file:water.png"));
+        stage.setMaximized(true);
+        stage.show();
+    }
 
-	public static void main(String[] args) {
-		launch(args);
-	}
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
