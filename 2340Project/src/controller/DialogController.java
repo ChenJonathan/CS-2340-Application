@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -14,6 +15,7 @@ public abstract class DialogController extends Controller {
      * @return the stage of the dialog.
      */
     public Stage stage() {
+		dialogStage.getIcons().add(new Image("file:water.png"));
         return dialogStage;
     }
     
