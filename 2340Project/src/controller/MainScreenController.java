@@ -1,8 +1,8 @@
 package controller;
 
-import database.UserDB;
 import javafx.fxml.FXML;
 import model.User;
+import database.Model;
 
 /**
  * A controller that controls the main page window.
@@ -26,7 +26,7 @@ public class MainScreenController extends Controller {
     }
 
     public void handleProfilePressed() {
-        User user = UserDB.getCurrentUser();
+        User user = Model.instance().getCurrentUser();
         ProfileController controller = (ProfileController) showDialog("../view/ProfilePage.fxml", user.getName() + "'s Profile Page");
         controller.setUser(user);
     }

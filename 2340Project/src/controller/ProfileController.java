@@ -1,9 +1,9 @@
 package controller;
 
-import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import model.User;
 
 /**
  * Controller for working with the profile page

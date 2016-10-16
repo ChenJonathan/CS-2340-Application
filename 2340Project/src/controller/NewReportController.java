@@ -1,6 +1,5 @@
 package controller;
 
-import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
@@ -9,7 +8,7 @@ import javafx.scene.control.TextField;
 import model.Report;
 import model.UserReport;
 import database.Model;
-import database.UserDB;
+import fxapp.Main;
 
 /**
  * A controller that controls the new report window
@@ -56,7 +55,7 @@ public class NewReportController extends DialogController {
             String wt = waterType.getSelectionModel().getSelectedItem().toString();
             String wc = waterCond.getSelectionModel().getSelectedItem().toString();
             String des = description.getText();
-            Report newReport = new UserReport(loc, des, UserDB.getCurrentUser(), wt, wc);
+            Report newReport = new UserReport(loc, des, Model.instance().getCurrentUser(), wt, wc);
             Model.instance().addReport(newReport);
             dialogStage.close();
         } catch (Exception e) {

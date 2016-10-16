@@ -1,11 +1,11 @@
 package controller;
 
-import database.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import model.Report;
+import database.Model;
 
 /**
  * A controller that controls the view report window

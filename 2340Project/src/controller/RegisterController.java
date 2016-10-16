@@ -1,14 +1,14 @@
 package controller;
 
-import database.Model;
-import fxapp.Main;
-import model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import model.AuthorizationLevel;
+import model.User;
+import database.Model;
+import fxapp.Main;
 
 /**
  * Controller for the Register Dialog.
