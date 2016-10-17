@@ -24,8 +24,7 @@ import database.Model;
  * 
  * @author Wesley Cheung
  */
-public class ViewReportController extends DialogController
-        implements MapComponentInitializedListener {
+public class ViewReportController extends DialogController implements MapComponentInitializedListener {
 
     @FXML
     private ListView<String> attributesList;
