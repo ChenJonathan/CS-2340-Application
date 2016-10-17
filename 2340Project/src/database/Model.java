@@ -1,5 +1,7 @@
 package database;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.GregorianCalendar;
 
 import org.json.JSONObject;
@@ -46,12 +48,12 @@ public class Model {
 	    try {
             HttpResponse<JsonNode> response = Unirest.post("https://chenjonathan-cs-2340-api.herokuapp.com/register")
                 .header("Content-Type", "application/x-www-form-urlencoded")
-                .body("name=" + user.getName() + 
-                      "&pass=" + user.getPassword() + 
+                .body("name=" + URLEncoder.encode(user.getName(), "UTF-8") + 
+                      "&pass=" + URLEncoder.encode(user.getPassword(), "UTF-8") + 
                       "&auth=" + user.getAuth() + 
-                      "&email=" + user.getEmail() + 
-                      "&phone=" + user.getPhoneNumber() + 
-                      "&address=" + user.getAddress())
+                      "&email=" + URLEncoder.encode(user.getEmail(), "UTF-8") + 
+                      "&phone=" + URLEncoder.encode(user.getPhoneNumber(), "UTF-8") + 
+                      "&address=" + URLEncoder.encode(user.getAddress(), "UTF-8"))
                 .asJson();
             if(response.getStatus() != 201)
             {
@@ -64,10 +66,13 @@ public class Model {
                 return false;
             }
             return true;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         } catch (UnirestException e) {
             e.printStackTrace();
             return false;
         }
+	    return false;
 	}
     
     public boolean checkUserExists(String user) {
@@ -111,12 +116,12 @@ public class Model {
      */
     public boolean addReport(UserReport report) {
         try {
-            String body = "&location=" + report.getLocation().get() + 
-                   "&description=" + report.getDescription().get() + 
-                   "&timestamp=" + report.getTimestamp() + 
-                   "&user=" + report.getAuthor().get() + 
-                   "&waterType=" + report.getWaterType() + 
-                   "&waterCondition=" + report.getWaterCond();
+            String body = "&location=" + URLEncoder.encode(report.getLocation().get(), "UTF-8") + 
+                   "&description=" + URLEncoder.encode(report.getDescription().get(), "UTF-8") + 
+                   "&timestamp=" + URLEncoder.encode(report.getTimestamp(), "UTF-8") + 
+                   "&user=" + URLEncoder.encode(report.getAuthor().get(), "UTF-8") + 
+                   "&waterType=" + URLEncoder.encode(report.getWaterType(), "UTF-8") + 
+                   "&waterCondition=" + URLEncoder.encode(report.getWaterCond(), "UTF-8");
             if(report instanceof WorkerReport) {
                 WorkerReport workerReport = (WorkerReport)report;
                 body = "type=Worker" + body + 
@@ -138,10 +143,12 @@ public class Model {
                 return false;
             }
             return true;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         } catch (UnirestException e) {
             e.printStackTrace();
-            return false;
         }
+        return false;
     }
     
     public ObservableList<Report> getReports() {
