@@ -116,9 +116,9 @@ public class Model {
      */
     public boolean addReport(UserReport report) {
         try {
-            String body = "&location=" + URLEncoder.encode(report.getLocation().get(), "UTF-8") + 
+            String body = "&location=" + URLEncoder.encode(report.getLocation().get().toString(), "UTF-8") + 
                    "&description=" + URLEncoder.encode(report.getDescription().get(), "UTF-8") + 
-                   "&timestamp=" + URLEncoder.encode(report.getTimestamp(), "UTF-8") + 
+                   "&timestamp=" + URLEncoder.encode(report.getTimestamp().get(), "UTF-8") + 
                    "&user=" + URLEncoder.encode(report.getAuthor().get(), "UTF-8") + 
                    "&waterType=" + URLEncoder.encode(report.getWaterType(), "UTF-8") + 
                    "&waterCondition=" + URLEncoder.encode(report.getWaterCond(), "UTF-8");
@@ -162,7 +162,7 @@ public class Model {
                 if(json.getString("type").equals("User")) {
                     UserReport report = new UserReport(json.getString("location"), 
                                                        json.getString("description"), 
-                                                       new GregorianCalendar(), // TODO
+                                                       json.getString("timestamp"),
                                                        json.getString("user"), 
                                                        json.getString("waterType"), 
                                                        json.getString("waterCondition"));
@@ -171,7 +171,7 @@ public class Model {
                 } else if(json.getString("type").equals("Worker")) {
                     WorkerReport report = new WorkerReport(json.getString("location"), 
                                                            json.getString("description"), 
-                                                           new GregorianCalendar(), // TODO
+                                                           json.getString("timestamp"),
                                                            json.getString("user"), 
                                                            json.getString("waterType"), 
                                                            json.getString("waterCondition"), 

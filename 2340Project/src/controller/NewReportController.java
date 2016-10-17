@@ -56,7 +56,7 @@ public class NewReportController extends DialogController {
             String wt = waterType.getSelectionModel().getSelectedItem().toString();
             String wc = waterCond.getSelectionModel().getSelectedItem().toString();
             String des = description.getText();
-            UserReport newReport = new UserReport(loc, des, new GregorianCalendar(), Model.instance().getCurrentUser().getName(), wt, wc);
+            UserReport newReport = new UserReport(loc, des, Model.instance().getCurrentUser().getName(), wt, wc);
             Model.instance().addReport(newReport);
             dialogStage.close();
         } catch (Exception e) {

@@ -12,79 +12,103 @@ import javafx.collections.ObservableList;
  */
 public class UserReport extends Report {
 
-	private String _waterType;
-	private String _waterCond;
+    private String _waterType;
+    private String _waterCond;
 
-	/**
-	 * @param location
-	 * @param description
-	 * @param timestamp
-	 * @param user
-	 */
-	public UserReport(String location, String description, Calendar timestamp, String user) {
-		super(location, description, timestamp, user);
-		_waterType = "N/A";
-		_waterCond = "N/A";
-	}
+    /**
+     * 
+     * no latitude/longitute constructor
+     * 
+     * @param location
+     * @param description
+     */
+    public UserReport(String location, double latitude, double longitude, String description, String timestamp,
+            String user, String waterType, String waterCond) {
+        super(location, latitude, longitude, description, timestamp, user);
+        _waterType = waterType;
+        _waterCond = waterCond;
+    }
 
-	/**
-	 * @param location
-	 * @param waterType
-	 * @param description
-	 */
-	public UserReport(String location, String description, String user) {
-		super(location, description, user);
-		_waterType = "N/A";
-		_waterCond = "N/A";
-	}
+    /**
+     * no timestamp constructor
+     * 
+     * @param location
+     * @param description
+     */
+    public UserReport(String location, double latitude, double longitude, String description, String user,
+            String waterType, String waterCond) {
+        super(location, latitude, longitude, description, user);
+        _waterType = waterType;
+        _waterCond = waterCond;
+    }
 
-	/**
-	 * @param location
-	 * @param description
-	 */
-	public UserReport(String location, String description, Calendar timestamp, String user, String waterType, String waterCond) {
-		super(location, description, timestamp, user);
-		_waterType = waterType;
-		_waterCond = waterCond;
-	}
+    /**
+     * 
+     * no latitude/longitute constructor
+     * 
+     * @param location
+     * @param description
+     */
+    public UserReport(String location, String description, String timestamp, String user, String waterType,
+            String waterCond) {
+        super(location, description, timestamp, user);
+        _waterType = waterType;
+        _waterCond = waterCond;
+    }
 
-	/**
-	 * @return the _waterType
-	 */
-	public String getWaterType() {
-		return _waterType;
-	}
+    /**
+     * no latitude/longitute or timestamp constructor
+     * 
+     * @param location
+     * @param description
+     */
+    public UserReport(String location, String description, String user, String waterType, String waterCond) {
+        super(location, description, user);
+        _waterType = waterType;
+        _waterCond = waterCond;
+    }
 
-	/**
-	 * @return the _waterCond
-	 */
-	public String getWaterCond() {
-		return _waterCond;
-	}
+    /**
+     * @return the _waterType
+     */
+    public String getWaterType() {
+        return _waterType;
+    }
 
-	@Override
-	public ObservableList<String> getAttributes() {
-		ObservableList<String> attributes = FXCollections.observableArrayList();
-		attributes.add("Report Number");
-		attributes.add("Author");
-		attributes.add("Location");
-		attributes.add("Timestamp");
-		attributes.add("Water Type");
-		attributes.add("Water Condition");
-		attributes.add("Description");
-		return attributes;
-	}
+    /**
+     * @return the _waterCond
+     */
+    public String getWaterCond() {
+        return _waterCond;
+    }
 
-	@Override
-	public ObservableList<String> getDetails() {
-		ObservableList<String> details = FXCollections.observableArrayList();
-		details.add(this.getNumber().get());
-		details.add(this.getAuthor().get());
-		details.add(this.getLocation().get());
-		details.add(this.getTimestamp());
-		details.add(this.getWaterType());
-		details.add(this.getWaterCond());
-		details.add(this.getDescription().get());
-		return details;
-	}
+    @Override
+    public ObservableList<String> getAttributes() {
+        ObservableList<String> attributes = FXCollections.observableArrayList();
+        attributes.add("Report Number");
+        attributes.add("Author");
+        attributes.add("Timestamp");
+        attributes.add("Location");
+        attributes.add("Latitude");
+        attributes.add("Longitude");
+        attributes.add("Water Type");
+        attributes.add("Water Condition");
+        attributes.add("Description");
+        return attributes;
+    }
+
+    @Override
+    public ObservableList<String> getDetails() {
+        ObservableList<String> details = FXCollections.observableArrayList();
+        details.add(this.getNumber().get());
+        details.add(this.getAuthor().get());
+        details.add(this.getTimestamp().get());
+        details.add(this.getLocation().get());
+        details.add("" + this.getLatitude());
+        details.add("" + this.getLongitude());
+        details.add(this.getWaterType());
+        details.add(this.getWaterCond());
+        details.add(this.getDescription().get());
+        return details;
+    }
 }
