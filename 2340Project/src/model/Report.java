@@ -32,10 +32,10 @@ public abstract class Report {
      * @param user
      *            The user who created the report
      */
-    public Report(String location, String description, Calendar timestamp, User user) {
+    public Report(String location, String description, Calendar timestamp, String user) {
         _location.set(location);
         _description.set(description);
-        _author.set(user.getName());
+        _author.set(user);
         _number.set("-1");
         _timestamp = timestamp;
     }
@@ -50,10 +50,10 @@ public abstract class Report {
      * @param user
      *            The user who created the report
      */
-    public Report(String location, String description, User user) {
+    public Report(String location, String description, String user) {
         _location.set(location);
         _description.set(description);
-        _author.set(user.getName());
+        _author.set(user);
         _number.set("-1");
         _timestamp = new GregorianCalendar();
     }

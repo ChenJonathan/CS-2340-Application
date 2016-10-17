@@ -2,7 +2,7 @@ package model;
 
 /**
  * Created by Wesley on 9/28/16. 
- * This enumeration represents all the auth levelsa user may hold
+ * This enumeration represents all the auth levels a user may hold
  */
 public enum AuthorizationLevel {
     USER("User", 0), WORKER("Worker", 1), MANAGER("Manager", 2), ADMIN("Admin", 3);
@@ -37,7 +37,18 @@ public enum AuthorizationLevel {
     }
 
     /**
-     *
+     * @return the auth level representation of the display string
+     */
+    public static AuthorizationLevel fromString(String string) {
+        for(AuthorizationLevel auth : AuthorizationLevel.values()) {
+            if(auth.toString().equals(string)) {
+                return auth;
+            }
+        }
+        return null;
+    }
+
+    /**
      * @return the display string representation of the auth level
      */
     public String toString() {

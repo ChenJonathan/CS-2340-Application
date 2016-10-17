@@ -21,7 +21,7 @@ public class UserReport extends Report {
 	 * @param timestamp
 	 * @param user
 	 */
-	public UserReport(String location, String description, Calendar timestamp, User user) {
+	public UserReport(String location, String description, Calendar timestamp, String user) {
 		super(location, description, timestamp, user);
 		_waterType = "N/A";
 		_waterCond = "N/A";
@@ -32,7 +32,7 @@ public class UserReport extends Report {
 	 * @param waterType
 	 * @param description
 	 */
-	public UserReport(String location, String waterType, String description, User user) {
+	public UserReport(String location, String description, String user) {
 		super(location, description, user);
 		_waterType = "N/A";
 		_waterCond = "N/A";
@@ -40,11 +40,10 @@ public class UserReport extends Report {
 
 	/**
 	 * @param location
-	 * @param waterType
 	 * @param description
 	 */
-	public UserReport(String location, String description, User user, String waterType, String waterCond) {
-		super(location, description, user);
+	public UserReport(String location, String description, Calendar timestamp, String user, String waterType, String waterCond) {
+		super(location, description, timestamp, user);
 		_waterType = waterType;
 		_waterCond = waterCond;
 	}
@@ -52,14 +51,14 @@ public class UserReport extends Report {
 	/**
 	 * @return the _waterType
 	 */
-	public String getwaterType() {
+	public String getWaterType() {
 		return _waterType;
 	}
 
 	/**
 	 * @return the _waterCond
 	 */
-	public String getwaterCond() {
+	public String getWaterCond() {
 		return _waterCond;
 	}
 
@@ -83,8 +82,8 @@ public class UserReport extends Report {
 		details.add(this.getAuthor().get());
 		details.add(this.getLocation().get());
 		details.add(this.getTimestamp());
-		details.add(this.getwaterType());
-		details.add(this.getwaterCond());
+		details.add(this.getWaterType());
+		details.add(this.getWaterCond());
 		details.add(this.getDescription().get());
 		return details;
 	}

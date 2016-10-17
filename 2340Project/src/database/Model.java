@@ -1,9 +1,17 @@
 package database;
 
+import java.util.GregorianCalendar;
+
+import org.json.JSONObject;
+
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import model.AuthorizationLevel;
 import model.Report;
 import model.User;
+import model.UserReport;
+import model.WorkerReport;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -28,8 +36,6 @@ public class Model {
 	// Remember the currently selected user and report
 	private User currentUser;
 	private Report currentReport;
-
-	private final ReportDB reportDB = new ReportDB();
 
 	/**
 	 * Add a user into the database.
@@ -84,8 +90,11 @@ public class Model {
                 .asJson();
             if(response.getStatus() == 200)
             {
-                // TODO Set current user from JSON response body
-                currentUser = new User(user, pass);
+                JSONObject json = response.getBody().getObject();
+                currentUser = new User(json.getString("name"), json.getString("pass"), AuthorizationLevel.fromString(json.getString("auth")));
+                currentUser.setEmail(json.getString("email"));
+                currentUser.setNumber(json.getString("phone"));
+                currentUser.setAddress(json.getString("address"));
                 return true;
             }
             return false;
@@ -100,13 +109,75 @@ public class Model {
      * @param report report to add
      * @return true if report added, false otherwise.
      */
-    public boolean addReport(Report report) {
-        report.setNumber(instance().reportDB.getReports().size() + 1);
-        return instance().reportDB.addReport(report);
+    public boolean addReport(UserReport report) {
+        try {
+            String body = "&location=" + report.getLocation().get() + 
+                   "&description=" + report.getDescription().get() + 
+                   "&timestamp=" + report.getTimestamp() + 
+                   "&user=" + report.getAuthor().get() + 
+                   "&waterType=" + report.getWaterType() + 
+                   "&waterCondition=" + report.getWaterCond();
+            if(report instanceof WorkerReport) {
+                WorkerReport workerReport = (WorkerReport)report;
+                body = "type=Worker" + body + 
+                       "&virusPPM=" + workerReport.getVirusPPM() + 
+                       "&contaminantPPM=" + workerReport.getContaminantPPM();
+            } else {
+                body = "type=User" + body;
+            }
+            HttpResponse<JsonNode> response = Unirest.post("https://chenjonathan-cs-2340-api.herokuapp.com/report/new")
+                .header("Content-Type", "application/x-www-form-urlencoded").body(body).asJson();
+            if(response.getStatus() != 201)
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(Main.stage());
+                alert.setTitle("Error adding report");
+                alert.setHeaderText("Error adding report");
+                alert.setContentText(response.getStatusText());
+                alert.show();
+                return false;
+            }
+            return true;
+        } catch (UnirestException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public ObservableList<Report> getReports() {
-        return reportDB.getReports();
+        ObservableList<Report> reports = FXCollections.observableArrayList();
+        try {
+            HttpResponse<JsonNode> response = Unirest.get("https://chenjonathan-cs-2340-api.herokuapp.com/report")
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .asJson();
+            for(Object obj : response.getBody().getArray()) {
+                JSONObject json = (JSONObject)obj;
+                if(json.getString("type").equals("User")) {
+                    UserReport report = new UserReport(json.getString("location"), 
+                                                       json.getString("description"), 
+                                                       new GregorianCalendar(), // TODO
+                                                       json.getString("user"), 
+                                                       json.getString("waterType"), 
+                                                       json.getString("waterCondition"));
+                    report.setNumber(json.getInt("number"));
+                    reports.add(report);
+                } else if(json.getString("type").equals("Worker")) {
+                    WorkerReport report = new WorkerReport(json.getString("location"), 
+                                                           json.getString("description"), 
+                                                           new GregorianCalendar(), // TODO
+                                                           json.getString("user"), 
+                                                           json.getString("waterType"), 
+                                                           json.getString("waterCondition"), 
+                                                           json.getDouble("virusPPM"), 
+                                                           json.getDouble("contaminantPPM"));
+                    report.setNumber(json.getInt("number"));
+                    reports.add(report);
+                }
+            }
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+        return reports;
     }
 
     public User getCurrentUser() {

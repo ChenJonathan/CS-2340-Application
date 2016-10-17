@@ -9,9 +9,8 @@ import javafx.collections.ObservableList;
 /**
  * @author Wesley The implementation of a report for a worker
  */
-public class WorkerReport extends Report {
+public class WorkerReport extends UserReport {
 
-	private String _overallCond;
 	private double _virusPPM;
 	private double _contaminantPPM;
 
@@ -21,21 +20,18 @@ public class WorkerReport extends Report {
 	 * @param timestamp
 	 * @param user
 	 */
-	public WorkerReport(String location, String description, Calendar timestamp, User user) {
+	public WorkerReport(String location, String description, Calendar timestamp, String user) {
 		super(location, description, timestamp, user);
-		_overallCond = "N/A";
 		_virusPPM = -1.0;
 		_contaminantPPM = -1.0;
 	}
 
 	/**
 	 * @param location
-	 * @param waterType
 	 * @param description
 	 */
-	public WorkerReport(String location, String waterType, String description, User user) {
+	public WorkerReport(String location, String description, String user) {
 		super(location, description, user);
-		_overallCond = "N/A";
 		_virusPPM = -1.0;
 		_contaminantPPM = -1.0;
 	}
@@ -45,23 +41,14 @@ public class WorkerReport extends Report {
 	 * @param description
 	 * @param timestamp
 	 * @param user
-	 * @param _overallCond
 	 * @param _virusPPM
 	 * @param _contaminantPPM
 	 */
-	public WorkerReport(String location, String description, Calendar timestamp, User user, String _overallCond,
-			double _virusPPM, double _contaminantPPM) {
-		super(location, description, timestamp, user);
-		this._overallCond = _overallCond;
+	public WorkerReport(String location, String description, Calendar timestamp, String user, 
+	        String waterType, String waterCond, double _virusPPM, double _contaminantPPM) {
+		super(location, description, timestamp, user, waterType, waterCond);
 		this._virusPPM = _virusPPM;
 		this._contaminantPPM = _contaminantPPM;
-	}
-
-	/**
-	 * @return the _overallCond
-	 */
-	public String getOverallCond() {
-		return _overallCond;
 	}
 
 	/**
@@ -85,9 +72,8 @@ public class WorkerReport extends Report {
 		attributes.add("Author");
 		attributes.add("Location");
 		attributes.add("Timestamp");
-		attributes.add("Overall Condition");
+        attributes.add("Virus PPM");
 		attributes.add("Contaminant PPM");
-		attributes.add("Virus PPM");
 		attributes.add("Description");
 		return attributes;
 	}
@@ -99,9 +85,8 @@ public class WorkerReport extends Report {
 		details.add(this.getAuthor().get());
 		details.add(this.getLocation().get());
 		details.add(this.getTimestamp());
-		details.add(this.getOverallCond());
+        details.add("" + this.getVirusPPM());
 		details.add("" + this.getContaminantPPM());
-		details.add("" + this.getVirusPPM());
 		details.add(this.getDescription().get());
 		return details;
 	}

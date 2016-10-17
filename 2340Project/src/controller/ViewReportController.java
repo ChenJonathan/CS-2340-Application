@@ -45,8 +45,7 @@ public class ViewReportController extends DialogController {
         reportAuthorColumn.setCellValueFactory(cellData -> cellData.getValue().getAuthor());
         reportLocationColumn.setCellValueFactory(cellData -> cellData.getValue().getLocation());
 
-        // Listen for selection changes and show the course student list when
-        // changed.
+        // Listen for selection changes and show the course student list when changed.
         reportTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showReportDetails(newValue));
     }
 
@@ -74,6 +73,7 @@ public class ViewReportController extends DialogController {
      */
     @FXML
     public void handleNewReport() {
-        showDialog("../view/NewReport.fxml", "New Report");
+        showDialogAndWait("../view/NewReport.fxml", "New Report");
+        reportTable.setItems(Model.instance().getReports());
     }
 }

@@ -56,12 +56,12 @@ public abstract class Controller {
     }
 
     /**
-     * Displays a dialog in a new window.
+     * Creates a dialog in a new window but does not show it.
      * 
      * @param path the relative path to the FXML to be loaded
      * @return the controller associated with the dialog
      */
-    protected DialogController showDialog(String path) {
+    private DialogController createDialog(String path) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(path));
@@ -73,7 +73,6 @@ public abstract class Controller {
             dialogStage.initOwner(Main.stage());
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
-            dialogStage.show();
 
             DialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -82,6 +81,18 @@ public abstract class Controller {
             e.printStackTrace();
             return null;
         }
+    }
+
+    /**
+     * Displays a dialog in a new window.
+     * 
+     * @param path the relative path to the FXML to be loaded
+     * @return the controller associated with the dialog
+     */
+    protected DialogController showDialog(String path) {
+        DialogController controller = createDialog(path);
+        controller.dialogStage.show();
+        return controller;
     }
 
     /**
@@ -105,12 +116,8 @@ public abstract class Controller {
      * @return the controller associated with the dialog
      */
     protected DialogController showDialogAndWait(String path) {
-        DialogController controller = showDialog(path);
-        try {
-            controller.dialogStage.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        DialogController controller = createDialog(path);
+        controller.dialogStage.showAndWait();
         return controller;
     }
 
@@ -122,12 +129,9 @@ public abstract class Controller {
      * @return the controller associated with the dialog
      */
     protected DialogController showDialogAndWait(String path, String title) {
-        DialogController controller = showDialog(path, title);
-        try {
-            controller.dialogStage.wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        DialogController controller = createDialog(path);
+        controller.dialogStage.setTitle(title);
+        controller.dialogStage.showAndWait();
         return controller;
     }
 }
