@@ -116,12 +116,14 @@ public class Model {
      */
     public boolean addReport(UserReport report) {
         try {
-            String body = "&location=" + URLEncoder.encode(report.getLocation().get().toString(), "UTF-8") + 
-                   "&description=" + URLEncoder.encode(report.getDescription().get(), "UTF-8") + 
-                   "&timestamp=" + URLEncoder.encode(report.getTimestamp().get(), "UTF-8") + 
-                   "&user=" + URLEncoder.encode(report.getAuthor().get(), "UTF-8") + 
-                   "&waterType=" + URLEncoder.encode(report.getWaterType(), "UTF-8") + 
-                   "&waterCondition=" + URLEncoder.encode(report.getWaterCond(), "UTF-8");
+            String body = "&locationName=" + URLEncoder.encode(report.getLocation().get().toString(), "UTF-8") + 
+                          "&locationLatitude=" + report.getLatitude() + 
+                          "&locationLongitude=" + report.getLongitude() + 
+                          "&description=" + URLEncoder.encode(report.getDescription().get(), "UTF-8") + 
+                          "&timestamp=" + URLEncoder.encode(report.getTimestamp().get(), "UTF-8") + 
+                          "&user=" + URLEncoder.encode(report.getAuthor().get(), "UTF-8") + 
+                          "&waterType=" + URLEncoder.encode(report.getWaterType(), "UTF-8") + 
+                          "&waterCondition=" + URLEncoder.encode(report.getWaterCond(), "UTF-8");
             if(report instanceof WorkerReport) {
                 WorkerReport workerReport = (WorkerReport)report;
                 body = "type=Worker" + body + 
@@ -159,8 +161,9 @@ public class Model {
                 .asJson();
             for(Object obj : response.getBody().getArray()) {
                 JSONObject json = (JSONObject)obj;
+                JSONObject jsonLoc = (JSONObject)json.getJSONObject("location");
                 if(json.getString("type").equals("User")) {
-                    UserReport report = new UserReport(json.getString("location"), 
+                    UserReport report = new UserReport(jsonLoc.getString("name"), 
                                                        json.getString("description"), 
                                                        json.getString("timestamp"),
                                                        json.getString("user"), 
@@ -169,7 +172,7 @@ public class Model {
                     report.setNumber(json.getInt("number"));
                     reports.add(report);
                 } else if(json.getString("type").equals("Worker")) {
-                    WorkerReport report = new WorkerReport(json.getString("location"), 
+                    WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
                                                            json.getString("description"), 
                                                            json.getString("timestamp"),
                                                            json.getString("user"), 
