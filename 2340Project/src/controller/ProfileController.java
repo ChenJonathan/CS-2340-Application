@@ -1,5 +1,6 @@
 package controller;
 
+import database.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -75,6 +76,8 @@ public class ProfileController extends DialogController {
         user.setAddress(address);
         user.setEmail(email);
         user.setNumber(phone);
+        
+        Model.instance().updateUser(user);
 
         dialogStage.close();
     }

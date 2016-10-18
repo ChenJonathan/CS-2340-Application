@@ -39,13 +39,13 @@ public class Model {
 	private User currentUser;
 	private Report currentReport;
 
-	/**
-	 * Add a user into the database.
-	 * @param user user to add
-	 * @return true if user added, false otherwise.
-	 */
-	public boolean addUser(User user) {
-	    try {
+    /**
+     * Add a user into the database.
+     * @param user user to add
+     * @return true if user added, false otherwise.
+     */
+    public boolean addUser(User user) {
+        try {
             HttpResponse<JsonNode> response = Unirest.post("https://chenjonathan-cs-2340-api.herokuapp.com/register")
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .body("name=" + URLEncoder.encode(user.getName(), "UTF-8") + 
@@ -72,8 +72,44 @@ public class Model {
             e.printStackTrace();
             return false;
         }
-	    return false;
-	}
+        return false;
+    }
+
+    /**
+     * Updates a user in the database.
+     * @param user user to update
+     * @return true if user updated, false otherwise.
+     */
+    public boolean updateUser(User user) {
+        try {
+            HttpResponse<JsonNode> response = Unirest.put("https://chenjonathan-cs-2340-api.herokuapp.com/user/" + user.getName())
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .body("name=" + URLEncoder.encode(user.getName(), "UTF-8") + 
+                      "&pass=" + URLEncoder.encode(user.getPassword(), "UTF-8") + 
+                      "&auth=" + user.getAuth() + 
+                      "&email=" + URLEncoder.encode(user.getEmail(), "UTF-8") + 
+                      "&phone=" + URLEncoder.encode(user.getPhoneNumber(), "UTF-8") + 
+                      "&address=" + URLEncoder.encode(user.getAddress(), "UTF-8"))
+                .asJson();
+            if(response.getStatus() != 201)
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(Main.stage());
+                alert.setTitle("Error updating user");
+                alert.setHeaderText("Error updating user");
+                alert.setContentText(response.getStatusText());
+                alert.show();
+                return false;
+            }
+            return true;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return false;
+    }
     
     public boolean checkUserExists(String user) {
         try {
