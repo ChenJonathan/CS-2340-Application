@@ -164,6 +164,8 @@ public class Model {
                 JSONObject jsonLoc = (JSONObject)json.getJSONObject("location");
                 if(json.getString("type").equals("User")) {
                     UserReport report = new UserReport(jsonLoc.getString("name"), 
+                                                       jsonLoc.getDouble("latitude"), 
+                                                       jsonLoc.getDouble("longitude"), 
                                                        json.getString("description"), 
                                                        json.getString("timestamp"),
                                                        json.getString("user"), 
@@ -173,6 +175,8 @@ public class Model {
                     reports.add(report);
                 } else if(json.getString("type").equals("Worker")) {
                     WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
+                                                           jsonLoc.getDouble("latitude"), 
+                                                           jsonLoc.getDouble("longitude"), 
                                                            json.getString("description"), 
                                                            json.getString("timestamp"),
                                                            json.getString("user"), 
