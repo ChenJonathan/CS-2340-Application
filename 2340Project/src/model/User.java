@@ -21,9 +21,9 @@ public class User {
     private final StringProperty _name = new SimpleStringProperty();
     private final StringProperty _password = new SimpleStringProperty();
     private AuthorizationLevel _auth = null;
-    private StringProperty _email = new SimpleStringProperty("a"); //fix so that it can be null to insert
-    private StringProperty _numb = new SimpleStringProperty("a");
-    private StringProperty _address = new SimpleStringProperty("a");
+    private StringProperty _email = new SimpleStringProperty("N/A");
+    private StringProperty _numb = new SimpleStringProperty("N/A");
+    private StringProperty _address = new SimpleStringProperty("N/A");
     
     /* **********************
      * Getters and setters for properties

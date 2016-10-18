@@ -82,10 +82,14 @@ public class ViewReportController extends DialogController implements MapCompone
      */
     private void showReportDetails(Report r) {
 
-        attributesList.setItems(r.getAttributes());
-        detailsList.setItems(r.getDetails());
-        map.panTo(new LatLong(r.getLatitude(), r.getLongitude()));
-        Model.instance().setCurrentReport(r);
+            attributesList.setItems(r.getAttributes());
+            detailsList.setItems(r.getDetails());
+            
+            LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
+            map.panTo(loc);
+            Model.instance().setCurrentReport(r);
+
+        
     }
 
     /**
@@ -102,8 +106,9 @@ public class ViewReportController extends DialogController implements MapCompone
      */
     @FXML
     public void handleNewReport() {
+        dialogStage.close();
         showDialogAndWait("../view/NewReport.fxml", "New Report");
-        reportTable.setItems(Model.instance().getReports());
+        showDialog("../view/ViewReport.fxml", "View Reports");
     }
 
     @Override
