@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -48,6 +49,8 @@ public class ViewReportController extends DialogController implements MapCompone
     private GoogleMapView mapView;
 
     private GoogleMap map;
+    
+    private List<Report> reports = Model.instance().getReports();
 
     /**
      * Initializes the controller class. This method is automatically called
@@ -56,7 +59,7 @@ public class ViewReportController extends DialogController implements MapCompone
     @FXML
     private void initialize() {
         // set the table view to contain the list of courses from the model
-        reportTable.setItems(Model.instance().getReports());
+        reportTable.setItems((ObservableList<Report>) reports);
 
         // Initialize the course table with the two columns.
         reportNumberColumn.setCellValueFactory(
@@ -116,7 +119,7 @@ public class ViewReportController extends DialogController implements MapCompone
         MapOptions options = new MapOptions();
 
         //set up the center location for the map
-        LatLong center = new LatLong(34, -88);
+        LatLong center = new LatLong(33.75, -84.4);
 
         options.center(center)
                 .zoom(9)
@@ -132,8 +135,6 @@ public class ViewReportController extends DialogController implements MapCompone
 
 
         /** now we communicate with the model to get all the locations for markers */
-        
-        List<Report> reports = Model.instance().getReports();
 
         for (Report r: reports) {
 
