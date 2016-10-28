@@ -85,12 +85,9 @@ public class UserReport extends Report {
     @Override
     public ObservableList<String> getAttributes() {
         ObservableList<String> attributes = FXCollections.observableArrayList();
-        attributes.add("Report Number");
         attributes.add("Author");
         attributes.add("Timestamp");
         attributes.add("Location");
-        attributes.add("Latitude");
-        attributes.add("Longitude");
         attributes.add("Water Type");
         attributes.add("Water Condition");
         attributes.add("Description");
@@ -100,12 +97,9 @@ public class UserReport extends Report {
     @Override
     public ObservableList<String> getDetails() {
         ObservableList<String> details = FXCollections.observableArrayList();
-        details.add(this.getNumber().get());
         details.add(this.getAuthor().get());
         details.add(this.getTimestamp().get());
         details.add(this.getLocation().get());
-        details.add("" + this.getLatitude());
-        details.add("" + this.getLongitude());
         details.add(this.getWaterType());
         details.add(this.getWaterCond());
         details.add(this.getDescription().get());

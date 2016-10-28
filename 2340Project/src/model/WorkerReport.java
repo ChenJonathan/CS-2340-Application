@@ -98,7 +98,7 @@ public class WorkerReport extends UserReport {
 
     @Override
     public ObservableList<String> getDetails() {
-        ObservableList<String> details = super.getAttributes();
+        ObservableList<String> details = super.getDetails();
         details.remove(details.size() - 1);
         details.add("" + this.getVirusPPM());
         details.add("" + this.getContaminantPPM());
