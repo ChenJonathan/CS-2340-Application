@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import model.AuthorizationLevel;
 import model.Report;
 import model.UserReport;
+import model.WorkerReport;
 import netscape.javascript.JSObject;
 
 import java.util.List;
@@ -53,24 +54,26 @@ public class NewReportController extends DialogController implements MapComponen
 
     @FXML
     private TextField virus;
-    
+
     @FXML
     private GridPane workerDetails;
-    
-    @FXML 
+
+    @FXML
     private VBox content;
 
     @FXML
     private GoogleMapView mapView;
 
     private GoogleMap map;
-    
+
     private double latitude = 0;
-    
+
     private double longitude = 0;
 
     private Marker newReportMarker;
-    
+
+    private Model model = Model.instance();
+
     /**
      * Initializes combobox fields
      */
@@ -104,9 +107,35 @@ public class NewReportController extends DialogController implements MapComponen
             String wt = waterType.getSelectionModel().getSelectedItem().toString();
             String wc = waterCond.getSelectionModel().getSelectedItem().toString();
             String des = description.getText();
-            UserReport newReport = new UserReport(loc, latitude, longitude, des, Model.instance().getCurrentUser().getName(), wt, wc);
+            if (loc.isEmpty() || wt.isEmpty() || wc.isEmpty() || des.isEmpty()) {
+                throw new Exception();
+            }
+            UserReport newReport;
+            if (model.getCurrentUser().getAuth() == AuthorizationLevel.USER) {
+                newReport = new UserReport(loc, latitude, longitude, des, Model.instance().getCurrentUser().getName(),
+                        wt, wc);
+            } else {
+                String contam = contaminant.getText();
+                String vir = virus.getText();
+                double c = Double.parseDouble(contam);
+                double v = Double.parseDouble(vir);
+                if (c < 0 || v < 0 || c > 1000000 || v > 1000000) {
+                    throw new NumberFormatException();
+                }
+                newReport = new WorkerReport(loc, latitude, longitude, des, Model.instance().getCurrentUser().getName(),
+                        wt, wc, c, v);
+            }
             Model.instance().addReport(newReport);
             dialogStage.close();
+        } catch (NumberFormatException e) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText("PPM error");
+            alert.setContentText("PPM must be a valid value between 0 and 1,000,000");
+            alert.showAndWait();
+
         } catch (Exception e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(Main.stage());
@@ -124,77 +153,63 @@ public class NewReportController extends DialogController implements MapComponen
         //set up the center location for the map (atlanta)
         LatLong center = new LatLong(33.75, -84.4);
 
-        options.center(center)
-                .zoom(9)
-                .overviewMapControl(false)
-                .panControl(false)
-                .rotateControl(false)
-                .scaleControl(false)
-                .streetViewControl(false)
-                .zoomControl(false)
-                .mapType(MapTypeIdEnum.TERRAIN);
+        options.center(center).zoom(9).overviewMapControl(false).panControl(false).rotateControl(false)
+                .scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.TERRAIN);
 
         map = mapView.createMap(options);
-        
-        map.addUIEventHandler(UIEventType.click, 
-                (JSObject obj) -> { 
 
-                    //clear old marker if need be
-                    if (newReportMarker != null) {
-                        map.removeMarker(newReportMarker);
-                    }
+        map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
 
-                    MarkerOptions newOptions  = new MarkerOptions();
+            //clear old marker if need be
+            if (newReportMarker != null) {
+                map.removeMarker(newReportMarker);
+            }
 
-                    //get current mouse location
-                    LatLong ll = new LatLong((JSObject) obj.getMember("latLng")); 
-                    latitude = ll.getLatitude();
-                    longitude = ll.getLongitude();
-                    
-                    //set marker values for mouse location
-                    LatLong newLoc = new LatLong(latitude, longitude);
-                    newOptions.position(newLoc)
-                            .visible(Boolean.TRUE)
-                            .title("Report Location");
-                    newReportMarker = new Marker(newOptions);
+            MarkerOptions newOptions = new MarkerOptions();
 
-                    //add to map
-                    map.addMarker(newReportMarker);
-                    map.setZoom(map.getZoom()+1);
-                    map.setZoom(map.getZoom()-1);
-                    
-                });
-        
+            //get current mouse location
+            LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
+            latitude = ll.getLatitude();
+            longitude = ll.getLongitude();
+
+            //set marker values for mouse location
+            LatLong newLoc = new LatLong(latitude, longitude);
+            newOptions.position(newLoc).visible(Boolean.TRUE).title("Report Location");
+            newReportMarker = new Marker(newOptions);
+
+            //add to map
+            map.addMarker(newReportMarker);
+            map.setZoom(map.getZoom() + 1);
+            map.setZoom(map.getZoom() - 1);
+
+        });
+
         /** now we communicate with the model to get all the locations for markers */
-        
+
         List<Report> reports = Model.instance().getReports();
 
-        for (Report r: reports) {
+        for (Report r : reports) {
 
-            if(r != null) {
-            
+            if (r != null) {
+
                 MarkerOptions markerOptions = new MarkerOptions();
                 LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
-    
-                markerOptions.position(loc)
-                        .visible(Boolean.TRUE)
-                        .title(r.getLocation().get());
-    
-                Marker marker = new Marker(markerOptions);
-    
-                map.addUIEventHandler(marker,
-                        UIEventType.click,
-                        (JSObject obj) -> {
-                            InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-                            infoWindowOptions.content("<b>"+r.getLocation().get() + "</b><br>" + r.getDescription().get());
 
-                            InfoWindow window = new InfoWindow(infoWindowOptions);
-                            window.open(map, marker);
-                        });
-    
+                markerOptions.position(loc).visible(Boolean.TRUE).title(r.getLocation().get());
+
+                Marker marker = new Marker(markerOptions);
+
+                map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
+                    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                    infoWindowOptions.content("<b>" + r.getLocation().get() + "</b><br>" + r.getDescription().get());
+
+                    InfoWindow window = new InfoWindow(infoWindowOptions);
+                    window.open(map, marker);
+                });
+
                 map.addMarker(marker);
             }
         }
-        
+
     }
 }
