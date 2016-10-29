@@ -82,7 +82,7 @@ public class NewReportController extends DialogController implements MapComponen
         waterType.getItems().addAll("Bottled", "Well", "Stream", "Lake", "Spring", "Other");
         waterCond.getItems().addAll("Portable", "Treatable-Muddy", "Treatable-Clear", "Waste");
 
-        if (Model.instance().getCurrentUser().getAuth() == AuthorizationLevel.USER) {
+        if (model.getCurrentUser().getAuth() == AuthorizationLevel.USER) {
             content.getChildren().remove(workerDetails);
         }
         mapView.addMapInializedListener(this);
@@ -112,8 +112,7 @@ public class NewReportController extends DialogController implements MapComponen
             }
             UserReport newReport;
             if (model.getCurrentUser().getAuth() == AuthorizationLevel.USER) {
-                newReport = new UserReport(loc, latitude, longitude, des, Model.instance().getCurrentUser().getName(),
-                        wt, wc);
+                newReport = new UserReport(loc, latitude, longitude, des, model.getCurrentUser().getName(), wt, wc);
             } else {
                 String contam = contaminant.getText();
                 String vir = virus.getText();
@@ -122,10 +121,10 @@ public class NewReportController extends DialogController implements MapComponen
                 if (c < 0 || v < 0 || c > 1000000 || v > 1000000) {
                     throw new NumberFormatException();
                 }
-                newReport = new WorkerReport(loc, latitude, longitude, des, Model.instance().getCurrentUser().getName(),
-                        wt, wc, c, v);
+                newReport = new WorkerReport(loc, latitude, longitude, des, model.getCurrentUser().getName(), wt, wc, c,
+                        v);
             }
-            Model.instance().addReport(newReport);
+            model.addReport(newReport);
             dialogStage.close();
         } catch (NumberFormatException e) {
 
@@ -186,7 +185,7 @@ public class NewReportController extends DialogController implements MapComponen
 
         /** now we communicate with the model to get all the locations for markers */
 
-        List<Report> reports = Model.instance().getReports();
+        List<Report> reports = model.getReports();
 
         for (Report r : reports) {
 
