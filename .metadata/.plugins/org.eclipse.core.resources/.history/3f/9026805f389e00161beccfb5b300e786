@@ -1,0 +1,14 @@
+package controller;
+
+/**
+ * Controller for the dialog for generating a history graph.
+ * @author Alok Tripathy
+ *
+ */
+public class GraphController extends DialogController {
+
+	@FXML
+	private TextField longitudeField;
+	
+	
+}
