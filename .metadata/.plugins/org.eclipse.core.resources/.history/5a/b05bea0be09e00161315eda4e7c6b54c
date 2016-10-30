@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="734.0" prefWidth="848.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphController">
+   <children>
+      <TextField fx:id="longitudeField" layoutX="424.0" layoutY="59.0" />
+      <Label layoutX="288.0" layoutY="64.0" text="Longitude" />
+      <TextField fx:id="latitudeField" layoutX="424.0" layoutY="111.0" />
+      <Label layoutX="288.0" layoutY="116.0" text="Latitude" />
+      <TextField fx:id="radiusField" layoutX="424.0" layoutY="168.0" />
+	  <Label layoutX="293.0" layoutY="173.0" text="Radius" />
+      <Button layoutX="302.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
+      <Button layoutX="478.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+      <LineChart fx:id="qualityChart" layoutX="182.0" layoutY="303.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <TextField fx:id="radiusField1" layoutX="424.0" layoutY="213.0" />
+      <Label layoutX="293.0" layoutY="218.0" text="Year" />
+
+   </children>
+</Pane>

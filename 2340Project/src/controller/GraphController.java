@@ -3,6 +3,9 @@ package controller;
 import database.Model;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import javafx.scene.chart.CategoryAxis;
@@ -31,7 +34,15 @@ public class GraphController extends DialogController {
 	@FXML
 	private TextField radiusField;
 	
+	@FXML
+	private ComboBox<Integer> yearBox;
 	
+	@FXML
+	private ComboBox<String> ppmBox;
+	
+	@FXML
+	private LineChart<String, Number> qualityChart;
+
 	@FXML
 	public void handleOKPressed() {
 		String longitudeString = longitudeField.getText();
@@ -43,9 +54,9 @@ public class GraphController extends DialogController {
 		
 		CategoryAxis xAxis = new CategoryAxis();
 		NumberAxis yAxis = new NumberAxis();
-		LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
+		//qualityChart = new LineChart<>(xAxis, yAxis);
 		
-		lineChart.setTitle("History Graph");
+		qualityChart.setTitle("History Graph");
 		
 		XYChart.Series<String, Number> virusSeries = new XYChart.Series<>();
 		virusSeries.setName("Virus PPM");
@@ -53,17 +64,14 @@ public class GraphController extends DialogController {
 		for (Report report : reports) {
 			if (report instanceof WorkerReport) {
 				WorkerReport workerReport = (WorkerReport)report;
-				String timestamp = workerReport.getTimestamp().toString();
+				String timestamp = workerReport.getTimestamp().getValue();
+				System.out.println(timestamp);
 				double virusPPM = workerReport.getVirusPPM();
 				virusSeries.getData().add(new XYChart.Data<>(timestamp, virusPPM));
 			}
 		}
-		
-		Scene scene = new Scene(lineChart, 800, 600);
-		lineChart.getData().addAll(virusSeries);
-		
-		super.dialogStage.setScene(scene);
-		super.dialogStage.show();
+
+		qualityChart.getData().add(virusSeries);
 	}
     /**
      * Handler for when the cancel button on the register dialog is clicked.
