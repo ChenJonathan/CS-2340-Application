@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="959.0" prefWidth="997.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="819.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GraphController">
    <children>
       <TextField fx:id="longitudeField" layoutX="478.0" layoutY="72.0" />
       <Label layoutX="325.0" layoutY="77.0" text="Longitude" />
@@ -18,10 +18,9 @@
       <TextField fx:id="radiusField" layoutX="478.0" layoutY="179.0" />
 	  <Label layoutX="331.0" layoutY="184.0" text="Radius" />
       <Label layoutX="338.0" layoutY="233.0" text="Year" />
-      <ComboBox fx:id="yearBox" layoutX="488.0" layoutY="228.0" prefWidth="150.0" />
+      <ComboBox fx:id="yearBox" layoutX="487.0" layoutY="276.0" prefWidth="150.0" />     
       <Label layoutX="337.0" layoutY="281.0" text="PPM" />
-      <ComboBox fx:id="ppmBox" layoutX="487.0" layoutY="276.0" prefWidth="150.0" />     
-      
+      <ComboBox fx:id="ppmBox" layoutX="488.0" layoutY="228.0" prefWidth="150.0" />
       <Button layoutX="334.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
       <Button layoutX="531.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
       <LineChart fx:id="qualityChart" layoutX="228.0" layoutY="378.0">

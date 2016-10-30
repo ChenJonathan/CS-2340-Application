@@ -55,7 +55,6 @@ public class GraphController extends DialogController {
 		for (PPMTypes ppm : PPMTypes.values()) {
 			ppmBox.getItems().add(ppm.getType());
 		}
-		qualityChart.setAnimated(false);
 	}
 	@FXML
 	public void handleOKPressed() {
@@ -67,7 +66,7 @@ public class GraphController extends DialogController {
 		ObservableList<Report> reports = Model.instance().getReports();
 		
 		String ppmType = ppmBox.getSelectionModel().getSelectedItem().toString();
-		int queryYear = Integer.parseInt(yearBox.getSelectionModel().getSelectedItem().toString());
+		int year = Integer.parseInt(yearBox.getSelectionModel().getSelectedItem().toString());
 		
 		String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
 		qualityChart.setTitle("History Graph");
@@ -85,15 +84,10 @@ public class GraphController extends DialogController {
 						WorkerReport workerReport = (WorkerReport)report;
 						String timestamp = workerReport.getTimestamp().getValue();
 
-						int firstSlashIndex = timestamp.indexOf('/');
-						int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
-						boolean correctMonth = reportMonth == i + 1;
-						
-						int lastSlashIndex = timestamp.lastIndexOf('/');
-						int reportYear = Integer.parseInt(timestamp.substring(lastSlashIndex) + 1);
-						boolean correctYear = reportYear == queryYear;
-						
-						if (!correctMonth || !correctYear) {
+						int slashIndex = timestamp.indexOf('/');
+						int monthNum = Integer.parseInt(timestamp.substring(0, slashIndex));
+						boolean correctMonth = monthNum == i + 1;
+						if (!correctMonth) {
 							continue;
 						}
 						
@@ -107,6 +101,7 @@ public class GraphController extends DialogController {
 				if (totalMonthReports > 0) {
 					ppmAvg = ppmSum / totalMonthReports;
 				}
+				System.out.println(months[i] + " " + ppmAvg);
 				virusSeries.getData().add(new XYChart.Data<>(months[i], ppmAvg));
 
 			}

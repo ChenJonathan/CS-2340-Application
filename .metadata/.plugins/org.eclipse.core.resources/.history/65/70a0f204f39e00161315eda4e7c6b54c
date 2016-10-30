@@ -90,7 +90,7 @@ public class GraphController extends DialogController {
 						boolean correctMonth = reportMonth == i + 1;
 						
 						int lastSlashIndex = timestamp.lastIndexOf('/');
-						int reportYear = Integer.parseInt(timestamp.substring(lastSlashIndex) + 1);
+						int reportYear = Integer.parseInt(timestamp.substring(lastSlashIndex) + 1));
 						boolean correctYear = reportYear == queryYear;
 						
 						if (!correctMonth || !correctYear) {
