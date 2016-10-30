@@ -9,11 +9,10 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.Scene;
+import javafx.beans.property.StringProperty;
 
 import model.Location;
 import model.Report;
-import model.WorkerReport;
 
 /**
  * Controller for the dialog for generating a history graph.
@@ -46,24 +45,8 @@ public class GraphController extends DialogController {
 		LineChart<String, Number> lineChart = new LineChart<>(xAxis, yAxis);
 		
 		lineChart.setTitle("History Graph");
+		XYChart.Series virus = new XYChart.Series<>();
 		
-		XYChart.Series<String, Number> virusSeries = new XYChart.Series<>();
-		virusSeries.setName("Virus PPM");
-		
-		for (Report report : reports) {
-			if (report instanceof WorkerReport) {
-				WorkerReport workerReport = (WorkerReport)report;
-				String timestamp = workerReport.getTimestamp().toString();
-				double virusPPM = workerReport.getVirusPPM();
-				virusSeries.getData().add(new XYChart.Data<>(timestamp, virusPPM));
-			}
-		}
-		
-		Scene scene = new Scene(lineChart, 800, 600);
-		lineChart.getData().addAll(virusSeries);
-		
-		super.dialogStage.setScene(scene);
-		super.dialogStage.show();
 	}
     /**
      * Handler for when the cancel button on the register dialog is clicked.

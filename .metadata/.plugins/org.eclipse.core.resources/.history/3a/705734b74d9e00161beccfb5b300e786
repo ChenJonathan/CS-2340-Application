@@ -9,7 +9,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.Scene;
+import javafx.beans.property.StringProperty;
 
 import model.Location;
 import model.Report;
@@ -58,12 +58,6 @@ public class GraphController extends DialogController {
 				virusSeries.getData().add(new XYChart.Data<>(timestamp, virusPPM));
 			}
 		}
-		
-		Scene scene = new Scene(lineChart, 800, 600);
-		lineChart.getData().addAll(virusSeries);
-		
-		super.dialogStage.setScene(scene);
-		super.dialogStage.show();
 	}
     /**
      * Handler for when the cancel button on the register dialog is clicked.

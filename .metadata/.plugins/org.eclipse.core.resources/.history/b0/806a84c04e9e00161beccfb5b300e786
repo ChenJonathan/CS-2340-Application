@@ -62,8 +62,7 @@ public class GraphController extends DialogController {
 		Scene scene = new Scene(lineChart, 800, 600);
 		lineChart.getData().addAll(virusSeries);
 		
-		super.dialogStage.setScene(scene);
-		super.dialogStage.show();
+		
 	}
     /**
      * Handler for when the cancel button on the register dialog is clicked.

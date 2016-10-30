@@ -28,7 +28,7 @@
             <Button layoutX="855.0" layoutY="474.0" mnemonicParsing="false" onAction="#handleViewReportPressed" text="View Report" />
             <Button layoutX="1003.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleNewReportCreation" text="New Report" />
             <Button fx:id="btnProfile" layoutX="705.0" layoutY="563.0" mnemonicParsing="false" onAction="#handleProfilePressed" text="Profile " />
-            <Button layoutX="849.0" layoutY="563.0" mnemonicParsing="false" text="History Graph" />
+            <Button layoutX="849.0" layoutY="563.0" mnemonicParsing="false" onAction="#handleHistoryGraphPressed" text="History Graph" />
          
          </children>
          <cursor>

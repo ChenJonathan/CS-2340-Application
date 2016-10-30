@@ -27,7 +27,7 @@ public class MainScreenController extends Controller {
     
     @FXML
     public void handleHistoryGraphPressed() {
-    	showDialog("../view/GraphDialog.fxml", "History Graph");
+    	showDialog("../view/GraphController.fxml", "History Graph");
     }
 
     public void handleProfilePressed() {
