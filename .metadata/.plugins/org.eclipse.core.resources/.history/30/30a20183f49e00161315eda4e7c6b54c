@@ -59,8 +59,8 @@ public class GraphController extends DialogController {
 	}
 	@FXML
 	public void handleOKPressed() {
-		// Clear the data in the chart in case another option is pressed in the future.
-		qualityChart.getData().clear();
+		// Clear chart in case anything is already there.
+		qualityChart.setData(null);
 		
 		String longitudeString = longitudeField.getText();
 		String latitudeString = latitudeField.getText();
