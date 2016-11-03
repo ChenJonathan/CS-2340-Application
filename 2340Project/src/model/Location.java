@@ -1,12 +1,5 @@
 package model;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.Serializable;
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  * Created by Wesley on 10/17/16. Adapted from robertwaters's location class
  * Just a class to hold some data we might want to display on the map

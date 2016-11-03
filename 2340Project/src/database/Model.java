@@ -2,8 +2,8 @@ package database;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-import java.util.GregorianCalendar;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javafx.collections.FXCollections;
@@ -42,7 +42,7 @@ public class Model {
     /**
      * Add a user into the database.
      * @param user user to add
-     * @return true if user added, false otherwise.
+     * @return true if user added, false otherwise
      */
     public boolean addUser(User user) {
         try {
@@ -78,7 +78,7 @@ public class Model {
     /**
      * Updates a user in the database.
      * @param user user to update
-     * @return true if user updated, false otherwise.
+     * @return true if user updated, false otherwise
      */
     public boolean updateUser(User user) {
         try {
@@ -110,7 +110,12 @@ public class Model {
         }
         return false;
     }
-    
+
+    /**
+     * Checks if a user is in the database.
+     * @param user user to check for
+     * @return true if user exists, false otherwise
+     */
     public boolean checkUserExists(String user) {
         try {
             HttpResponse<JsonNode> response = Unirest.get("https://chenjonathan-cs-2340-api.herokuapp.com/user/" + user)
@@ -148,7 +153,7 @@ public class Model {
     /**
      * Add a report into the database.
      * @param report report to add
-     * @return true if report added, false otherwise.
+     * @return true if report added, false otherwise
      */
     public boolean addReport(UserReport report) {
         try {
@@ -188,7 +193,11 @@ public class Model {
         }
         return false;
     }
-    
+
+    /**
+     * Retrieves all reports from the database.
+     * @return all the reports in the database
+     */
     public ObservableList<Report> getReports() {
         ObservableList<Report> reports = FXCollections.observableArrayList();
         try {
@@ -198,10 +207,11 @@ public class Model {
             for(Object obj : response.getBody().getArray()) {
                 JSONObject json = (JSONObject)obj;
                 JSONObject jsonLoc = (JSONObject)json.getJSONObject("location");
+                JSONArray jsonCoords = (JSONArray)jsonLoc.getJSONArray("coordinates");
                 if(json.getString("type").equals("User")) {
                     UserReport report = new UserReport(jsonLoc.getString("name"), 
-                                                       jsonLoc.getDouble("latitude"), 
-                                                       jsonLoc.getDouble("longitude"), 
+                                                       jsonCoords.getDouble(0), 
+                                                       jsonCoords.getDouble(1), 
                                                        json.getString("description"), 
                                                        json.getString("timestamp"),
                                                        json.getString("user"), 
@@ -211,8 +221,58 @@ public class Model {
                     reports.add(report);
                 } else if(json.getString("type").equals("Worker")) {
                     WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
-                                                           jsonLoc.getDouble("latitude"), 
-                                                           jsonLoc.getDouble("longitude"), 
+                                                           jsonCoords.getDouble(0), 
+                                                           jsonCoords.getDouble(1), 
+                                                           json.getString("description"), 
+                                                           json.getString("timestamp"),
+                                                           json.getString("user"), 
+                                                           json.getString("waterType"), 
+                                                           json.getString("waterCondition"), 
+                                                           json.getDouble("virusPPM"), 
+                                                           json.getDouble("contaminantPPM"));
+                    report.setNumber(json.getInt("number"));
+                    reports.add(report);
+                }
+            }
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+        return reports;
+    }
+
+    /**
+     * Retrieves all reports from the database within a specified distance of a specified point.
+     * @param longitude the longitude of the specified point
+     * @param latitude the latitude of the specified point
+     * @param radius the maximum distance from the points to find reports
+     * @return all the reports in the database that are close to a specific location
+     */
+    public ObservableList<Report> getReportsByLocation(double longitude, double latitude, double radius) {
+        ObservableList<Report> reports = FXCollections.observableArrayList();
+        try {
+            HttpResponse<JsonNode> response = Unirest.get("https://chenjonathan-cs-2340-api.herokuapp.com/report/location?" + 
+                    "longitude=" + longitude + "latitude=" + latitude + "radius=" + radius)
+                .header("Content-Type", "application/x-www-form-urlencoded")
+                .asJson();
+            for(Object obj : response.getBody().getArray()) {
+                JSONObject json = (JSONObject)obj;
+                JSONObject jsonLoc = (JSONObject)json.getJSONObject("location");
+                JSONArray jsonCoords = (JSONArray)jsonLoc.getJSONArray("coordinates");
+                if(json.getString("type").equals("User")) {
+                    UserReport report = new UserReport(jsonLoc.getString("name"), 
+                                                       jsonCoords.getDouble(0), 
+                                                       jsonCoords.getDouble(1), 
+                                                       json.getString("description"), 
+                                                       json.getString("timestamp"),
+                                                       json.getString("user"), 
+                                                       json.getString("waterType"), 
+                                                       json.getString("waterCondition"));
+                    report.setNumber(json.getInt("number"));
+                    reports.add(report);
+                } else if(json.getString("type").equals("Worker")) {
+                    WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
+                                                           jsonCoords.getDouble(0), 
+                                                           jsonCoords.getDouble(1), 
                                                            json.getString("description"), 
                                                            json.getString("timestamp"),
                                                            json.getString("user"), 
