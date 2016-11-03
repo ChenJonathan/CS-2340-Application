@@ -6,12 +6,13 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="virusSeries" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="virusSeries"/>
 			<item value="badbad"/>
 			<item value="getMainScreen"/>
 			<item value="majorp"/>
@@ -24,9 +25,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="409" key="DIALOG_WIDTH"/>
+		<item value="407" key="DIALOG_WIDTH"/>
 		<item value="1|Terminus|16.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="411" key="DIALOG_HEIGHT"/>
+		<item value="384" key="DIALOG_HEIGHT"/>
 		<item value="758" key="DIALOG_X_ORIGIN"/>
 		<item value="221" key="DIALOG_Y_ORIGIN"/>
 	</section>

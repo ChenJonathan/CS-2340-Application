@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.BorderPane"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
-<fullyQualifiedTypeName name="javafx.stage.Stage"/>
 <fullyQualifiedTypeName name="controller.RegisterController"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="model.User"/>
@@ -19,4 +18,8 @@
 <fullyQualifiedTypeName name="javafx.scene.chart.XYChart.Series"/>
 <fullyQualifiedTypeName name="model.WorkerReport"/>
 <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
+<fullyQualifiedTypeName name="javafx.stage.Stage"/>
+<fullyQualifiedTypeName name="javafx.scene.control.ComboBox"/>
+<fullyQualifiedTypeName name="model.ReportTypes"/>
+<fullyQualifiedTypeName name="model.PPMTypes"/>
 </qualifiedTypeNameHistroy>
