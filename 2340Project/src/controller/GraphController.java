@@ -1,6 +1,24 @@
 package controller;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.List;
+
 import org.json.JSONException;
+
+import com.lynden.gmapsfx.GoogleMapView;
+import com.lynden.gmapsfx.MapComponentInitializedListener;
+import com.lynden.gmapsfx.javascript.event.UIEventType;
+import com.lynden.gmapsfx.javascript.object.GoogleMap;
+import com.lynden.gmapsfx.javascript.object.InfoWindow;
+import com.lynden.gmapsfx.javascript.object.InfoWindowOptions;
+import com.lynden.gmapsfx.javascript.object.LatLong;
+import com.lynden.gmapsfx.javascript.object.MapOptions;
+import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
+import com.lynden.gmapsfx.javascript.object.Marker;
+import com.lynden.gmapsfx.javascript.object.MarkerOptions;
+import com.lynden.gmapsfx.util.MarkerImageFactory;
 
 import database.Model;
 import fxapp.Main;
@@ -22,13 +40,14 @@ import model.Location;
 import model.PPMTypes;
 import model.Report;
 import model.WorkerReport;
+import netscape.javascript.JSObject;
 
 /**
  * Controller for the dialog for generating a history graph.
  * @author Alok Tripathy
  *
  */
-public class GraphController extends DialogController {
+public class GraphController extends DialogController implements MapComponentInitializedListener {
 
 	@FXML
 	private TextField longitudeField;
@@ -47,7 +66,20 @@ public class GraphController extends DialogController {
 	
 	@FXML
 	private LineChart<String, Number> qualityChart;
+	
+	@FXML
+    private GoogleMapView mapView;
 
+    private GoogleMap map;
+
+    private double latitude = 0;
+
+    private double longitude = 0;
+    
+    private Marker graphMarker;
+    
+    private Model model = Model.instance();
+    
 	@FXML
 	public void initialize() {
 		// Add elements to year's combobox.
@@ -60,38 +92,30 @@ public class GraphController extends DialogController {
 			ppmBox.getItems().add(ppm.getType());
 		}
 		qualityChart.setAnimated(false);
+		
+		mapView.addMapInializedListener(this);
 	}
 	@FXML
 	public void handleOKPressed() {
 		// Clear the data in the chart in case another option is pressed in the future.
 		qualityChart.getData().clear();
-		
-		String longitudeString = longitudeField.getText();
-		String latitudeString = latitudeField.getText();
 		String radiusString = radiusField.getText();
-		double longitude = 0.0;
-		double latitude = 0.0;
 		double radius = 0.0;
 		try {
-			longitude = Double.parseDouble(longitudeString);
-			latitude = Double.parseDouble(latitudeString);
 			radius = Double.parseDouble(radiusString);
 		} catch (NumberFormatException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(Main.stage());
-            alert.setTitle("Invalid longitude/latitude/radius");
-            alert.setHeaderText("Invalid longitude/latitude/radius");
-            alert.setContentText("Invalid longitude/latitude/radius");
+            alert.setTitle("Invalid radius");
+            alert.setHeaderText("Invalid radius");
+            alert.setContentText("Invalid radius");
             alert.show();
             return;
 		}
-		System.out.println(longitude + " " + latitude + " " + radius);
 		// Will substitute with getNearbyReports(inputLocation) at later date.
 		ObservableList<Report> reports = null;
 		try {
-			//reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
-			reports = Model.instance().getReports();
-
+		    reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
 		} catch (JSONException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(Main.stage());
@@ -109,6 +133,8 @@ public class GraphController extends DialogController {
 		
 		XYChart.Series<String, Number> series = new XYChart.Series<>();
 		series.setName(ppmType + " PPM");
+
+        System.out.println(latitude + " " + longitude);
 		
 		for (int i = 0; i < months.length; i++) {
 			double ppmSum = 0.0;
@@ -118,9 +144,6 @@ public class GraphController extends DialogController {
 				if (report instanceof WorkerReport) {
 					WorkerReport workerReport = (WorkerReport)report;
 					String timestamp = workerReport.getTimestamp().getValue();
-
-					System.out.println(workerReport.getLongitude() + " " + workerReport.getLatitude() + " " +
-											workerReport.getVirusPPM() + " " + workerReport.getContaminantPPM());
 					int firstSlashIndex = timestamp.indexOf('/');
 					int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
 					boolean correctMonth = reportMonth == i + 1;
@@ -159,5 +182,78 @@ public class GraphController extends DialogController {
     @FXML
     public void handleCancelPressed() {
         dialogStage.close();
+    }
+    
+    @Override
+    public void mapInitialized() {
+        MapOptions options = new MapOptions();
+
+        //set up the center location for the map (atlanta)
+        LatLong center = new LatLong(33.75, -84.4);
+
+        options.center(center).zoom(9).overviewMapControl(false).panControl(false).rotateControl(false)
+                .scaleControl(false).streetViewControl(false).zoomControl(false).mapType(MapTypeIdEnum.TERRAIN);
+
+        map = mapView.createMap(options);
+
+        map.addUIEventHandler(UIEventType.click, (JSObject obj) -> {
+
+            //clear old marker if need be
+            if (graphMarker != null) {
+                map.removeMarker(graphMarker);
+            }
+
+            MarkerOptions newOptions = new MarkerOptions();
+
+            //get current mouse location
+            LatLong ll = new LatLong((JSObject) obj.getMember("latLng"));
+            latitude = ll.getLatitude();
+            longitude = ll.getLongitude();
+
+            //set marker values for mouse location
+            LatLong newLoc = new LatLong(latitude, longitude);
+            URL drop = null;
+            try {
+               drop = new File("drop.png").toURI().toURL();
+            } catch (MalformedURLException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            newOptions.position(newLoc).visible(Boolean.TRUE).title("Graph Location");
+            graphMarker = new Marker(newOptions);
+
+            //add to map
+            map.addMarker(graphMarker);
+            map.setZoom(map.getZoom() + 1);
+            map.setZoom(map.getZoom() - 1);
+
+        });
+        /** now we communicate with the model to get all the locations for markers */
+
+        List<Report> reports = model.getReports();
+
+        for (Report r : reports) {
+
+            if (r != null) {
+
+                MarkerOptions markerOptions = new MarkerOptions();
+                LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
+
+                markerOptions.position(loc).visible(Boolean.TRUE).title(r.getLocation().get());
+
+                Marker marker = new Marker(markerOptions);
+
+                map.addUIEventHandler(marker, UIEventType.click, (JSObject obj) -> {
+                    InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
+                    infoWindowOptions.content("<b>" + r.getLocation().get() + "</b><br>" + r.getDescription().get());
+
+                    InfoWindow window = new InfoWindow(infoWindowOptions);
+                    window.open(map, marker);
+                });
+
+                map.addMarker(marker);
+            }
+        }
+
     }
 }
