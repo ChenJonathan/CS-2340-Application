@@ -1,7 +1,5 @@
 package controller;
 
-import org.json.JSONException;
-
 import database.Model;
 import fxapp.Main;
 import javafx.fxml.FXML;
@@ -83,24 +81,10 @@ public class GraphController extends DialogController {
             alert.setHeaderText("Invalid longitude/latitude/radius");
             alert.setContentText("Invalid longitude/latitude/radius");
             alert.show();
-            return;
 		}
-		System.out.println(longitude + " " + latitude + " " + radius);
 		// Will substitute with getNearbyReports(inputLocation) at later date.
-		ObservableList<Report> reports = null;
-		try {
-			//reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
-			reports = Model.instance().getReports();
-
-		} catch (JSONException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(Main.stage());
-            alert.setTitle("Location Not Found");
-            alert.setHeaderText("Location Not Found");
-            alert.setContentText("Location incorrect");
-            alert.show();
-            return;
-		}
+		ObservableList<Report> reports = Model.instance().getReports();
+		ObservableList<Report> reports = Model.instance().getReportsByLocation(longitude, latitude, radius)
 		String ppmType = ppmBox.getSelectionModel().getSelectedItem().toString();
 		int queryYear = Integer.parseInt(yearBox.getSelectionModel().getSelectedItem().toString());
 		
@@ -119,8 +103,6 @@ public class GraphController extends DialogController {
 					WorkerReport workerReport = (WorkerReport)report;
 					String timestamp = workerReport.getTimestamp().getValue();
 
-					System.out.println(workerReport.getLongitude() + " " + workerReport.getLatitude() + " " +
-											workerReport.getVirusPPM() + " " + workerReport.getContaminantPPM());
 					int firstSlashIndex = timestamp.indexOf('/');
 					int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
 					boolean correctMonth = reportMonth == i + 1;

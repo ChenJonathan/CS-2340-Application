@@ -1,12 +1,8 @@
 package controller;
 
-import org.json.JSONException;
-
 import database.Model;
-import fxapp.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 
 import javafx.collections.FXCollections;
@@ -68,39 +64,11 @@ public class GraphController extends DialogController {
 		
 		String longitudeString = longitudeField.getText();
 		String latitudeString = latitudeField.getText();
-		String radiusString = radiusField.getText();
-		double longitude = 0.0;
-		double latitude = 0.0;
-		double radius = 0.0;
-		try {
-			longitude = Double.parseDouble(longitudeString);
-			latitude = Double.parseDouble(latitudeString);
-			radius = Double.parseDouble(radiusString);
-		} catch (NumberFormatException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(Main.stage());
-            alert.setTitle("Invalid longitude/latitude/radius");
-            alert.setHeaderText("Invalid longitude/latitude/radius");
-            alert.setContentText("Invalid longitude/latitude/radius");
-            alert.show();
-            return;
-		}
-		System.out.println(longitude + " " + latitude + " " + radius);
+		String dummyName = "dumbdumbname";
+		Location inputLocation = Location.makeFromString(longitudeString + "\t" + latitudeString + "\t" + dummyName);
 		// Will substitute with getNearbyReports(inputLocation) at later date.
-		ObservableList<Report> reports = null;
-		try {
-			//reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
-			reports = Model.instance().getReports();
+		ObservableList<Report> reports = Model.instance().getReports();
 
-		} catch (JSONException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(Main.stage());
-            alert.setTitle("Location Not Found");
-            alert.setHeaderText("Location Not Found");
-            alert.setContentText("Location incorrect");
-            alert.show();
-            return;
-		}
 		String ppmType = ppmBox.getSelectionModel().getSelectedItem().toString();
 		int queryYear = Integer.parseInt(yearBox.getSelectionModel().getSelectedItem().toString());
 		
@@ -116,11 +84,10 @@ public class GraphController extends DialogController {
 			
 			for (Report report : reports) {
 				if (report instanceof WorkerReport) {
+					System.out.println("hereher");
 					WorkerReport workerReport = (WorkerReport)report;
 					String timestamp = workerReport.getTimestamp().getValue();
 
-					System.out.println(workerReport.getLongitude() + " " + workerReport.getLatitude() + " " +
-											workerReport.getVirusPPM() + " " + workerReport.getContaminantPPM());
 					int firstSlashIndex = timestamp.indexOf('/');
 					int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
 					boolean correctMonth = reportMonth == i + 1;

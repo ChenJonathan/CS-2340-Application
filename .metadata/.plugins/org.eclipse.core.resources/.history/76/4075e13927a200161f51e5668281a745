@@ -250,8 +250,10 @@ public class Model {
     public ObservableList<Report> getReportsByLocation(double longitude, double latitude, double radius) {
         ObservableList<Report> reports = FXCollections.observableArrayList();
         try {
+        	System.out.println("https://chenjonathan-cs-2340-api.herokuapp.com/report/location?" + 
+                    "longitude=" + longitude + "latitude=" + latitude + "radius=" + radius);
             HttpResponse<JsonNode> response = Unirest.get("https://chenjonathan-cs-2340-api.herokuapp.com/report/location?" + 
-                    "longitude=" + longitude + "&latitude=" + latitude + "&radius=" + radius)
+                    "longitude=" + longitude + "latitude=" + latitude + "radius=" + radius)
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .asJson();
             for(Object obj : response.getBody().getArray()) {

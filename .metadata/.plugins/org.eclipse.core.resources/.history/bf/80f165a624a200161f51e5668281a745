@@ -85,12 +85,12 @@ public class GraphController extends DialogController {
             alert.show();
             return;
 		}
-		System.out.println(longitude + " " + latitude + " " + radius);
+		System.out.println(longitude + " " + latitude + " " + radius)
 		// Will substitute with getNearbyReports(inputLocation) at later date.
 		ObservableList<Report> reports = null;
 		try {
-			//reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
-			reports = Model.instance().getReports();
+			reports = Model.instance().getReportsByLocation(longitude, latitude, radius);
+			//reports = Model.instance().getReports();
 
 		} catch (JSONException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -117,10 +117,9 @@ public class GraphController extends DialogController {
 			for (Report report : reports) {
 				if (report instanceof WorkerReport) {
 					WorkerReport workerReport = (WorkerReport)report;
+					System.out.println(workerReport.getLatitude() + " " + workerReport.getLongitude());
 					String timestamp = workerReport.getTimestamp().getValue();
 
-					System.out.println(workerReport.getLongitude() + " " + workerReport.getLatitude() + " " +
-											workerReport.getVirusPPM() + " " + workerReport.getContaminantPPM());
 					int firstSlashIndex = timestamp.indexOf('/');
 					int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
 					boolean correctMonth = reportMonth == i + 1;
