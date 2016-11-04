@@ -24,6 +24,11 @@ public class MainScreenController extends Controller {
     public void handleViewReportPressed() {
         showDialog("../view/ViewReport.fxml", "View Reports");
     }
+    
+    @FXML
+    public void handleHistoryGraphPressed() {
+    	showDialog("../view/GraphDialog.fxml", "History Graph");
+    }
 
     public void handleProfilePressed() {
         User user = Model.instance().getCurrentUser();

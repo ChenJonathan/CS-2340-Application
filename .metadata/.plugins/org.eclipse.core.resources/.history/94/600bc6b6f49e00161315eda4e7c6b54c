@@ -1,0 +1,127 @@
+package controller;
+
+import database.Model;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ComboBox;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.Scene;
+
+import model.Location;
+import model.PPMTypes;
+import model.Report;
+import model.WorkerReport;
+
+/**
+ * Controller for the dialog for generating a history graph.
+ * @author Alok Tripathy
+ *
+ */
+public class GraphController extends DialogController {
+
+	@FXML
+	private TextField longitudeField;
+	
+	@FXML
+	private TextField latitudeField;
+	
+	@FXML
+	private TextField radiusField;
+	
+	@FXML
+	private ComboBox<Integer> yearBox;
+	
+	@FXML
+	private ComboBox<String> ppmBox;
+	
+	@FXML
+	private LineChart<String, Number> qualityChart;
+
+	@FXML
+	public void initialize() {
+		// Add elements to year's combobox.
+		for (int i = 2016; i >= 1900; i--) {
+			yearBox.getItems().add(i);
+		}
+	
+		// Adds elements to ppm combobox.
+		for (PPMTypes ppm : PPMTypes.values()) {
+			ppmBox.getItems().add(ppm.getType());
+		}
+		qualityChart.setAnimated(false);
+	}
+	@FXML
+	public void handleOKPressed() {
+		
+		String longitudeString = longitudeField.getText();
+		String latitudeString = latitudeField.getText();
+		String dummyName = "dumbdumbname";
+		Location inputLocation = Location.makeFromString(longitudeString + "\t" + latitudeString + "\t" + dummyName);
+		// Will substitute with getNearbyReports(inputLocation) at later date.
+		ObservableList<Report> reports = Model.instance().getReports();
+		
+		String ppmType = ppmBox.getSelectionModel().getSelectedItem().toString();
+		int queryYear = Integer.parseInt(yearBox.getSelectionModel().getSelectedItem().toString());
+		
+		String[] months = {"JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"};
+		qualityChart.setTitle("History Graph");
+		
+		XYChart.Series<String, Number> series = new XYChart.Series<>();
+		series.setName(ppmType + " PPM");
+		
+		for (int i = 0; i < months.length; i++) {
+			double ppmSum = 0.0;
+			int totalMonthReports = 0;
+			
+			for (Report report : reports) {
+				if (report instanceof WorkerReport) {
+					WorkerReport workerReport = (WorkerReport)report;
+					String timestamp = workerReport.getTimestamp().getValue();
+
+					int firstSlashIndex = timestamp.indexOf('/');
+					int reportMonth = Integer.parseInt(timestamp.substring(0, firstSlashIndex));
+					boolean correctMonth = reportMonth == i + 1;
+					
+					int lastSlashIndex = timestamp.lastIndexOf('/');
+					int reportYear = Integer.parseInt(timestamp.substring(lastSlashIndex + 1, lastSlashIndex + 5));
+					boolean correctYear = reportYear == queryYear;
+					
+					if (!correctMonth || !correctYear) {
+						continue;
+					}
+					
+					if (ppmType.equals("VIRUS")) {
+						ppmSum += workerReport.getVirusPPM();
+					} else if (ppmType.equals("CONTAMINANT")) {
+						ppmSum += workerReport.getContaminantPPM();
+					}
+					totalMonthReports++;
+
+				}
+			}
+			
+			double ppmAvg = 0.0;
+			if (totalMonthReports > 0) {
+				ppmAvg = ppmSum / totalMonthReports;
+			}
+			series.getData().add(new XYChart.Data<>(months[i], ppmAvg));
+
+		}
+
+		qualityChart.getData().add(series);
+	}
+    /**
+     * Handler for when the cancel button on the register dialog is clicked.
+     */
+    @FXML
+    public void handleCancelPressed() {
+        dialogStage.close();
+    }
+}

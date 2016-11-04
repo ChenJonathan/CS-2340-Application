@@ -1,0 +1,100 @@
+package controller;
+
+import database.Model;
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.Scene;
+
+import model.Location;
+import model.Report;
+import model.WorkerReport;
+
+/**
+ * Controller for the dialog for generating a history graph.
+ * @author Alok Tripathy
+ *
+ */
+public class GraphController extends DialogController {
+
+	@FXML
+	private TextField longitudeField;
+	
+	@FXML
+	private TextField latitudeField;
+	
+	@FXML
+	private TextField radiusField;
+	
+	@FXML
+	private LineChart qualityChart;
+	
+	@FXML
+	protected void initialize() {
+        ObservableList<XYChart.Series<Double, Double>> lineChartData = FXCollections.observableArrayList();
+        
+        LineChart.Series<Double, Double> series1 = new LineChart.Series<Double, Double>();
+        series1.setName("Series 1");
+        series1.getData().add(new XYChart.Data<Double, Double>(0.0, 1.0));
+        series1.getData().add(new XYChart.Data<Double, Double>(1.2, 1.4));
+        series1.getData().add(new XYChart.Data<Double, Double>(2.2, 1.9));
+        series1.getData().add(new XYChart.Data<Double, Double>(2.7, 2.3));
+        series1.getData().add(new XYChart.Data<Double, Double>(2.9, 0.5));
+        
+        lineChartData.add(series1);
+        
+        LineChart.Series<Double, Double> series2 = new LineChart.Series<Double, Double>();
+        series2.setName("Series 2");
+        series2.getData().add(new XYChart.Data<Double, Double>(0.0, 1.6));
+        series2.getData().add(new XYChart.Data<Double, Double>(0.8, 0.4));
+        series2.getData().add(new XYChart.Data<Double, Double>(1.4, 2.9));
+        series2.getData().add(new XYChart.Data<Double, Double>(2.1, 1.3));
+        series2.getData().add(new XYChart.Data<Double, Double>(2.6, 0.9));
+        
+        lineChartData.add(series2);
+        
+        qualityChart.setData(lineChartData);
+        qualityChart.createSymbolsProperty();
+	}
+	@FXML
+	public void handleOKPressed() {
+		String longitudeString = longitudeField.getText();
+		String latitudeString = latitudeField.getText();
+		String dummyName = "dumbdumbname";
+		Location inputLocation = Location.makeFromString(longitudeString + "\t" + latitudeString + "\t" + dummyName);
+		// Will substitute with getNearbyReports(inputLocation) at later date.
+		ObservableList<Report> reports = Model.instance().getReports();
+		
+		CategoryAxis xAxis = new CategoryAxis();
+		NumberAxis yAxis = new NumberAxis();
+		//qualityChart = new LineChart<>(xAxis, yAxis);
+		
+		qualityChart.setTitle("History Graph");
+		
+		XYChart.Series<String, Number> virusSeries = new XYChart.Series<>();
+		virusSeries.setName("Virus PPM");
+		
+		for (Report report : reports) {
+			if (report instanceof WorkerReport) {
+				WorkerReport workerReport = (WorkerReport)report;
+				String timestamp = workerReport.getTimestamp().toString();
+				double virusPPM = workerReport.getVirusPPM();
+				virusSeries.getData().add(new XYChart.Data<>(timestamp, virusPPM));
+			}
+		}
+
+	}
+    /**
+     * Handler for when the cancel button on the register dialog is clicked.
+     */
+    @FXML
+    public void handleCancelPressed() {
+        dialogStage.close();
+    }
+}

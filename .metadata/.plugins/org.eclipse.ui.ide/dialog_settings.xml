@@ -8,4 +8,11 @@
 	</section>
 	<section name="BasicNewProjectResourceWizard">
 	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="963" key="DIALOG_WIDTH"/>
+		<item value="1|Terminus|16.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="624" key="DIALOG_HEIGHT"/>
+		<item value="479" key="DIALOG_X_ORIGIN"/>
+		<item value="97" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

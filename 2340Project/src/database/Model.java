@@ -251,7 +251,7 @@ public class Model {
         ObservableList<Report> reports = FXCollections.observableArrayList();
         try {
             HttpResponse<JsonNode> response = Unirest.get("https://chenjonathan-cs-2340-api.herokuapp.com/report/location?" + 
-                    "longitude=" + longitude + "latitude=" + latitude + "radius=" + radius)
+                    "longitude=" + longitude + "&latitude=" + latitude + "&radius=" + radius)
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .asJson();
             for(Object obj : response.getBody().getArray()) {
