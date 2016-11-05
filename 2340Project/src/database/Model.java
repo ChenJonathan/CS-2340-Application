@@ -210,8 +210,8 @@ public class Model {
                 JSONArray jsonCoords = (JSONArray)jsonLoc.getJSONArray("coordinates");
                 if(json.getString("type").equals("User")) {
                     UserReport report = new UserReport(jsonLoc.getString("name"), 
-                                                       jsonCoords.getDouble(0), 
                                                        jsonCoords.getDouble(1), 
+                                                       jsonCoords.getDouble(0), 
                                                        json.getString("description"), 
                                                        json.getString("timestamp"),
                                                        json.getString("user"), 
@@ -221,8 +221,8 @@ public class Model {
                     reports.add(report);
                 } else if(json.getString("type").equals("Worker")) {
                     WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
-                                                           jsonCoords.getDouble(0), 
                                                            jsonCoords.getDouble(1), 
+                                                           jsonCoords.getDouble(0), 
                                                            json.getString("description"), 
                                                            json.getString("timestamp"),
                                                            json.getString("user"), 
@@ -254,14 +254,15 @@ public class Model {
                     "longitude=" + longitude + "&latitude=" + latitude + "&radius=" + radius)
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .asJson();
+            System.out.println(response.getBody().toString());
             for(Object obj : response.getBody().getArray()) {
-                JSONObject json = (JSONObject)obj;
+                JSONObject json = ((JSONObject)obj).getJSONObject("obj");
                 JSONObject jsonLoc = (JSONObject)json.getJSONObject("location");
                 JSONArray jsonCoords = (JSONArray)jsonLoc.getJSONArray("coordinates");
                 if(json.getString("type").equals("User")) {
                     UserReport report = new UserReport(jsonLoc.getString("name"), 
-                                                       jsonCoords.getDouble(0), 
                                                        jsonCoords.getDouble(1), 
+                                                       jsonCoords.getDouble(0), 
                                                        json.getString("description"), 
                                                        json.getString("timestamp"),
                                                        json.getString("user"), 
@@ -271,8 +272,8 @@ public class Model {
                     reports.add(report);
                 } else if(json.getString("type").equals("Worker")) {
                     WorkerReport report = new WorkerReport(jsonLoc.getString("name"), 
-                                                           jsonCoords.getDouble(0), 
                                                            jsonCoords.getDouble(1), 
+                                                           jsonCoords.getDouble(0), 
                                                            json.getString("description"), 
                                                            json.getString("timestamp"),
                                                            json.getString("user"), 

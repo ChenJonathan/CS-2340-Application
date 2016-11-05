@@ -133,8 +133,6 @@ public class GraphController extends DialogController implements MapComponentIni
 		
 		XYChart.Series<String, Number> series = new XYChart.Series<>();
 		series.setName(ppmType + " PPM");
-
-        System.out.println(latitude + " " + longitude);
 		
 		for (int i = 0; i < months.length; i++) {
 			double ppmSum = 0.0;
