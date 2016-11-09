@@ -26,14 +26,11 @@ public class registerUserTests {
     @Test
     public void testRegisterUser() {
         User user = new User("Jonathan THE Chen", "hello", AuthorizationLevel.USER);
-        assertFalse(instance.checkUserExists(user));
+        assertFalse(instance.checkUserExists(user.getName()));
         assertTrue(instance.addUser(user));
         User userTwo = new User("Jonathan THE Chen", "oiMate", AuthorizationLevel.WORKER);
-        assertTrue(instance.checkUserExists(userTwo));
+        assertTrue(instance.checkUserExists(userTwo.getName()));
         assertFalse(instance.addUser(user));
-        User userThree = null;
-        assertFalse(instance.checkUserExists(user));
-        assertFalse(instance.addUser(userThree));
     }
 
 }
