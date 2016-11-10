@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  *@author Sathvik Kadaveru
  *
  */
-public class SaveReportTests {
+public class saveReportTests {
 	
 	private NewReportController nrc;
 	

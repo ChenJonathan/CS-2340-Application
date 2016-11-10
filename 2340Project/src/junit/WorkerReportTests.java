@@ -1,3 +1,5 @@
+package junit;
+
 import static org.junit.Assert.*;
 
 import org.junit.Before;
@@ -28,16 +30,16 @@ public class WorkerReportTests {
 	public void test() {
 		User user = new User("Obinna Onyeije", "password", AuthorizationLevel.WORKER);
 		instance.addUser(user);
-		Report reportOne = new WorkerReport("Missisippi River", 36.102375, -89.978027,
+		UserReport reportOne = new WorkerReport("Missisippi River", 36.102375, -89.978027,
 				"Missisippi River Report #1", "12:39 PM, Sunday November 9", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
-		Report reportTwo = new WorkerReport("Missisippi River", 36.102375, -89.978027,
+		UserReport reportTwo = new WorkerReport("Missisippi River", 36.102375, -89.978027,
 				"Missisippi River Report #2", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
-		Report reportThree = new WorkerReport("Missisippi River",
+		UserReport reportThree = new WorkerReport("Missisippi River",
 				"Missisippi River Report #3", "12:40 PM, Sunday November 9", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
-		Report reportFour = new WorkerReport("Missisippi River",
+		UserReport reportFour = new WorkerReport("Missisippi River",
 				"Missisippi River Report #4", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
 		
