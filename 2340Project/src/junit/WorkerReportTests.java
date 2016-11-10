@@ -8,7 +8,6 @@ import org.junit.Test;
 import model.WorkerReport;
 import model.UserReport;
 import model.AuthorizationLevel;
-import model.Report;
 import model.User;
 import database.Model;
 

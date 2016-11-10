@@ -41,7 +41,7 @@ public class User {
 	public void setEmail(String email) { _email.set(email); }
 	
 	public String getPhoneNumber() { return _numb.get(); }
-	public void setNumber(String numb) { _numb.set(numb); }
+	public void setPhoneNumber(String numb) { _numb.set(numb); }
 	
 	public String getAddress() { return _address.get(); }
 	public void setAddress(String address) { _address.set(address); }

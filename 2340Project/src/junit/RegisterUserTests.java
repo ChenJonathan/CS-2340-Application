@@ -17,7 +17,7 @@ import model.AuthorizationLevel;
  *@author Pravan Kalaga
  *
  */
-public class registerUserTests {
+public class RegisterUserTests {
     private Model instance;
 
     @Before

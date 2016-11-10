@@ -18,7 +18,6 @@ import static org.junit.Assert.assertNotNull;
 import database.Model;
 import model.WorkerReport;
 import model.UserReport;
-import model.Report;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

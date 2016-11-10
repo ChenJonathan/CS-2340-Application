@@ -1,6 +1,5 @@
 package database;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import org.json.JSONArray;
@@ -8,7 +7,6 @@ import org.json.JSONObject;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
 import model.AuthorizationLevel;
 import model.Report;
 import model.User;
@@ -18,9 +16,6 @@ import model.WorkerReport;
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
-
-import fxapp.Main;
 
 /**
  * This class serves as a Facade into the application model.
@@ -46,6 +41,8 @@ public class Model {
      */
     public boolean addUser(User user) {
         try {
+            if(user.getAuth() == null)
+                throw new NullPointerException();
             HttpResponse<JsonNode> response = Unirest.post("https://chenjonathan-cs-2340-api.herokuapp.com/register")
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .body("name=" + URLEncoder.encode(user.getName(), "UTF-8") + 
@@ -55,24 +52,11 @@ public class Model {
                       "&phone=" + URLEncoder.encode(user.getPhoneNumber(), "UTF-8") + 
                       "&address=" + URLEncoder.encode(user.getAddress(), "UTF-8"))
                 .asJson();
-            if(response.getStatus() != 201)
-            {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(Main.stage());
-                alert.setTitle("Error adding user");
-                alert.setHeaderText("Error adding user");
-                alert.setContentText(response.getStatusText());
-                alert.show();
-                return false;
-            }
-            return true;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (UnirestException e) {
+            return response.getStatus() == 201;
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-        return false;
     }
 
     /**
@@ -82,6 +66,8 @@ public class Model {
      */
     public boolean updateUser(User user) {
         try {
+            if(user.getAuth() == null)
+                throw new NullPointerException();
             HttpResponse<JsonNode> response = Unirest.put("https://chenjonathan-cs-2340-api.herokuapp.com/user/" + user.getName())
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .body("name=" + URLEncoder.encode(user.getName(), "UTF-8") + 
@@ -91,24 +77,11 @@ public class Model {
                       "&phone=" + URLEncoder.encode(user.getPhoneNumber(), "UTF-8") + 
                       "&address=" + URLEncoder.encode(user.getAddress(), "UTF-8"))
                 .asJson();
-            if(response.getStatus() != 201)
-            {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(Main.stage());
-                alert.setTitle("Error updating user");
-                alert.setHeaderText("Error updating user");
-                alert.setContentText(response.getStatusText());
-                alert.show();
-                return false;
-            }
-            return true;
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (UnirestException e) {
+            return response.getStatus() == 201;
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
-        return false;
     }
 
     /**
@@ -122,7 +95,7 @@ public class Model {
                 .header("Content-Type", "application/x-www-form-urlencoded")
                 .asJson();
             return response.getStatus() == 200;
-        } catch (UnirestException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -139,12 +112,12 @@ public class Model {
                 JSONObject json = response.getBody().getObject();
                 currentUser = new User(json.getString("name"), json.getString("pass"), AuthorizationLevel.fromString(json.getString("auth")));
                 currentUser.setEmail(json.getString("email"));
-                currentUser.setNumber(json.getString("phone"));
+                currentUser.setPhoneNumber(json.getString("phone"));
                 currentUser.setAddress(json.getString("address"));
                 return true;
             }
             return false;
-        } catch (UnirestException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -175,23 +148,11 @@ public class Model {
             }
             HttpResponse<JsonNode> response = Unirest.post("https://chenjonathan-cs-2340-api.herokuapp.com/report/new")
                 .header("Content-Type", "application/x-www-form-urlencoded").body(body).asJson();
-            if(response.getStatus() != 201)
-            {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(Main.stage());
-                alert.setTitle("Error adding report");
-                alert.setHeaderText("Error adding report");
-                alert.setContentText(response.getStatusText());
-                alert.show();
-                return false;
-            }
-            return true;
-        } catch (UnsupportedEncodingException e) {
+            return response.getStatus() == 201;
+        } catch (Exception e) {
             e.printStackTrace();
-        } catch (UnirestException e) {
-            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     /**
@@ -234,7 +195,7 @@ public class Model {
                     reports.add(report);
                 }
             }
-        } catch (UnirestException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return reports;
@@ -285,7 +246,7 @@ public class Model {
                     reports.add(report);
                 }
             }
-        } catch (UnirestException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return reports;
