@@ -26,34 +26,33 @@ import model.UserReport;
 import model.WorkerReport;
 
 /**
- *Testing handleSave method in
+ *Testing checkUserExists from database.Model
  *@author Sathvik Kadaveru
  *
  */
-public class SathvikJunitTest {
+public class CheckUserExistsTests {
 	private Model instance;
-	private User user;
+	private User user1, user2;
 
 	@Before
 	public void setUp() {
+		long timeStamp1 = System.currentTimeMillis();
+		long timeStamp2 = timeStamp1 + 5;
+		
 		instance = Model.instance();
-		user = new User("Sathvik Kadaveru", "johncena", AuthorizationLevel.WORKER);
+		user1 = new User("Sathvik " + timeStamp1, "johncena", AuthorizationLevel.USER);
+		user2 = new User("Sathvik " + timeStamp2, "johncena", AuthorizationLevel.USER);
 	}
 	
 	@Test
 	public void test() {
+		assertFalse(instance.checkUserExists(user1.getName()));
+		assertFalse(instance.checkUserExists(user2.getName()));
 		
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		String timestamp = dateFormat.format(date);
+		assertTrue(instance.addUser(user1));
 		
-		UserReport reportOne = new WorkerReport("Potomac River River", 39.111, -77.485,
-				"Potomac River Report #1", timestamp, user.getName(),
-				"Lake", "Treatable-Clear", 500, 201);
-		assertTrue(instance.addReport(reportOne));
-		
-		ObservableList<Report> reports = instance.getReportsByLocation(39.111, -77.485, 1000);
-		assertTrue(reports.contains(reportOne));
+		assertTrue(instance.checkUserExists(user1.getName()));
+		assertFalse(instance.checkUserExists(user2.getName()));
 
 	}
 	
