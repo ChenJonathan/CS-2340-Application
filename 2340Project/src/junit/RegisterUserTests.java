@@ -29,7 +29,7 @@ public class RegisterUserTests {
         while (instance.checkUserExists(userName) == true) {
             userName = "User Number: " + Math.random() * Integer.MAX_VALUE;
         }
-        user = new User(userName, "hello", AuthorizationLevel.USER);
+        User user = new User(userName, "hello", AuthorizationLevel.USER);
         assertFalse(instance.checkUserExists(user.getName()));
         assertTrue(instance.addUser(user));
         
@@ -40,7 +40,7 @@ public class RegisterUserTests {
         User userOne = new User("New User", "n", AuthorizationLevel.USER);
         boolean b = instance.addUser(userOne);
         assertTrue(instance.checkUserExists(userOne.getName()));
-        assertFalse(instance.addUser(user));
+        assertFalse(instance.addUser(userOne));
     }
 
 }
