@@ -20,24 +20,24 @@ import javafx.stage.Stage;
  *
  */
 public class SaveReportTests {
-	
-	private NewReportController nrc;
-	
-	@Before
-	public void setup() {
-		nrc = new NewReportController();
-	}
-	
-	/*@BeforeClass
-	public void setupfx() {
-		 Thread t = new Thread("JavaFX Init Thread") {
-	        public void run() {
-	            Application.launch(Main.class, new String[0]);
-	        }
-	    };
-	    t.setDaemon(true);
-	    t.start();
-	}*/
-	
+    
+    private NewReportController nrc;
+    
+    @Before
+    public void setup() {
+        nrc = new NewReportController();
+    }
+    
+    /*@BeforeClass
+    public void setupfx() {
+         Thread t = new Thread("JavaFX Init Thread") {
+            public void run() {
+                Application.launch(Main.class, new String[0]);
+            }
+        };
+        t.setDaemon(true);
+        t.start();
+    }*/
+    
 
 }

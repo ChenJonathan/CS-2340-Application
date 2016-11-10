@@ -18,7 +18,6 @@ import com.lynden.gmapsfx.javascript.object.MapOptions;
 import com.lynden.gmapsfx.javascript.object.MapTypeIdEnum;
 import com.lynden.gmapsfx.javascript.object.Marker;
 import com.lynden.gmapsfx.javascript.object.MarkerOptions;
-import com.lynden.gmapsfx.util.MarkerImageFactory;
 
 import database.Model;
 import fxapp.Main;
@@ -27,16 +26,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
-import javafx.scene.Scene;
 
-import model.Location;
 import model.PPMTypes;
 import model.Report;
 import model.WorkerReport;
