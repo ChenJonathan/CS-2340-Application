@@ -35,7 +35,7 @@ public class Main extends Application {
         Parent root = loader.load();
         stage.setScene(new Scene(root, Main.primaryScreenBounds.getWidth(), Main.primaryScreenBounds.getHeight()));
         stage.getIcons().add(new Image("file:water.png"));
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
         stage.show();
     }
 
