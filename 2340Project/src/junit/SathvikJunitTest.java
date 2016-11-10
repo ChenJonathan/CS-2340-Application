@@ -1,7 +1,12 @@
 package junit;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -25,26 +30,29 @@ import model.WorkerReport;
  *@author Sathvik Kadaveru
  *
  */
-public class ReportByLocationTests {
+public class SathvikJunitTest {
 	private Model instance;
 	private User user;
 
 	@Before
 	public void setUp() {
 		instance = Model.instance();
-		user = new User("Sathvik Kadaveru", "johncena", AuthorizationLevel.USER);
+		user = new User("Sathvik Kadaveru", "johncena", AuthorizationLevel.WORKER);
 	}
 	
 	@Test
 	public void test() {
 		
-		instance.addUser(this.user);
-		UserReport reportOne = new UserReport("Potomac River", 39.111, -77.485, "Potomac 1", "timestamp",
-	             user.getName(), "River", "Very Bad");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		String timestamp = dateFormat.format(date);
 		
+		UserReport reportOne = new WorkerReport("Potomac River River", 39.111, -77.485,
+				"Potomac River Report #1", timestamp, user.getName(),
+				"Lake", "Treatable-Clear", 500, 201);
 		assertTrue(instance.addReport(reportOne));
 		
-		ObservableList<Report> reports = instance.getReportsByLocation(39.111, -77.485, 100);
+		ObservableList<Report> reports = instance.getReportsByLocation(39.111, -77.485, 1000);
 		assertTrue(reports.contains(reportOne));
 
 	}
