@@ -19,19 +19,28 @@ import model.AuthorizationLevel;
  */
 public class RegisterUserTests {
     private Model instance;
+    private User user;
 
     @Before
     public void setup() {
         instance = Model.instance();
+        String userName  = "User Number: " + Math.random() * Integer.MAX_VALUE;
+        while (instance.checkUserExists(userName) == True) {
+            userName = "User Number: " + Math.random() * Integer.MAX_VALUE;
+        }
+        user = new User(userName, "hello", AuthorizationLevel.USER);
     }
 
     @Test
     public void testRegisterUser() {
-        User user = new User("Jonathan THE Chen", "hello", AuthorizationLevel.USER);
         assertFalse(instance.checkUserExists(user.getName()));
         assertTrue(instance.addUser(user));
-        User userTwo = new User("Jonathan THE Chen", "oiMate", AuthorizationLevel.WORKER);
-        assertTrue(instance.checkUserExists(userTwo.getName()));
+        
+    }
+
+    @Test
+    public void testRegisterSameUser() {
+        assertTrue(instance.checkUserExists(user.getName()));
         assertFalse(instance.addUser(user));
     }
 
