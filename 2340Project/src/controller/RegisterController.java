@@ -60,8 +60,13 @@ public class RegisterController extends DialogController {
             alert.setHeaderText("User already exists");
             alert.setContentText("A user with this username already exists");
             alert.showAndWait();
-        } else {
-            Model.instance().addUser(user);
+        } else if(!Model.instance().addUser(user)) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("Error adding user");
+            alert.setHeaderText("Error adding user");
+            alert.setContentText("An error occurred while attempting to add the user");
+            alert.show();
         }
 
         dialogStage.close();

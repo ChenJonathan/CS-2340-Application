@@ -123,7 +123,15 @@ public class NewReportController extends DialogController implements MapComponen
                 newReport = new WorkerReport(loc, latitude, longitude, des, model.getCurrentUser().getName(), wt, wc, c,
                         v);
             }
-            model.addReport(newReport);
+            if(!model.addReport(newReport))
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(Main.stage());
+                alert.setTitle("Error adding report");
+                alert.setHeaderText("Error adding report");
+                alert.setContentText("An error occurred while attempting to add the report");
+                alert.show();
+            }
             dialogStage.close();
         } catch (NumberFormatException e) {
 

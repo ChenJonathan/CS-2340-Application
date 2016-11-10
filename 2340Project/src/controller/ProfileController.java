@@ -1,7 +1,9 @@
 package controller;
 
 import database.Model;
+import fxapp.Main;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import model.User;
@@ -75,9 +77,17 @@ public class ProfileController extends DialogController {
 
         user.setAddress(address);
         user.setEmail(email);
-        user.setNumber(phone);
+        user.setPhoneNumber(phone);
         
-        Model.instance().updateUser(user);
+        if(!Model.instance().updateUser(user))
+        {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("Error updating user");
+            alert.setHeaderText("Error updating user");
+            alert.setContentText("An error occurred while attempting to update the user");
+            alert.show();
+        }
 
         dialogStage.close();
     }
