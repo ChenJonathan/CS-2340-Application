@@ -179,8 +179,23 @@ public abstract class Report {
                 + ":" + String.format("%d", c.get(Calendar.MINUTE)) + "." + String.format("%d", c.get(Calendar.SECOND));
     }
 
+    @Override
     public String toString() {
-        return _location + " " + _author + " " + _timestamp + " ";
+        return "[" + _location.get() + " " + _description.get() + " " + _author.get() + " " + _timestamp.get() + " ]";
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+    	if (!(o instanceof Report)) {
+    		return false;
+    	}
+    	Report other = (Report) o;
+    	return this.toString().equals(other.toString());
+    }
+    
+    @Override
+    public int hashCode() {
+    	return toString().hashCode();
     }
 
     public double getLatitude() {
