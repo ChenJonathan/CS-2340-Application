@@ -1,24 +1,45 @@
 package model;
 
 /**
- * Created by Wesley on 9/28/16. 
+ * Created by Wesley on 9/28/16.
  * This enumeration represents all the auth levels a user may hold
  */
 public enum AuthorizationLevel {
-    USER("User", 0), WORKER("Worker", 1), MANAGER("Manager", 2), ADMIN("Admin", 3);
+    /**
+     * User level authorization.
+     * Lowest Level Authorization
+     */
+    USER("User", 0),
 
-    /** the full string representation of the auth level */
+    /**
+     * Worker level authorization.
+     */
+    WORKER("Worker", 1),
+
+    /**
+     * Manager level authorization.
+     */
+    MANAGER("Manager", 2),
+
+    /**
+     * Admin level authorization.
+     * Highest Level Authorization
+     */
+    ADMIN("Admin", 3);
+
+    /** the full string representation of the auth level. */
     private final String name;
+    /** An integer indicator of the auth level. */
     private final int level;
 
     /**
-     * Constructor for the enumeration
-     * @param name full name of the auth level
-     * @param level the numeric level of rights of the user
+     * Constructor for the enumeration.
+     * @param n full name of the auth level
+     * @param l the numeric level of rights of the user
      */
-    private AuthorizationLevel(String name, int level) {
-        this.name = name;
-        this.level = level;
+    AuthorizationLevel(final String n, final int l) {
+        this.name = n;
+        this.level = l;
     }
 
     /**
@@ -37,11 +58,12 @@ public enum AuthorizationLevel {
     }
 
     /**
+     * @param string Indicating level of Authorization.
      * @return the auth level representation of the display string
      */
-    public static AuthorizationLevel fromString(String string) {
-        for(AuthorizationLevel auth : AuthorizationLevel.values()) {
-            if(auth.toString().equals(string)) {
+    public static AuthorizationLevel fromString(final String string) {
+        for (AuthorizationLevel auth : AuthorizationLevel.values()) {
+            if (auth.toString().equals(string)) {
                 return auth;
             }
         }

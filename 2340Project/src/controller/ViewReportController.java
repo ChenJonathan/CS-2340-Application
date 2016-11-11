@@ -19,35 +19,46 @@ import com.lynden.gmapsfx.javascript.object.*;
 import database.Model;
 
 /**
- * A controller that controls the view report window
- * 
+ * A controller that controls the view report window.
+ *
  * @author Wesley Cheung
  */
-public class ViewReportController extends DialogController implements MapComponentInitializedListener {
+public class ViewReportController
+        extends DialogController
+        implements MapComponentInitializedListener {
 
+    /**List fo attributes. */
     @FXML
     private ListView<String> attributesList;
 
+    /**List of details. */
     @FXML
     private ListView<String> detailsList;
 
+    /**Table with all the reports. */
     @FXML
     private TableView<Report> reportTable;
 
+    /**Column representing Report Number. */
     @FXML
     private TableColumn<Report, String> reportNumberColumn;
 
+    /**Column representing report Author. */
     @FXML
     private TableColumn<Report, String> reportAuthorColumn;
 
+    /**Column representing Report Location. */
     @FXML
     private TableColumn<Report, String> reportLocationColumn;
 
+    /**The way to view the map. */
     @FXML
     private GoogleMapView mapView;
 
+    /**Instance of Google Map object. */
     private GoogleMap map;
-    
+
+    /**List of all the reports for the table. */
     private List<Report> reports = Model.instance().getReports();
 
     /**
@@ -77,27 +88,26 @@ public class ViewReportController extends DialogController implements MapCompone
     }
 
     /**
-     * Called when the table selection changes
-     * 
-     * @param c the course that has been selected in the table
+     * Gets the report details for displaying.
+     * @param r report we want the details of
      */
-    private void showReportDetails(Report r) {
+    private void showReportDetails(final Report r) {
 
-            attributesList.setItems(r.getAttributes());
-            detailsList.setItems(r.getDetails());
-            
-            LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
-            map.panTo(loc);
-            Model.instance().setCurrentReport(r);
+        attributesList.setItems(r.getAttributes());
+        detailsList.setItems(r.getDetails());
 
-        
+        LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
+        map.panTo(loc);
+        Model.instance().setCurrentReport(r);
+
+
     }
 
     /**
      * Handler for when the cancel button on the view report dialog is clicked.
      */
     @FXML
-    public void handleClose() {
+    public final void handleClose() {
         dialogStage.close();
     }
 
@@ -106,14 +116,14 @@ public class ViewReportController extends DialogController implements MapCompone
      * clicked.
      */
     @FXML
-    public void handleNewReport() {
+    public final void handleNewReport() {
         dialogStage.close();
         showDialogAndWait("../view/NewReport.fxml", "New Report");
         showDialog("../view/ViewReport.fxml", "View Reports");
     }
 
     @Override
-    public void mapInitialized() {
+    public final void mapInitialized() {
         MapOptions options = new MapOptions();
 
         //set up the center location for the map
@@ -132,35 +142,36 @@ public class ViewReportController extends DialogController implements MapCompone
         map = mapView.createMap(options);
 
 
-        /** now we communicate with the model to get all the locations for markers */
+        /** now we communicate with the
+         * model to get all the locations for markers */
 
         for (Report r: reports) {
 
-            if(r != null) {
-            
+            if (r != null) {
                 MarkerOptions markerOptions = new MarkerOptions();
                 LatLong loc = new LatLong(r.getLatitude(), r.getLongitude());
-    
+
                 markerOptions.position(loc)
                         .visible(Boolean.TRUE)
                         .title(r.getLocation().get());
-    
+
                 Marker marker = new Marker(markerOptions);
     
                 map.addUIEventHandler(marker,
                         UIEventType.click,
                         (JSObject obj) -> {
                             InfoWindowOptions infoWindowOptions = new InfoWindowOptions();
-                            infoWindowOptions.content("<b>"+r.getLocation().get() + "</b><br>" + r.getDescription().get());
+                            infoWindowOptions.content("<b>"
+                                    + r.getLocation().get()
+                                    + "</b><br>"
+                                    + r.getDescription().get());
 
                             InfoWindow window = new InfoWindow(infoWindowOptions);
                             window.open(map, marker);
                             showReportDetails(r);
                         });
-    
                 map.addMarker(marker);
             }
         }
-        
     }
 }

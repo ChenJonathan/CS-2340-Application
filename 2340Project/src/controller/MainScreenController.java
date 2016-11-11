@@ -10,29 +10,48 @@ import database.Model;
  */
 public class MainScreenController extends Controller {
 
+    /**
+     * Sends the User back to the welcome screen.
+     */
     @FXML
-    public void handleLogoutPressed() {
+    public final void handleLogoutPressed() {
         showScreen("../view/WelcomeScreen.fxml", "Welcome!");
     }
 
+    /**
+     * Opens up the New Report Creation screen.
+     */
     @FXML
-    public void handleNewReportCreation() {
+    public final void handleNewReportCreation() {
         showDialog("../view/NewReport.fxml", "New Report");
     }
 
+    /**
+     * Brings up the View Report Dialogue Box.
+     */
     @FXML
-    public void handleViewReportPressed() {
+    public final void handleViewReportPressed() {
         showDialog("../view/ViewReport.fxml", "View Reports");
     }
-    
+
+    /**
+     * Brings up the Dialogue box with the history graph.
+     */
     @FXML
-    public void handleHistoryGraphPressed() {
+    public final void handleHistoryGraphPressed() {
     	showDialog("../view/GraphDialog.fxml", "History Graph");
     }
 
-    public void handleProfilePressed() {
+    /**
+     * Brings up the profile dialogue box for
+     * that particular user.
+     */
+    public final void handleProfilePressed() {
         User user = Model.instance().getCurrentUser();
-        ProfileController controller = (ProfileController) showDialog("../view/ProfilePage.fxml", user.getName() + "'s Profile Page");
+        ProfileController controller =
+                (ProfileController)
+                        showDialog("../view/ProfilePage.fxml",
+                                user.getName() + "'s Profile Page");
         controller.setUser(user);
     }
 }

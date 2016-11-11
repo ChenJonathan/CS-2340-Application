@@ -12,26 +12,29 @@ import javafx.stage.Stage;
 import fxapp.Main;
 
 /**
- * Controller superclass. Can either change the current dialog or display a dialog in a new screen.
- * 
+ * Controller superclass. Can either change the current
+ * dialog or display a dialog in a new screen.
+ *
  * @author Jonathan Chen
  */
 public abstract class Controller {
 
     /**
      * Displays a dialog in the same window.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @return the controller associated with the dialog
      */
-    protected Controller showScreen(String path) {
+    protected final Controller showScreen(final String path) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(path));
 
             Parent root = loader.load();
             Stage mainStage = Main.stage();
-            mainStage.setScene(new Scene(root, Main.primaryScreenBounds.getWidth(), Main.primaryScreenBounds.getHeight()));
+            mainStage.setScene(new Scene(root,
+                    Main.primaryScreenBounds.getWidth(),
+                    Main.primaryScreenBounds.getHeight()));
             mainStage.getIcons().add(new Image("file:water.png"));
             mainStage.show();
 
@@ -44,12 +47,13 @@ public abstract class Controller {
 
     /**
      * Displays a dialog in the same window.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @param title the title of the new window
      * @return the controller associated with the dialog
      */
-    protected Controller showScreen(String path, String title) {
+    protected final Controller showScreen(final String path,
+                                          final String title) {
         Controller controller = showScreen(path);
         Main.stage().setTitle(title);
         return controller;
@@ -57,11 +61,11 @@ public abstract class Controller {
 
     /**
      * Creates a dialog in a new window but does not show it.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @return the controller associated with the dialog
      */
-    private DialogController createDialog(String path) {
+    private DialogController createDialog(final String path) {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource(path));
@@ -85,11 +89,11 @@ public abstract class Controller {
 
     /**
      * Displays a dialog in a new window.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @return the controller associated with the dialog
      */
-    protected DialogController showDialog(String path) {
+    protected final DialogController showDialog(final String path) {
         DialogController controller = createDialog(path);
         controller.dialogStage.show();
         return controller;
@@ -97,12 +101,13 @@ public abstract class Controller {
 
     /**
      * Displays a dialog in a new window.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @param title the title of the new window
      * @return the controller associated with the dialog
      */
-    protected DialogController showDialog(String path, String title) {
+    protected final DialogController showDialog(final String path,
+                                                final String title) {
         DialogController controller = showDialog(path);
         controller.stage().setTitle(title);
         return controller;
@@ -110,12 +115,12 @@ public abstract class Controller {
 
     /**
      * Displays a dialog in a new window and waits for the dialog to be closed.
-     * 
+     *
      * @param path
      *            the relative path to the FXML to be loaded
      * @return the controller associated with the dialog
      */
-    protected DialogController showDialogAndWait(String path) {
+    protected final DialogController showDialogAndWait(final String path) {
         DialogController controller = createDialog(path);
         controller.dialogStage.showAndWait();
         return controller;
@@ -123,12 +128,13 @@ public abstract class Controller {
 
     /**
      * Displays a dialog in a new window and waits for the dialog to be closed.
-     * 
+     *
      * @param path the relative path to the FXML to be loaded
      * @param title the title of the new window
      * @return the controller associated with the dialog
      */
-    protected DialogController showDialogAndWait(String path, String title) {
+    protected final DialogController showDialogAndWait(final String path,
+                                                       final String title) {
         DialogController controller = createDialog(path);
         controller.dialogStage.setTitle(title);
         controller.dialogStage.showAndWait();

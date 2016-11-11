@@ -4,89 +4,119 @@ package model;
 import javafx.collections.ObservableList;
 
 /**
- * @author Wesley The implementation of a report for a worker
+ * @author Wesley The implementation of a report for a worker.
  */
 public class WorkerReport extends UserReport {
 
+    /**The PPM of the water. */
     private double _virusPPM;
+    /**Contamination level of the Water. */
     private double _contaminantPPM;
 
     /**
-     * @param location
-     * @param description
-     * @param timestamp
-     * @param user
-     * @param _virusPPM
-     * @param _contaminantPPM
+     * Constructor of the Worker Report.
+     * @param location of the report
+     * @param description of the report
+     * @param timestamp of the report
+     * @param user who made the report
+     * @param virusPPM of the water
+     * @param contaminantPPM of the water
+     * @param longitude of the report
+     * @param latitude of the report.
+     * @param waterType of the water.
+     * @param waterCond of the report
      */
-    public WorkerReport(String location, double latitude, double longitude, String description, String timestamp,
-            String user, String waterType, String waterCond, double _virusPPM, double _contaminantPPM) {
-        super(location, latitude, longitude, description, timestamp, user, waterType, waterCond);
-        this._virusPPM = _virusPPM;
-        this._contaminantPPM = _contaminantPPM;
+    public WorkerReport(final String location, final double latitude,
+                        final double longitude, final String description,
+                        final String timestamp, final String user,
+                        final String waterType, final String waterCond,
+                        final double virusPPM, final double contaminantPPM) {
+        super(location, latitude, longitude,
+                description, timestamp, user,
+                waterType, waterCond);
+        this._virusPPM = virusPPM;
+        this._contaminantPPM = contaminantPPM;
     }
 
     /**
-     * @param location
-     * @param description
-     * @param timestamp
-     * @param user
-     * @param _virusPPM
-     * @param _contaminantPPM
+     * Constructor of the Worker Report.
+     * @param location of the report
+     * @param description of the report
+     * @param user who made the report
+     * @param virusPPM of the water
+     * @param contaminantPPM of the water
+     * @param longitude of the report
+     * @param latitude of the report.
+     * @param waterType of the water.
+     * @param waterCond of the report
      */
-    public WorkerReport(String location, double latitude, double longitude, String description, String user,
-            String waterType, String waterCond, double _virusPPM, double _contaminantPPM) {
-        super(location, latitude, longitude, description, user, waterType, waterCond);
-        this._virusPPM = _virusPPM;
-        this._contaminantPPM = _contaminantPPM;
+    public WorkerReport(final String location, final double latitude,
+                        final double longitude, final String description,
+                        final String user, final String waterType,
+                        final String waterCond, final double virusPPM,
+                        final double contaminantPPM) {
+        super(location, latitude, longitude,
+                description, user,
+                waterType, waterCond);
+        this._virusPPM = virusPPM;
+        this._contaminantPPM = contaminantPPM;
     }
 
     /**
-     * @param location
-     * @param description
-     * @param timestamp
-     * @param user
-     * @param _virusPPM
-     * @param _contaminantPPM
+     * Constructor of the Worker Report.
+     * @param location of the report
+     * @param description of the report
+     * @param timestamp of the report
+     * @param user who made the report
+     * @param virusPPM of the water
+     * @param contaminantPPM of the water
+     * @param waterType of the water.
+     * @param waterCond of the report
      */
-    public WorkerReport(String location, String description, String timestamp, String user, String waterType,
-            String waterCond, double _virusPPM, double _contaminantPPM) {
+    public WorkerReport(final String location, final String description,
+                        final String timestamp, final String user,
+                        final String waterType, final String waterCond,
+                        final double virusPPM, final double contaminantPPM) {
         super(location, description, timestamp, user, waterType, waterCond);
-        this._virusPPM = _virusPPM;
-        this._contaminantPPM = _contaminantPPM;
+        this._virusPPM = virusPPM;
+        this._contaminantPPM = contaminantPPM;
     }
 
     /**
-     * @param location
-     * @param description
-     * @param timestamp
-     * @param user
-     * @param _virusPPM
-     * @param _contaminantPPM
+     * Constructor of the Worker Report.
+     * @param location of the report
+     * @param description of the report
+     * @param user who made the report
+     * @param virusPPM of the water
+     * @param contaminantPPM of the water
+     * @param waterType of the water.
+     * @param waterCond of the report
      */
-    public WorkerReport(String location, String description, String user, String waterType, String waterCond,
-            double _virusPPM, double _contaminantPPM) {
+    public WorkerReport(final String location, final String description,
+                        final String user, final String waterType,
+                        final String waterCond, final double virusPPM,
+                        final double contaminantPPM) {
         super(location, description, user, waterType, waterCond);
-        this._virusPPM = _virusPPM;
-        this._contaminantPPM = _contaminantPPM;
+        this._virusPPM = virusPPM;
+        this._contaminantPPM = contaminantPPM;
     }
 
     /**
      * @return the _virusPPM
      */
-    public double getVirusPPM() {
+    public final double getVirusPPM() {
         return _virusPPM;
     }
 
     /**
      * @return the _contaminantPPM
      */
-    public double getContaminantPPM() {
+    public final double getContaminantPPM() {
         return _contaminantPPM;
     }
 
     @Override
-    public ObservableList<String> getAttributes() {
+    public final ObservableList<String> getAttributes() {
         ObservableList<String> attributes = super.getAttributes();
         attributes.remove(attributes.size() - 1);
         attributes.add("Virus PPM");
@@ -96,7 +126,7 @@ public class WorkerReport extends UserReport {
     }
 
     @Override
-    public ObservableList<String> getDetails() {
+    public final ObservableList<String> getDetails() {
         ObservableList<String> details = super.getDetails();
         details.remove(details.size() - 1);
         details.add("" + this.getVirusPPM());

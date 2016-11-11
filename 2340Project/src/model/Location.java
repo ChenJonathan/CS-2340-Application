@@ -1,34 +1,60 @@
 package model;
 
 /**
- * Created by Wesley on 10/17/16. Adapted from robertwaters's location class
+ * Created by Wesley on 10/17/16. Adapted from Robert Waters's location class
  * Just a class to hold some data we might want to display on the map
+ *
+ * @author Wesley
  */
 public class Location {
 
+    /**Instance variable for the longitude. */
     private final double longitude;
+    /**Instance variable for the latitude. */
     private final double latitude;
+    /**Title of the location. */
     private final String title;
 
-    public Location(double lat, double lg, String ti) {
+    /**
+     * Constructor for a location object.
+     * @param lat latitude
+     * @param lg longitude
+     * @param ti title
+     */
+    public Location(final double lat,
+                    final double lg, final String ti) {
         longitude = lg;
         latitude = lat;
         title = ti;
     }
 
-    public double getLongitude() {
+    /**
+     * @return return longitude.
+     */
+    public final double getLongitude() {
         return longitude;
     }
 
-    public double getLatitude() {
+    /**
+     * @return returns latitude.
+     */
+    public final double getLatitude() {
         return latitude;
     }
 
-    public String getTitle() {
+    /**
+     * @return returns title.
+     */
+    public final String getTitle() {
         return title;
     }
 
-    public static Location makeFromString(String str) {
+    /**
+     * Makes a location object from a string.
+     * @param str The String to use.
+     * @return returns a location object.
+     */
+    public static final Location makeFromString(final String str) {
 
         String[] tokens = str.split("\t");
         double longit = 0;
