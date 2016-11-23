@@ -54,7 +54,7 @@ public class Location {
      * @param str The String to use.
      * @return returns a location object.
      */
-    public static final Location makeFromString(final String str) {
+    public static Location makeFromString(final String str) {
 
         String[] tokens = str.split("\t");
         double longit = 0;

@@ -156,7 +156,6 @@ public class ViewReportController
                         .title(r.getLocation().get());
 
                 Marker marker = new Marker(markerOptions);
-    
                 map.addUIEventHandler(marker,
                         UIEventType.click,
                         (JSObject obj) -> {

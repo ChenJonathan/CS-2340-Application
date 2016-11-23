@@ -28,7 +28,7 @@ public enum PPMTypes {
 	}
 	/**
 	 * Getter for the type of Report.
-	 * @return
+	 * @return returns type of the PPM.
 	 */
 	public String getType() {
 		return type;
