@@ -13,14 +13,21 @@ import fxapp.Main;
  */
 public class LoginController extends DialogController {
 
+    /**Where the user enters the userName. */
     @FXML
     private TextField userField;
 
+    /**Where the user enters the password. */
     @FXML
     private PasswordField passwordField;
 
+    /**
+     * Checks whether the User exists
+     * in the data base and completes
+     * the login process from there.
+     */
     @FXML
-    public void handleOKPressed() {
+    public final void handleOKPressed() {
         String user = userField.getText();
         String pass = passwordField.getText();
 
@@ -37,8 +44,12 @@ public class LoginController extends DialogController {
         }
     }
 
+    /**
+     * Closes the dialogue box upon pressing
+     * cancel.
+     */
     @FXML
-    public void handleCancelPressed() {
+    public final void handleCancelPressed() {
         dialogStage.close();
     }
 }

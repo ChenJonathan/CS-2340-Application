@@ -16,15 +16,19 @@ import fxapp.Main;
  */
 public class RegisterController extends DialogController {
 
+    /**Text Field for the user name. */
     @FXML
     private TextField userField;
 
+    /**Text Field for the password. */
     @FXML
     private PasswordField passwordField;
 
+    /**ComboBox for authorization levels. */
     @FXML
     private ComboBox<String> authBox;
 
+    /**Instance of the new User. */
     private User user;
 
     /**
@@ -42,7 +46,7 @@ public class RegisterController extends DialogController {
      * Handler for when the OK button on the register dialog is clicked.
      */
     @FXML
-    public void handleOKPressed() {
+    public final void handleOKPressed() {
         user.setName(userField.getText());
         user.setPassword(passwordField.getText());
         String auth = authBox.getSelectionModel().getSelectedItem().toString();
@@ -60,12 +64,13 @@ public class RegisterController extends DialogController {
             alert.setHeaderText("User already exists");
             alert.setContentText("A user with this username already exists");
             alert.showAndWait();
-        } else if(!Model.instance().addUser(user)) {
+        } else if (!Model.instance().addUser(user)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(Main.stage());
             alert.setTitle("Error adding user");
             alert.setHeaderText("Error adding user");
-            alert.setContentText("An error occurred while attempting to add the user");
+            alert.setContentText("An error occurred while"
+                    + "attempting to add the user");
             alert.show();
         }
 
@@ -76,7 +81,7 @@ public class RegisterController extends DialogController {
      * Handler for when the cancel button on the register dialog is clicked.
      */
     @FXML
-    public void handleCancelPressed() {
+    public final void handleCancelPressed() {
         dialogStage.close();
     }
 }

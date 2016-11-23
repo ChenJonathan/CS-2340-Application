@@ -9,17 +9,21 @@ import javafx.stage.Stage;
  */
 public abstract class DialogController extends Controller {
 
+    /**Controls the dialogue boxes Scene. */
     protected Stage dialogStage;
 
     /**
      * @return the stage of the dialog.
      */
-    public Stage stage() {
+    public final Stage stage() {
         dialogStage.getIcons().add(new Image("file:water.png"));
         return dialogStage;
     }
 
-    protected void setDialogStage(Stage stage) {
+    /**
+     * @param stage the scene to be shown in dialogue boxes.
+     */
+    protected final void setDialogStage(final Stage stage) {
         dialogStage = stage;
     }
 }

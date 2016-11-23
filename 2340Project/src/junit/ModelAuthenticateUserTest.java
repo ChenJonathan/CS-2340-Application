@@ -1,25 +1,18 @@
 package junit;
 
-import org.junit.AfterClass;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertSame;
+
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
+
 
 import database.Model;
-import model.WorkerReport;
-import model.UserReport;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 /**
  * Testing database authenticateUser methods.
@@ -28,15 +21,22 @@ import javafx.collections.ObservableList;
  */
 public class ModelAuthenticateUserTest {
 
+    /**Instance of the model class. */
     private Model instance;
 
+    /**
+     * Initializes instance varaibles.
+     */
     @Before
-    public void setup() {
+    public final void setup() {
         instance = Model.instance();
     }
 
+    /**
+     * Tests whether the authentication is valid for a User.
+     */
     @Test
-    public void testAuthenticateUserValid() {
+    public final void testAuthenticateUserValid() {
 
         ArrayList<String[]> super_secret_buffered_sha1024_mega_quintuple_AES_encrypted_credentials = new ArrayList<String[]>();
         String[] user = {"test", "test"};
@@ -53,8 +53,11 @@ public class ModelAuthenticateUserTest {
         }
     }
 
+    /**
+     * Tests if the authentication is invalid.
+     */
     @Test
-    public void testAuthenticateUserInvalid() {
+    public final void testAuthenticateUserInvalid() {
 
         ArrayList<String[]> super_secret_buffered_sha1024_mega_quintuple_AES_encrypted_credentials = new ArrayList<String[]>();
         String[] empty = {"", ""};

@@ -9,30 +9,35 @@ import javafx.scene.text.Text;
 import model.User;
 
 /**
- * Controller for working with the profile page
+ * Controller for working with the profile page.
  * @author Pravan Kalaga
  */
 public class ProfileController extends DialogController {
 
+    /**Instance of the current User. */
     private User user;
 
+    /**Text Field for the name. */
     @FXML
     private Text nameText;
 
+    /**TextField for the email. */
     @FXML
     private TextField emailField;
 
+    /**Text Field for the phone number. */
     @FXML
     private TextField numberField;
 
+    /**Text Field for the address. */
     @FXML
     private TextField addressField;
 
     /**
      * @param u set the current user
      */
-    public void setUser(User user) {
-        this.user = user;
+    public final void setUser(final User u) {
+        this.user = u;
         nameText.setText(user.getName() + "'s Profile Page");
         emailField.setText(user.getEmail());
         numberField.setText(user.getPhoneNumber());
@@ -42,35 +47,35 @@ public class ProfileController extends DialogController {
     /**
      * @param email set previous email info in emailField from User info
      */
-    public void setEmailField(String email) {
+    public final void setEmailField(final String email) {
         emailField.setText(email);
     }
 
     /**
-     * 
+     *
      * @param numb set previous phone number in
      * 	numberField from User
      */
-    public void setNumberField(String numb) {
+    public final void setNumberField(final String numb) {
         numberField.setText(numb);
     }
 
     /**
-     * 
      * @param address set previous address in addressField from User
-     * 	Info
+     * 	Info.
      */
-    public void setAddressField(String address) {
+    public final void setAddressField(final String address) {
         addressField.setText(address);
     }
 
-    @FXML
+
     /**
      * Sets users email, phone, and address variables
      * to the values in the text fields and closes the dialog
      * upon pressing the save button
      */
-    public void handleSavePressed() {
+    @FXML
+    public final void handleSavePressed() {
         String email = emailField.getText();
         String phone = numberField.getText();
         String address = addressField.getText();
@@ -78,25 +83,26 @@ public class ProfileController extends DialogController {
         user.setAddress(address);
         user.setEmail(email);
         user.setPhoneNumber(phone);
-        
-        if(!Model.instance().updateUser(user))
-        {
+
+        if (!Model.instance().updateUser(user)) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(Main.stage());
             alert.setTitle("Error updating user");
             alert.setHeaderText("Error updating user");
-            alert.setContentText("An error occurred while attempting to update the user");
+            alert.setContentText("An error occurred while"
+                    + "attempting to update the user");
             alert.show();
         }
 
         dialogStage.close();
     }
 
-    @FXML
+
     /**
-     * closes the pop up upon pressing cancel
+     * closes the pop up upon pressing cancel.
      */
-    public void handleCancelPressed() {
+    @FXML
+    public final void handleCancelPressed() {
         dialogStage.close();
     }
 }

@@ -12,36 +12,49 @@ import model.User;
 import database.Model;
 
 /**
- *Testing WorkerReport Method
+ *Testing WorkerReport Method.
  *@author Obinna Onyeije
  *
  */
 
 public class WorkerReportTests {
+	/**Instance of the Model class. */
 	private Model instance;
 
+	/**
+	 * Initializes instance variables.
+	 */
 	@Before
-	public void setUp() {
+	public final void setUp() {
 		instance = Model.instance();
 	}
 
+	/**
+	 * Tests if the WorkerReports get
+	 * added properly.
+	 */
 	@Test
-	public void test() {
-		User user = new User("Obinna Onyeije", "password", AuthorizationLevel.WORKER);
+	public final void test() {
+		User user = new User("Obinna Onyeije",
+				"password", AuthorizationLevel.WORKER);
 		instance.addUser(user);
-		UserReport reportOne = new WorkerReport("Missisippi River", 36.102375, -89.978027,
-				"Missisippi River Report #1", "12:39 PM, Sunday November 9", user.getName(),
+		UserReport reportOne = new WorkerReport("Missisippi River",
+				36.102375, -89.978027,
+				"Missisippi River Report #1",
+				"12:39 PM, Sunday November 9", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
-		UserReport reportTwo = new WorkerReport("Missisippi River", 36.102375, -89.978027,
-				"Missisippi River Report #2", user.getName(),
+		UserReport reportTwo = new WorkerReport("Missisippi River",
+				6.102375, -89.978027,
+				"Missisippi River Report #2",
+				user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
 		UserReport reportThree = new WorkerReport("Missisippi River",
-				"Missisippi River Report #3", "12:40 PM, Sunday November 9", user.getName(),
+				"Missisippi River Report #3",
+				"12:40 PM, Sunday November 9", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
 		UserReport reportFour = new WorkerReport("Missisippi River",
 				"Missisippi River Report #4", user.getName(),
 				"Lake", "Treatable-Clear", 500, 201);
-		
 		assertNotNull(reportOne.getLocation());
 		assertNotNull(reportOne.getLatitude());
 		assertNotNull(reportOne.getLongitude());
@@ -52,7 +65,7 @@ public class WorkerReportTests {
 		assertNotNull(((WorkerReport) reportOne).getWaterCond());
 		assertNotNull(((WorkerReport) reportOne).getVirusPPM());
 		assertNotNull(((WorkerReport) reportOne).getContaminantPPM());
-		
+
 		assertNotNull(reportTwo.getLocation());
 		assertNotNull(reportTwo.getLatitude());
 		assertNotNull(reportTwo.getLongitude());
@@ -62,7 +75,7 @@ public class WorkerReportTests {
 		assertNotNull(((WorkerReport) reportTwo).getWaterCond());
 		assertNotNull(((WorkerReport) reportTwo).getVirusPPM());
 		assertNotNull(((WorkerReport) reportTwo).getContaminantPPM());
-		
+
 		assertNotNull(reportThree.getLocation());
 		assertNotNull(reportThree.getDescription());
 		assertNotNull(reportThree.getTimestamp());
@@ -71,7 +84,7 @@ public class WorkerReportTests {
 		assertNotNull(((WorkerReport) reportThree).getWaterCond());
 		assertNotNull(((WorkerReport) reportThree).getVirusPPM());
 		assertNotNull(((WorkerReport) reportThree).getContaminantPPM());
-		
+
 		assertNotNull(reportFour.getLocation());
 		assertNotNull(reportFour.getDescription());
 		assertNotNull(reportFour.getAuthor());
@@ -79,14 +92,13 @@ public class WorkerReportTests {
 		assertNotNull(((WorkerReport) reportFour).getWaterCond());
 		assertNotNull(((WorkerReport) reportFour).getVirusPPM());
 		assertNotNull(((WorkerReport) reportFour).getContaminantPPM());
-		
+
 		assertTrue(instance.addReport(reportOne));
 		assertTrue(instance.addReport(reportTwo));
 		assertTrue(instance.addReport(reportThree));
 		assertTrue(instance.addReport(reportFour));
-		
-		assertNotNull(instance.getReports());
 
+		assertNotNull(instance.getReports());
 	}
 
 }
