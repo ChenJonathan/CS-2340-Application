@@ -1,0 +1,7 @@
+#Wed Nov 23 14:52:20 EST 2016
+base.0=C\:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_b7ad045cfde7be5828c085dbc9924cdffa1eab54
+renamed.1=classes2.dex
+renamed.0=classes.dex
+file.1=C\:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d621b6cb41a7ad30b2bbea1e7bb6ddb981cc7e88\\classes.dex
+base.1=C\:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_d621b6cb41a7ad30b2bbea1e7bb6ddb981cc7e88
+file.0=C\:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_b7ad045cfde7be5828c085dbc9924cdffa1eab54\\classes.dex
