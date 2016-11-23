@@ -198,8 +198,22 @@ public abstract class Report {
     /**
      * @return a string representation of the location.
      */
+	@Override
     public final String toString() {
         return _location + " " + _author + " " + _timestamp + " ";
+	}
+    @Override
+    public boolean equals(Object o) {
+    	if (!(o instanceof Report)) {
+    		return false;
+    	}
+    	Report other = (Report) o;
+    	return this.toString().equals(other.toString());
+    }
+    
+    @Override
+    public int hashCode() {
+    	return toString().hashCode();
     }
 
     /**

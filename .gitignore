@@ -29,3 +29,8 @@ local.properties
 .buildpath
 
 *.DS_Store
+2340Project/bin/model/Report.class
+*.class
+2340Project/bin/fxapp/Main.class
+2340Project/bin/database/Model.class
+2340Project/bin/database/Model.class
