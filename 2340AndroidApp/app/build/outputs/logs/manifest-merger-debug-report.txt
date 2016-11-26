@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:2:1-42:12
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:2:1-59:12
 	package
 		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:3:5-49
 		INJECTED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml
@@ -18,7 +18,7 @@ ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\mai
 	android:name
 		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:10:22-76
 application
-ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:12:5-40:19
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:12:5-57:19
 MERGED from [com.google.android.gms:play-services:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.1.0\AndroidManifest.xml:19:5-20
 MERGED from [com.google.android.gms:play-services-ads:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.1.0\AndroidManifest.xml:24:5-32:19
 MERGED from [com.google.android.gms:play-services-basement:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.1.0\AndroidManifest.xml:20:5-24:19
@@ -80,6 +80,30 @@ ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\mai
 		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:39:13-60
 	android:name
 		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:38:13-36
+activity#com.example.pravan.a2340androidapp.login
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:41:9-43:48
+	android:label
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:43:13-36
+	android:name
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:42:13-34
+activity#com.example.pravan.a2340androidapp.register
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:45:9-47:49
+	android:label
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:46:13-37
+activity#com.example.pravan.a2340androidapp.userReportController
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:49:9-51:61
+	android:label
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:51:13-49
+	android:name
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:50:13-49
+activity#com.example.pravan.a2340androidapp.workerReportController
+ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:53:9-55:63
+	android:label
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:55:13-51
+	android:name
+		ADDED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:54:13-51
 uses-sdk
 INJECTED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.android.gms:play-services:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\8.1.0\AndroidManifest.xml:18:5-42
@@ -164,7 +188,7 @@ ADDED from [com.google.android.gms:play-services-maps:8.1.0] C:\Users\Pravan\CS2
 	android:required
 		ADDED from [com.google.android.gms:play-services-maps:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.1.0\AndroidManifest.xml:25:8-31
 android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:2:1-42:12 reason: com.google.android.gms.maps requested WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\src\main\AndroidManifest.xml:2:1-59:12 reason: com.google.android.gms.maps requested WRITE_EXTERNAL_STORAGE
 uses-permission#com.google.android.c2dm.permission.RECEIVE
 ADDED from [com.google.android.gms:play-services-gcm:8.1.0] C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.1.0\AndroidManifest.xml:21:5-82
 	android:name

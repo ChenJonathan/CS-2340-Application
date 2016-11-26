@@ -44,6 +44,10 @@
         "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
+        "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_user_report.xml",
+        "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\src\\main\\res\\layout\\activity_user_report.xml"
+    },
+    {
         "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_screen_content_include.xml"
     },
@@ -94,6 +98,10 @@
     {
         "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
         "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\notification_template_lines.xml"
+    },
+    {
+        "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_worker_report.xml",
+        "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\src\\main\\res\\layout\\activity_worker_report.xml"
     },
     {
         "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media.xml",

@@ -37,6 +37,23 @@
         <activity
             android:name=".mainMap"
             android:label="@string/title_activity_main_map"></activity>
+
+        <activity
+            android:name=".login"
+            android:label = "login"></activity>
+
+        <activity
+            android:name=".register"
+            android:label="register"></activity>
+
+        <activity
+            android:name=".userReportController"
+            android:label="userReportController"></activity>
+
+        <activity
+            android:name=".workerReportController"
+            android:label="workerReportController"></activity>
+
     </application>
 
 </manifest>

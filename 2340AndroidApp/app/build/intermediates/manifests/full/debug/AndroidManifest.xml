@@ -58,6 +58,19 @@
         <activity
             android:name="com.example.pravan.a2340androidapp.mainMap"
             android:label="@string/title_activity_main_map" />
+        <activity
+            android:name="com.example.pravan.a2340androidapp.login"
+            android:label="login" />
+        <activity
+            android:name="com.example.pravan.a2340androidapp.register"
+            android:label="register" />
+        <activity
+            android:name="com.example.pravan.a2340androidapp.userReportController"
+            android:label="userReportController" />
+        <activity
+            android:name="com.example.pravan.a2340androidapp.workerReportController"
+            android:label="workerReportController" />
+
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
