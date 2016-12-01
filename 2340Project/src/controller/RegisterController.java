@@ -47,8 +47,16 @@ public class RegisterController extends DialogController {
      */
     @FXML
     public final void handleOKPressed() {
-        user.setName(userField.getText());
-        user.setPassword(passwordField.getText());
+        if (authBox.getSelectionModel().getSelectedItem() == null || userField.getText().isEmpty()
+                || passwordField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(Main.stage());
+            alert.setTitle("Error adding user");
+            alert.setHeaderText("Error adding user");
+            alert.setContentText("Fields not filled");
+            alert.show();
+            return;
+        }
         String auth = authBox.getSelectionModel().getSelectedItem().toString();
         for (AuthorizationLevel authLevel : AuthorizationLevel.values()) {
             if (auth.equals(authLevel.getName())) {
@@ -69,11 +77,12 @@ public class RegisterController extends DialogController {
             alert.initOwner(Main.stage());
             alert.setTitle("Error adding user");
             alert.setHeaderText("Error adding user");
-            alert.setContentText("An error occurred while"
-                    + "attempting to add the user");
+            alert.setContentText("An error occurred while" + "attempting to add the user");
             alert.show();
         }
 
+        user.setName(userField.getText());
+        user.setPassword(passwordField.getText());
         dialogStage.close();
     }
 

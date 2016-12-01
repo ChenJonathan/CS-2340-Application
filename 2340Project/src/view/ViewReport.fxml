@@ -14,13 +14,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@flatterfx.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewReportController">
    <children>
-      <SplitPane dividerPositions="0.49173553719008267" layoutX="179.0" layoutY="98.0" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane dividerPositions="0.49173553719008267" layoutX="179.0" layoutY="98.0" prefHeight="500.0" prefWidth="700.0" stylesheets="@flatterfx.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
-          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" SplitPane.resizableWithParent="false">
+          <AnchorPane minHeight="-Infinity" minWidth="-Infinity" stylesheets="@flatterfx.css" SplitPane.resizableWithParent="false">
                <children>
-                  <TableView id="reportTable" fx:id="reportTable" layoutX="17.0" layoutY="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView id="reportTable" fx:id="reportTable" layoutX="17.0" layoutY="30.0" stylesheets="@flatterfx.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                         <TableColumn fx:id="reportNumberColumn" prefWidth="44.0" resizable="false" text="#" />
                       <TableColumn fx:id="reportAuthorColumn" minWidth="0.0" prefWidth="176.0" resizable="false" text="Submitted By" />
@@ -32,25 +32,25 @@
                   </TableView>
                </children>
             </AnchorPane>
-          <AnchorPane prefHeight="710.0" prefWidth="709.0" SplitPane.resizableWithParent="false">
+          <AnchorPane prefHeight="710.0" prefWidth="709.0" stylesheets="@flatterfx.css" SplitPane.resizableWithParent="false">
                <children>
-                  <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="611.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <VBox alignment="TOP_CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="611.0" stylesheets="@flatterfx.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label text="Details" textAlignment="CENTER">
+                        <Label stylesheets="@flatterfx.css" text="Details" textAlignment="CENTER">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <SplitPane dividerPositions="0.30590339892665475" mouseTransparent="true" prefHeight="312.0" prefWidth="561.0">
+                        <SplitPane dividerPositions="0.30590339892665475" mouseTransparent="true" prefHeight="312.0" prefWidth="561.0" stylesheets="@flatterfx.css">
                           <items>
-                            <AnchorPane>
+                            <AnchorPane stylesheets="@flatterfx.css">
                                  <children>
-                                    <ListView fx:id="attributesList" layoutX="-16.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ListView fx:id="attributesList" layoutX="-16.0" layoutY="-12.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@flatterfx.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
-                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="176.0" prefWidth="346.0">
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="176.0" prefWidth="346.0" stylesheets="@flatterfx.css">
                                  <children>
-                                    <ListView fx:id="detailsList" layoutX="-1.0" layoutY="-6.0" prefHeight="200.0" prefWidth="367.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <ListView fx:id="detailsList" layoutX="-1.0" layoutY="-6.0" prefHeight="200.0" prefWidth="367.0" stylesheets="@flatterfx.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                                  </children>
                               </AnchorPane>
                           </items>
@@ -58,21 +58,21 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </SplitPane>
-                        <Label text="Location" textAlignment="RIGHT">
+                        <Label stylesheets="@flatterfx.css" text="Location" textAlignment="RIGHT">
                            <font>
                               <Font name="System Bold" size="19.0" />
                            </font>
                         </Label>
-                        <Pane id="mapBox" prefHeight="327.0" prefWidth="561.0">
+                        <Pane id="mapBox" prefHeight="327.0" prefWidth="561.0" stylesheets="@flatterfx.css">
                            <GoogleMapView fx:id="mapView" prefHeight="327.0" prefWidth="561.0" />
                            <VBox.margin>
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Pane>
-                        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                        <ButtonBar prefHeight="40.0" prefWidth="200.0" stylesheets="@flatterfx.css">
                           <buttons>
-                            <Button id="cancelButton" mnemonicParsing="false" onAction="#handleClose" text="Cancel" />
-                              <Button id="newReportButton" mnemonicParsing="false" onAction="#handleNewReport" text="New Report" />
+                            <Button id="cancelButton" mnemonicParsing="false" onAction="#handleClose" stylesheets="@flatterfx.css" text="Cancel" />
+                              <Button id="newReportButton" mnemonicParsing="false" onAction="#handleNewReport" stylesheets="@flatterfx.css" text="New Report" />
                           </buttons>
                            <VBox.margin>
                               <Insets />

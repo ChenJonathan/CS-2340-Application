@@ -6,20 +6,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" stylesheets="@flatterfx.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfileController">
    <children>
-      <Text fx:id="nameText" layoutX="60.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Page">
+      <Text fx:id="nameText" layoutX="205.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile Page">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="60.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-      <Text layoutX="60.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
-      <Text layoutX="60.0" layoutY="409.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
-      <TextField fx:id="emailField" layoutX="216.0" layoutY="156.0" />
-      <TextField fx:id="numberField" layoutX="216.0" layoutY="267.0" />
-      <TextField fx:id="addressField" layoutX="216.0" layoutY="397.0" />
-      <Button layoutX="216.0" layoutY="507.0" mnemonicParsing="false" onAction="#handleSavePressed" text="Save" />
-      <Button layoutX="338.0" layoutY="507.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+      <Text layoutX="37.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+      <Text layoutX="37.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number:" />
+      <Text layoutX="37.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address" />
+      <TextField fx:id="emailField" layoutX="234.0" layoutY="156.0" stylesheets="@flatterfx.css" />
+      <TextField fx:id="numberField" layoutX="234.0" layoutY="247.0" stylesheets="@flatterfx.css" />
+      <TextField fx:id="addressField" layoutX="234.0" layoutY="333.0" stylesheets="@flatterfx.css" />
+      <Button layoutX="146.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleSavePressed" stylesheets="@flatterfx.css" text="Save" />
+      <Button layoutX="340.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleCancelPressed" stylesheets="@flatterfx.css" text="Cancel" />
    </children>
 </Pane>

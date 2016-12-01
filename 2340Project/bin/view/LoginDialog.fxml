@@ -6,13 +6,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@flatterfx.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="userField" layoutX="215.0" layoutY="103.0" />
-      <Label layoutX="98.0" layoutY="108.0" text="Username" />
-      <PasswordField fx:id="passwordField" layoutX="215.0" layoutY="206.0" />
-      <Label layoutX="100.0" layoutY="211.0" text="Password" />
-      <Button layoutX="178.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleOKPressed" text="OK" />
-      <Button layoutX="354.0" layoutY="306.0" mnemonicParsing="false" onAction="#handleCancelPressed" text="Cancel" />
+      <TextField fx:id="userField" layoutX="215.0" layoutY="90.0" stylesheets="@flatterfx.css" />
+      <Label layoutX="62.0" layoutY="108.0" stylesheets="@flatterfx.css" text="Username" />
+      <PasswordField fx:id="passwordField" layoutX="215.0" layoutY="193.0" stylesheets="@flatterfx.css" />
+      <Label layoutX="65.0" layoutY="211.0" stylesheets="@flatterfx.css" text="Password" />
+      <Button layoutX="174.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleOKPressed" stylesheets="@flatterfx.css" text="OK" />
+      <Button layoutX="345.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleCancelPressed" stylesheets="@flatterfx.css" text="Cancel" />
    </children>
 </Pane>
