@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,7 +32,7 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        DrawerLayout rlMap = (DrawerLayout) findViewById(R.id.map);
+        FrameLayout rlMap = (FrameLayout) findViewById(R.id.map);
         final Button btnAdd = (Button) findViewById(R.id.btnAdd);
 
         //In order to get the User from the previous class
@@ -51,6 +52,7 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
 
         //These two methods might need to be combined
 
+        /**
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
@@ -59,6 +61,7 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
                 longitude = latLng.longitude;
             }
         });
+         */
         rlMap.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {

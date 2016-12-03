@@ -12,8 +12,6 @@ import android.widget.RadioGroup;
  */
 
 public class register extends AppCompatActivity {
-    private Intent welc = new Intent(register.this, Welcome.class);
-
     /**
      * Creates the xml file on screen and makes this class
      * act directly on that xml file
@@ -21,7 +19,7 @@ public class register extends AppCompatActivity {
      */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_register);
     }
 
     /**
@@ -39,8 +37,9 @@ public class register extends AppCompatActivity {
         } else {
             //check availability and add to database
 
+            Intent i = new Intent(register.this, Welcome.class);
             finish();
-            startActivity(welc);
+            startActivity(i);
         }
     }
 
@@ -48,7 +47,8 @@ public class register extends AppCompatActivity {
      * Returns to welcome screen
      */
     public void cancelOnClick(View v) {
+        Intent i = new Intent(register.this, Welcome.class);
         finish();
-        startActivity(welc);
+        startActivity(i);
     }
 }

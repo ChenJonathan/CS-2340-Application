@@ -17,7 +17,19 @@
         android:layout_height="wrap_content"
         android:id= "@+id/btnAdd"
         android:text="Add"
-        android:onClick="addOnClick"/>
+        android:onClick="addOnClick"
+        android:visibility="gone"/>
+
+    <Button
+        android:text="Logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnAdd"
+        android:layout_toRightOf="@+id/btnAdd"
+        android:id="@+id/btnLogout"
+        android:minHeight="5dp"
+        android:minWidth="44dip"
+        android:onClick="cancelOnClick"/>
 
 </RelativeLayout>
 

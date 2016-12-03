@@ -29,7 +29,7 @@
         android:id="@+id/btnLogout"
         android:minHeight="5dp"
         android:minWidth="44dip"
-        android:onClick="cancelOnClick"/>
+        android:onClick="logoutOnClick"/>
 
 </RelativeLayout>
 

@@ -19,7 +19,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
     }
 
-    public void loginOnClick() {
+    public void loginOnClick(View v) {
         EditText txtUserName = (EditText) findViewById(R.id.txtUserName);
         EditText txtPswrd = (EditText) findViewById(R.id.txtPswrd);
 
