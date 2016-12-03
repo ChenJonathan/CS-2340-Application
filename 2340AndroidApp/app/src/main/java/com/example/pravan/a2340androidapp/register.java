@@ -3,6 +3,7 @@ package com.example.pravan.a2340androidapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
@@ -29,7 +30,7 @@ public class register extends AppCompatActivity {
      * and password before referencing it in the database to
      * check availability. Returns to Welcome Screen afterwards
      */
-    public void regOnClick() {
+    public void regOnClick(View v) {
         EditText txtUserName = (EditText) findViewById(R.id.txtUserName);
         EditText txtPswrd = (EditText) findViewById(R.id.txtPswrd);
         int checkedRdoBtn = ((RadioGroup) findViewById(R.id.radioGroup)).getCheckedRadioButtonId();
@@ -46,7 +47,7 @@ public class register extends AppCompatActivity {
     /**
      * Returns to welcome screen
      */
-    public void cancelOnClick() {
+    public void cancelOnClick(View v) {
         finish();
         startActivity(welc);
     }

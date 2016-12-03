@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="997607a4e54d6198c77cd0178b648d2ee6720135">
+        sha1="389aac5b9878a3035282bcb47f028fe5b1bee34b">
         <dex dex="C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d621b6cb41a7ad30b2bbea1e7bb6ddb981cc7e88\classes.dex" />
     </item>
     <item
@@ -52,7 +52,7 @@
         jumboMode="true"
         optimize="true"
         revision="23.0.1"
-        sha1="70b5060fe7cda64a1fab182924752073870686ae">
+        sha1="bed0943c6b397cd388abdc34f4a8168d78afc39b">
         <dex dex="C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_b7ad045cfde7be5828c085dbc9924cdffa1eab54\classes.dex" />
     </item>
     <item
@@ -63,6 +63,15 @@
         revision="23.0.1"
         sha1="3aed37c38c56679602255dd72ef356da5d327cda">
         <dex dex="C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-8.1.0_a534d4c4e8123ab7c9746cb271b571ab606e3d46\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\exploded-aar\com.android.support\design\23.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="C:\Users\Pravan\CS2340\CS-2340-Application\2340AndroidApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-23.0.1_539ba917ec2c1e962491fe37fda081f6ba7b9eae\classes.dex" />
     </item>
     <item
         is-multidex="true"

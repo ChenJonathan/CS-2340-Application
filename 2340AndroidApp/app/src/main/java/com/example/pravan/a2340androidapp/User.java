@@ -1,6 +1,8 @@
 package com.example.pravan.a2340androidapp;
 
 
+import java.io.Serializable;
+
 /**
  * Created by Wesley on 9/28/16.
  *
@@ -8,7 +10,7 @@ package com.example.pravan.a2340androidapp;
  *
  * Information Holder
  */
-public class User {
+public class User implements Serializable{
     /**
      * Properties are a way of binding data under the JavaBeans specification.
      *

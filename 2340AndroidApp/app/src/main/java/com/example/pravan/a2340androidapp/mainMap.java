@@ -1,8 +1,15 @@
 package com.example.pravan.a2340androidapp;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.view.MotionEventCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -12,17 +19,65 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class mainMap extends FragmentActivity implements OnMapReadyCallback {
-
+    private double latitude;
+    private double longitude;
     private GoogleMap mMap;
-
+    private boolean gone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_map);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        DrawerLayout rlMap = (DrawerLayout) findViewById(R.id.map);
+        final Button btnAdd = (Button) findViewById(R.id.btnAdd);
+
+        //In order to get the User from the previous class
+        //use: getIntent().getSerializableExtra("User");
+        //where "User" is the tag assigned to it in the previous
+        //class
+
+        //Add all the reports to the map
+        //for x in list of reports
+        //  marker = new google.maps.Marker({
+        //      get all the details of the reports
+        //  });
+
+        //This is for the listener on the markers
+        // google.maps.event.addListener(marker, "click", function(event) {
+        //      var longi
+
+        //These two methods might need to be combined
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                //Use these to pass into the report
+                latitude = latLng.latitude;
+                longitude = latLng.longitude;
+            }
+        });
+        rlMap.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (gone == false) {
+                        btnAdd.setVisibility(View.GONE);
+                        gone = true;
+                    } else {
+                        btnAdd.setX(motionEvent.getX());
+                        btnAdd.setY(motionEvent.getY());
+                        btnAdd.setVisibility(View.VISIBLE);
+                        gone = false;
+                    }
+                }
+                return true;
+            }
+        });
+
+
     }
 
 
@@ -44,4 +99,20 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
+
+    public void addOnClick(View v) {
+        //Needs to do worker report depending on user level
+        Intent i = new Intent(mainMap.this, userReportController.class);
+        finish();
+        startActivity(i);
+    }
+
+    public void logoutOnClick(View v) {
+        Intent i = new Intent(mainMap.this, Welcome.class);
+        finish();
+        startActivity(i);
+
+    }
+
+
 }

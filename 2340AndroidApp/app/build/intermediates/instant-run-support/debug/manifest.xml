@@ -71,7 +71,6 @@
         <activity
             android:name="com.example.pravan.a2340androidapp.workerReportController"
             android:label="workerReportController" />
-
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

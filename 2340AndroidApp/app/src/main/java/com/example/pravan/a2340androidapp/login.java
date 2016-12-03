@@ -3,6 +3,7 @@ package com.example.pravan.a2340androidapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 
 import org.w3c.dom.Text;
@@ -29,15 +30,14 @@ public class login extends AppCompatActivity {
 
             //If it works
             Intent i = new Intent(login.this, mainMap.class);
-            //If we want to pass the current user in we would do
+            //get User
             //i.putExtra("User", User u);
-            //We would need user to extedn the Serializable interface
             finish();
             startActivity(i);
         }
     }
 
-    public void cancelOnClick() {
+    public void cancelOnClick(View v) {
         Intent i = new Intent(login.this, Welcome.class);
         finish();
         startActivity(i);

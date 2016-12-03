@@ -21,7 +21,7 @@ public abstract class Report {
     private final StringProperty _location = new SimpleStringProperty();
     /**Description for the report. */
     private final StringProperty _description = new SimpleStringProperty();
-    /**Author fo the report. */
+    /**Author for the report. */
     private final StringProperty _author = new SimpleStringProperty();
     /**Report Number. */
     private final StringProperty _number = new SimpleStringProperty();
