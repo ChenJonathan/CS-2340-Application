@@ -12,13 +12,7 @@
         android:layout_height="match_parent"
         tools:context="com.example.pravan.a2340androidapp.mainMap" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id= "@+id/btnAdd"
-        android:text="Add"
-        android:onClick="addOnClick"
-        android:visibility="gone"/>
+
 
     <Button
         android:text="Logout"
@@ -29,7 +23,7 @@
         android:id="@+id/btnLogout"
         android:minHeight="5dp"
         android:minWidth="44dip"
-        android:onClick="cancelOnClick"/>
+        android:onClick="logoutOnClick"/>
 
 </RelativeLayout>
 

@@ -12,13 +12,7 @@
         android:layout_height="match_parent"
         tools:context="com.example.pravan.a2340androidapp.mainMap" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id= "@+id/btnAdd"
-        android:text="Add"
-        android:onClick="addOnClick"
-        android:visibility="gone"/>
+
 
     <Button
         android:text="Logout"
@@ -30,6 +24,18 @@
         android:minHeight="5dp"
         android:minWidth="44dip"
         android:onClick="logoutOnClick"/>
+
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/btnLogout"
+        android:layout_toEndOf="@+id/btnLogout"
+        android:id="@+id/button"
+        android:minHeight="5dp"
+        android:minWidth="44dp"
+        android:onClick="addOnClick" />
 
 </RelativeLayout>
 

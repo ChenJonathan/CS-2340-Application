@@ -106,6 +106,8 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
     public void addOnClick(View v) {
         //Needs to do worker report depending on user level
         Intent i = new Intent(mainMap.this, userReportController.class);
+        String latLong = latitude + ", " + longitude;
+        i.putExtra("Latitude, Longitude", latLong);
         finish();
         startActivity(i);
     }
