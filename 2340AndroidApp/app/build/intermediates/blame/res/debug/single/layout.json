@@ -32,6 +32,10 @@
         "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
+        "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_second_maps.xml",
+        "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\src\\main\\res\\layout\\activity_second_maps.xml"
+    },
+    {
         "merged": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_layout.xml",
         "source": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\layout\\abc_list_menu_item_layout.xml"
     },

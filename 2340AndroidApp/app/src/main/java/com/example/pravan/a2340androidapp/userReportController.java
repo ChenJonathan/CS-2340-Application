@@ -1,6 +1,8 @@
 package com.example.pravan.a2340androidapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,10 +41,18 @@ public class userReportController extends AppCompatActivity {
         Spinner spnWaterType = (Spinner) findViewById(R.id.spinner4);
         Spinner spnWaterCond = (Spinner) findViewById(R.id.spinner6);
 
-        if (location.getText().equals("") || spnWaterCond.getSelectedItem().toString().equals("")
-                || spnWaterType.getSelectedItem().toString().equals("")) {
+        if (location.getText().toString().matches("") || spnWaterCond.getSelectedItem().toString().matches("")
+                || spnWaterType.getSelectedItem().toString().matches("")
+                || description.getText().toString().matches("")) {
 
             //display dialog box
+            new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
+                    .setMessage("Not all Fields have been used")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
 
         } else {
             //add to database

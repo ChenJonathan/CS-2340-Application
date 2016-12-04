@@ -31,10 +31,7 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
-        FrameLayout rlMap = (FrameLayout) findViewById(R.id.map);
-        final Button btnAdd = (Button) findViewById(R.id.btnAdd);
-
+        
         //In order to get the User from the previous class
         //use: getIntent().getSerializableExtra("User");
         //where "User" is the tag assigned to it in the previous
@@ -51,35 +48,6 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         //      var longi
 
         //These two methods might need to be combined
-
-        /**
-        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                //Use these to pass into the report
-                latitude = latLng.latitude;
-                longitude = latLng.longitude;
-            }
-        });
-         */
-        rlMap.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    if (gone == false) {
-                        btnAdd.setVisibility(View.GONE);
-                        gone = true;
-                    } else {
-                        btnAdd.setX(motionEvent.getX());
-                        btnAdd.setY(motionEvent.getY());
-                        btnAdd.setVisibility(View.VISIBLE);
-                        gone = false;
-                    }
-                }
-                return true;
-            }
-        });
-
 
     }
 

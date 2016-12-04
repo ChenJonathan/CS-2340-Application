@@ -25,6 +25,18 @@
         android:minWidth="44dip"
         android:onClick="logoutOnClick"/>
 
+    <Button
+        android:text="Add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/btnLogout"
+        android:layout_toEndOf="@+id/btnLogout"
+        android:id="@+id/button"
+        android:minHeight="5dp"
+        android:minWidth="44dp"
+        android:onClick="addOnClick" />
+
 </RelativeLayout>
 
 

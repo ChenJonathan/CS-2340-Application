@@ -1,6 +1,8 @@
 package com.example.pravan.a2340androidapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -49,12 +51,25 @@ public class workerReportController extends AppCompatActivity {
             cppm = Double.parseDouble(txtCPPM.getText().toString());
         } catch (NumberFormatException nfe) {
             //display dialog box
+            new AlertDialog.Builder(workerReportController.this).setTitle("Add Report Error")
+                    .setMessage("Virus PPM and Contaminant PPM need to be numbers")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
         }
         if (location.getText().equals("") || spnWaterCond.getSelectedItem().toString().equals("")
                 || spnWaterType.getSelectedItem().toString().equals("")) {
 
             //display dialog box
-
+            new AlertDialog.Builder(workerReportController.this).setTitle("Add Report Error")
+                    .setMessage("Not all Fields have been used")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
         } else {
             //add to database
 
