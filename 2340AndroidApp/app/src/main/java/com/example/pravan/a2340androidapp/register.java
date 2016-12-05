@@ -9,11 +9,15 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 
+import com.google.android.gms.auth.api.Auth;
+
 /**
  * Created by Pravan on 11/26/2016.
  */
 
 public class register extends AppCompatActivity {
+
+    private Model mainModel = Model.instance();
     /**
      * Creates the xml file on screen and makes this class
      * act directly on that xml file
@@ -34,6 +38,7 @@ public class register extends AppCompatActivity {
         EditText txtUserName = (EditText) findViewById(R.id.txtUserName);
         EditText txtPswrd = (EditText) findViewById(R.id.txtPswrd);
         int checkedRdoBtn = ((RadioGroup) findViewById(R.id.radioGroup)).getCheckedRadioButtonId();
+
         if (txtPswrd.getText().toString().matches("") || txtUserName.getText().toString().matches("")) {
             //open dialog with an error message
             new AlertDialog.Builder(register.this).setTitle("Register Error")
@@ -45,17 +50,35 @@ public class register extends AppCompatActivity {
                     }).show();
         } else {
             //check availability and add to database
-            new AlertDialog.Builder(register.this).setTitle("Register Error")
-                    .setMessage("Username is taken")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).show();
+            if (mainModel.checkUserExists(txtUserName.getText().toString())) {
+                new AlertDialog.Builder(register.this).setTitle("Register Error")
+                        .setMessage("Username is taken")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            } else {
+                AuthorizationLevel auth;
+                if (checkedRdoBtn == 0){
+                    auth = AuthorizationLevel.USER;
+                } else if (checkedRdoBtn == 1) {
+                    auth = AuthorizationLevel.WORKER;
+                } else if (checkedRdoBtn == 2) {
+                    auth = AuthorizationLevel.MANAGER;
+                } else {
+                    auth = AuthorizationLevel.ADMIN;
+                }
 
-            Intent i = new Intent(register.this, Welcome.class);
-            finish();
-            startActivity(i);
+                User u = new User(txtUserName.getText().toString(), txtPswrd.getText().toString(), auth);
+                mainModel.addUser(u);
+                Intent i = new Intent(register.this, Welcome.class);
+                finish();
+                startActivity(i);
+            }
+
+
+
         }
     }
 

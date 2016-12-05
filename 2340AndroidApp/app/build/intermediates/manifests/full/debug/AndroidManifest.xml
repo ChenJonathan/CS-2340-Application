@@ -70,9 +70,6 @@
         <activity
             android:name="com.example.pravan.a2340androidapp.workerReportController"
             android:label="workerReportController" />
-        <activity
-            android:name="com.example.pravan.a2340androidapp.MapsActivity"
-            android:label="@string/title_activity_maps" />
         <!-- Include the AdActivity and InAppPurchaseActivity configChanges and themes. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"

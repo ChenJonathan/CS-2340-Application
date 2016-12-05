@@ -19,11 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.List;
+
 public class mainMap extends FragmentActivity implements OnMapReadyCallback {
-    private double latitude;
-    private double longitude;
+    private Model mainModel = Model.instance();
     private GoogleMap mMap;
-    private boolean gone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,22 +32,6 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         
-        //In order to get the User from the previous class
-        //use: getIntent().getSerializableExtra("User");
-        //where "User" is the tag assigned to it in the previous
-        //class
-
-        //Add all the reports to the map
-        //for x in list of reports
-        //  marker = new google.maps.Marker({
-        //      get all the details of the reports
-        //  });
-
-        //This is for the listener on the markers
-        // google.maps.event.addListener(marker, "click", function(event) {
-        //      var longi
-
-        //These two methods might need to be combined
 
     }
 
@@ -64,18 +48,27 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        List<Report> rList = mainModel.getReports();
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        for (Report r: rList) {
+            double lat = r.getLatitude();
+            double lon = r.getLongitude();
+            LatLng ltlg = new LatLng(lat, lon);
+            mMap.addMarker(new MarkerOptions().position(ltlg).title("Location: " + r.getLocation()
+                    + "\n Description: " + r.getDescription()));
+        }
+
+
     }
 
     public void addOnClick(View v) {
         //Needs to do worker report depending on user level
-        Intent i = new Intent(mainMap.this, userReportController.class);
-        String latLong = latitude + ", " + longitude;
-        i.putExtra("Latitude, Longitude", latLong);
+        Intent i;
+        if (mainModel.getCurrentUser().getAuth() != AuthorizationLevel.USER) {
+            i = new Intent(mainMap.this, workerReportController.class);
+        } else {
+            i = new Intent(mainMap.this, userReportController.class);
+        }
         finish();
         startActivity(i);
     }

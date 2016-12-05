@@ -16,6 +16,8 @@ import org.w3c.dom.Text;
 
 public class login extends AppCompatActivity {
 
+    private Model mainModel = Model.instance();
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
@@ -37,19 +39,19 @@ public class login extends AppCompatActivity {
         } else {
             //check database for txtUserName.getText() && txtPswrd.getText()
             //If it doesnt exist
-            new AlertDialog.Builder(login.this).setTitle("Login Failure")
-                    .setMessage("Invalid Username or Password")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    }).show();
-            //If it works
-            Intent i = new Intent(login.this, mainMap.class);
-            //get User
-            //i.putExtra("User", User u);
-            finish();
-            startActivity(i);
+            if (!mainModel.authenticateUser(txtUserName.getText().toString(), txtPswrd.getText().toString())) {
+                new AlertDialog.Builder(login.this).setTitle("Login Failure")
+                        .setMessage("Invalid Username or Password")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            } else {
+                Intent i = new Intent(login.this, mainMap.class);
+                finish();
+                startActivity(i);
+            }
         }
     }
 

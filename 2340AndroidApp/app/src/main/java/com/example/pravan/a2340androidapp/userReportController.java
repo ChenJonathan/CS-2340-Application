@@ -16,6 +16,7 @@ import android.widget.Spinner;
 
 public class userReportController extends AppCompatActivity {
 
+    private Model mainModel = Model.instance();
     private String[] waterType = {"Bottled", "Well", "Stream", "Lake", "Spring", "Other"};
     private String[] waterCond = {"Portable", "Treatable-Muddy", "Treatable-Clear", "Waste"};
 
@@ -40,14 +41,17 @@ public class userReportController extends AppCompatActivity {
         EditText description = (EditText) findViewById(R.id.editText2);
         Spinner spnWaterType = (Spinner) findViewById(R.id.spinner4);
         Spinner spnWaterCond = (Spinner) findViewById(R.id.spinner6);
+        EditText txtLat = (EditText) findViewById(R.id.txtLat);
+        EditText txtLong = (EditText) findViewById(R.id.txtLong);
 
-        if (location.getText().toString().matches("") || spnWaterCond.getSelectedItem().toString().matches("")
-                || spnWaterType.getSelectedItem().toString().matches("")
-                || description.getText().toString().matches("")) {
+        if (location.getText().toString().matches("")
+                || description.getText().toString().matches("")
+                || txtLat.getText().toString().matches("")
+                || txtLong.getText().toString().matches("")) {
 
             //display dialog box
             new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
-                    .setMessage("Not all Fields have been used")
+                    .setMessage("Not all Fields have been filled")
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
@@ -56,10 +60,33 @@ public class userReportController extends AppCompatActivity {
 
         } else {
             //add to database
+            double lat;
+            double lon;
 
-            Intent i = new Intent(userReportController.this, mainMap.class);
-            finish();
-            startActivity(i);
+            try {
+                lat = Double.parseDouble(txtLat.getText().toString());
+                lon = Double.parseDouble(txtLong.getText().toString());
+
+                UserReport r = new UserReport(location.getText().toString(), lat, lon,
+                        description.getText().toString(), mainModel.getCurrentReport().getAuthor(),
+                        spnWaterType.getSelectedItem().toString(),
+                        spnWaterCond.getSelectedItem().toString());
+
+                mainModel.addReport(r);
+
+                Intent i = new Intent(userReportController.this, mainMap.class);
+                finish();
+                startActivity(i);
+            } catch (NumberFormatException nfe) {
+                new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
+                        .setMessage("Latitude and Longitude need to be numbers")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            }
+
         }
 
     }

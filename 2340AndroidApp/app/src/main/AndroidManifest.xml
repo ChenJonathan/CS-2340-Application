@@ -49,9 +49,6 @@
         <activity
             android:name=".workerReportController"
             android:label="workerReportController" />
-        <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

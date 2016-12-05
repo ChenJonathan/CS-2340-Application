@@ -143,4 +143,5 @@ public class User implements Serializable{
         setPassword("enter new password");
         this._auth = AuthorizationLevel.USER;
     }
+
 }
