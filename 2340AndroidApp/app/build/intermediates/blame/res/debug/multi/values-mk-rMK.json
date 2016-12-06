@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk-rMK\\values-mk-rMK.xml",
+        "outputFile": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mk-rMK\\values-mk-rMK.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 208
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 331
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 435
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 543
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 629
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -106,7 +106,7 @@
                     "endOffset": 734
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -125,7 +125,7 @@
                     "endOffset": 853
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 10,
                         "startColumn": 4,
@@ -144,7 +144,7 @@
                     "endOffset": 940
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 11,
                         "startColumn": 4,
@@ -163,7 +163,7 @@
                     "endOffset": 1046
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 12,
                         "startColumn": 4,
@@ -182,7 +182,7 @@
                     "endOffset": 1153
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 13,
                         "startColumn": 4,
@@ -201,7 +201,7 @@
                     "endOffset": 1254
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
@@ -220,7 +220,7 @@
                     "endOffset": 1361
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -239,7 +239,7 @@
                     "endOffset": 1472
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 16,
                         "startColumn": 4,
@@ -258,7 +258,7 @@
                     "endOffset": 1576
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 17,
                         "startColumn": 4,
@@ -277,7 +277,7 @@
                     "endOffset": 1674
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 18,
                         "startColumn": 4,
@@ -292,17 +292,17 @@
                     "startLine": 17,
                     "startColumn": 4,
                     "startOffset": 1679,
-                    "endColumn": 187,
-                    "endOffset": 1862
+                    "endColumn": 254,
+                    "endOffset": 1929
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 5,
+                        "startLine": 24,
                         "startColumn": 4,
-                        "startOffset": 487,
-                        "endColumn": 191,
-                        "endOffset": 674
+                        "startOffset": 3542,
+                        "endColumn": 258,
+                        "endOffset": 3796
                     }
                 }
             },
@@ -310,18 +310,18 @@
                 "to": {
                     "startLine": 18,
                     "startColumn": 4,
-                    "startOffset": 1867,
-                    "endColumn": 190,
-                    "endOffset": 2053
+                    "startOffset": 1934,
+                    "endColumn": 135,
+                    "endOffset": 2065
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 10,
                         "startColumn": 4,
-                        "startOffset": 2631,
-                        "endColumn": 194,
-                        "endOffset": 2821
+                        "startOffset": 1347,
+                        "endColumn": 135,
+                        "endOffset": 1478
                     }
                 }
             },
@@ -329,18 +329,18 @@
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 2058,
-                    "endColumn": 112,
-                    "endOffset": 2166
+                    "startOffset": 2070,
+                    "endColumn": 192,
+                    "endOffset": 2258
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 16,
+                        "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 2317,
-                        "endColumn": 112,
-                        "endOffset": 2425
+                        "startOffset": 1150,
+                        "endColumn": 196,
+                        "endOffset": 1342
                     }
                 }
             },
@@ -348,18 +348,18 @@
                 "to": {
                     "startLine": 20,
                     "startColumn": 4,
-                    "startOffset": 2171,
-                    "endColumn": 254,
-                    "endOffset": 2421
+                    "startOffset": 2263,
+                    "endColumn": 134,
+                    "endOffset": 2393
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 30,
+                        "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 4508,
-                        "endColumn": 258,
-                        "endOffset": 4762
+                        "startOffset": 1015,
+                        "endColumn": 134,
+                        "endOffset": 1145
                     }
                 }
             },
@@ -367,18 +367,18 @@
                 "to": {
                     "startLine": 21,
                     "startColumn": 4,
-                    "startOffset": 2426,
+                    "startOffset": 2398,
                     "endColumn": 135,
-                    "endOffset": 2557
+                    "endOffset": 2529
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 14,
+                        "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 2046,
+                        "startOffset": 879,
                         "endColumn": 135,
-                        "endOffset": 2177
+                        "endOffset": 1010
                     }
                 }
             },
@@ -386,18 +386,18 @@
                 "to": {
                     "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 2562,
-                    "endColumn": 192,
-                    "endOffset": 2750
+                    "startOffset": 2534,
+                    "endColumn": 212,
+                    "endOffset": 2742
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 13,
+                        "startLine": 5,
                         "startColumn": 4,
-                        "startOffset": 1849,
-                        "endColumn": 196,
-                        "endOffset": 2041
+                        "startOffset": 445,
+                        "endColumn": 216,
+                        "endOffset": 657
                     }
                 }
             },
@@ -405,18 +405,18 @@
                 "to": {
                     "startLine": 23,
                     "startColumn": 4,
-                    "startOffset": 2755,
-                    "endColumn": 133,
-                    "endOffset": 2884
+                    "startOffset": 2747,
+                    "endColumn": 212,
+                    "endOffset": 2955
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 6,
                         "startColumn": 4,
-                        "startOffset": 1715,
-                        "endColumn": 133,
-                        "endOffset": 1844
+                        "startOffset": 662,
+                        "endColumn": 216,
+                        "endOffset": 874
                     }
                 }
             },
@@ -424,18 +424,18 @@
                 "to": {
                     "startLine": 24,
                     "startColumn": 4,
-                    "startOffset": 2889,
-                    "endColumn": 163,
-                    "endOffset": 3048
+                    "startOffset": 2960,
+                    "endColumn": 134,
+                    "endOffset": 3090
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 7,
+                        "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 845,
-                        "endColumn": 167,
-                        "endOffset": 1008
+                        "startOffset": 310,
+                        "endColumn": 134,
+                        "endOffset": 440
                     }
                 }
             },
@@ -443,18 +443,18 @@
                 "to": {
                     "startLine": 25,
                     "startColumn": 4,
-                    "startOffset": 3053,
-                    "endColumn": 135,
-                    "endOffset": 3184
+                    "startOffset": 3095,
+                    "endColumn": 171,
+                    "endOffset": 3262
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 19,
                         "startColumn": 4,
-                        "startOffset": 1579,
-                        "endColumn": 135,
-                        "endOffset": 1710
+                        "startOffset": 2786,
+                        "endColumn": 171,
+                        "endOffset": 2953
                     }
                 }
             },
@@ -462,18 +462,18 @@
                 "to": {
                     "startLine": 26,
                     "startColumn": 4,
-                    "startOffset": 3189,
-                    "endColumn": 212,
-                    "endOffset": 3397
+                    "startOffset": 3267,
+                    "endColumn": 121,
+                    "endOffset": 3384
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 9,
+                        "startLine": 18,
                         "startColumn": 4,
-                        "startOffset": 1146,
-                        "endColumn": 216,
-                        "endOffset": 1358
+                        "startOffset": 2664,
+                        "endColumn": 121,
+                        "endOffset": 2781
                     }
                 }
             },
@@ -481,18 +481,18 @@
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 3402,
-                    "endColumn": 211,
-                    "endOffset": 3609
+                    "startOffset": 3389,
+                    "endColumn": 177,
+                    "endOffset": 3562
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 10,
+                        "startLine": 17,
                         "startColumn": 4,
-                        "startOffset": 1363,
-                        "endColumn": 215,
-                        "endOffset": 1574
+                        "startOffset": 2486,
+                        "endColumn": 177,
+                        "endOffset": 2659
                     }
                 }
             },
@@ -500,18 +500,18 @@
                 "to": {
                     "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 3614,
-                    "endColumn": 132,
-                    "endOffset": 3742
+                    "startOffset": 3567,
+                    "endColumn": 123,
+                    "endOffset": 3686
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 8,
+                        "startLine": 16,
                         "startColumn": 4,
-                        "startOffset": 1013,
-                        "endColumn": 132,
-                        "endOffset": 1141
+                        "startOffset": 2362,
+                        "endColumn": 123,
+                        "endOffset": 2481
                     }
                 }
             },
@@ -519,126 +519,12 @@
                 "to": {
                     "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 3747,
-                    "endColumn": 171,
-                    "endOffset": 3914
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 24,
-                        "startColumn": 4,
-                        "startOffset": 3606,
-                        "endColumn": 171,
-                        "endOffset": 3773
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 30,
-                    "startColumn": 4,
-                    "startOffset": 3919,
-                    "endColumn": 124,
-                    "endOffset": 4039
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 23,
-                        "startColumn": 4,
-                        "startOffset": 3481,
-                        "endColumn": 124,
-                        "endOffset": 3601
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 31,
-                    "startColumn": 4,
-                    "startOffset": 4044,
-                    "endColumn": 165,
-                    "endOffset": 4205
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 679,
-                        "endColumn": 165,
-                        "endOffset": 840
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 32,
-                    "startColumn": 4,
-                    "startOffset": 4210,
-                    "endColumn": 181,
-                    "endOffset": 4387
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 3299,
-                        "endColumn": 181,
-                        "endOffset": 3476
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 33,
-                    "startColumn": 4,
-                    "startOffset": 4392,
-                    "endColumn": 119,
-                    "endOffset": 4507
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 3179,
-                        "endColumn": 119,
-                        "endOffset": 3294
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 34,
-                    "startColumn": 4,
-                    "startOffset": 4512,
-                    "endColumn": 176,
-                    "endOffset": 4684
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 310,
-                        "endColumn": 176,
-                        "endOffset": 482
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 35,
-                    "startColumn": 4,
-                    "startOffset": 4689,
+                    "startOffset": 3691,
                     "endColumn": 139,
-                    "endOffset": 4824
+                    "endOffset": 3826
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -650,20 +536,134 @@
             },
             {
                 "to": {
-                    "startLine": 36,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 4829,
-                    "endColumn": 173,
-                    "endOffset": 4998
+                    "startOffset": 3831,
+                    "endColumn": 170,
+                    "endOffset": 3997
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 32,
+                        "startLine": 28,
                         "startColumn": 4,
-                        "startOffset": 4897,
-                        "endColumn": 173,
-                        "endOffset": 5066
+                        "startOffset": 4230,
+                        "endColumn": 170,
+                        "endOffset": 4396
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 4002,
+                    "endColumn": 127,
+                    "endOffset": 4125
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 4102,
+                        "endColumn": 127,
+                        "endOffset": 4225
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 4130,
+                    "endColumn": 171,
+                    "endOffset": 4297
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 3930,
+                        "endColumn": 171,
+                        "endOffset": 4097
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 33,
+                    "startColumn": 4,
+                    "startOffset": 4302,
+                    "endColumn": 128,
+                    "endOffset": 4426
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 3801,
+                        "endColumn": 128,
+                        "endOffset": 3925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 4431,
+                    "endColumn": 237,
+                    "endOffset": 4664
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 170,
+                        "endColumn": 241,
+                        "endOffset": 407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 4669,
+                    "endColumn": 247,
+                    "endOffset": 4912
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 3083,
+                        "endColumn": 251,
+                        "endOffset": 3330
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 4917,
+                    "endColumn": 124,
+                    "endOffset": 5037
+                },
+                "from": {
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 2958,
+                        "endColumn": 124,
+                        "endOffset": 3078
                     }
                 }
             },
@@ -671,18 +671,18 @@
                 "to": {
                     "startLine": 37,
                     "startColumn": 4,
-                    "startOffset": 5003,
-                    "endColumn": 129,
-                    "endOffset": 5128
+                    "startOffset": 5042,
+                    "endColumn": 108,
+                    "endOffset": 5146
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 31,
+                        "startLine": 22,
                         "startColumn": 4,
-                        "startOffset": 4767,
-                        "endColumn": 129,
-                        "endOffset": 4892
+                        "startOffset": 3335,
+                        "endColumn": 108,
+                        "endOffset": 3439
                     }
                 }
             },
@@ -690,18 +690,18 @@
                 "to": {
                     "startLine": 38,
                     "startColumn": 4,
-                    "startOffset": 5133,
-                    "endColumn": 144,
-                    "endOffset": 5273
+                    "startOffset": 5151,
+                    "endColumn": 196,
+                    "endOffset": 5343
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 25,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 3778,
-                        "endColumn": 144,
-                        "endOffset": 3918
+                        "startOffset": 1618,
+                        "endColumn": 200,
+                        "endOffset": 1814
                     }
                 }
             },
@@ -709,18 +709,18 @@
                 "to": {
                     "startLine": 39,
                     "startColumn": 4,
-                    "startOffset": 5278,
-                    "endColumn": 247,
-                    "endOffset": 5521
+                    "startOffset": 5348,
+                    "endColumn": 134,
+                    "endOffset": 5478
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 27,
+                        "startLine": 11,
                         "startColumn": 4,
-                        "startOffset": 4049,
-                        "endColumn": 251,
-                        "endOffset": 4296
+                        "startOffset": 1483,
+                        "endColumn": 134,
+                        "endOffset": 1613
                     }
                 }
             },
@@ -728,18 +728,18 @@
                 "to": {
                     "startLine": 40,
                     "startColumn": 4,
-                    "startOffset": 5526,
-                    "endColumn": 125,
-                    "endOffset": 5647
+                    "startOffset": 5483,
+                    "endColumn": 211,
+                    "endOffset": 5690
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 26,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 3923,
-                        "endColumn": 125,
-                        "endOffset": 4044
+                        "startOffset": 2146,
+                        "endColumn": 215,
+                        "endOffset": 2357
                     }
                 }
             },
@@ -747,18 +747,18 @@
                 "to": {
                     "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 5652,
-                    "endColumn": 108,
-                    "endOffset": 5756
+                    "startOffset": 5695,
+                    "endColumn": 137,
+                    "endOffset": 5828
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 28,
+                        "startLine": 14,
                         "startColumn": 4,
-                        "startOffset": 4301,
-                        "endColumn": 108,
-                        "endOffset": 4405
+                        "startOffset": 2008,
+                        "endColumn": 137,
+                        "endOffset": 2141
                     }
                 }
             },
@@ -766,18 +766,18 @@
                 "to": {
                     "startLine": 42,
                     "startColumn": 4,
-                    "startOffset": 5761,
-                    "endColumn": 196,
-                    "endOffset": 5953
+                    "startOffset": 5833,
+                    "endColumn": 188,
+                    "endOffset": 6017
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 17,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 2430,
-                        "endColumn": 200,
-                        "endOffset": 2626
+                        "startOffset": 1819,
+                        "endColumn": 188,
+                        "endOffset": 2003
                     }
                 }
             },
@@ -785,18 +785,18 @@
                 "to": {
                     "startLine": 43,
                     "startColumn": 4,
-                    "startOffset": 5958,
-                    "endColumn": 134,
-                    "endOffset": 6088
+                    "startOffset": 6022,
+                    "endColumn": 97,
+                    "endOffset": 6115
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 15,
+                        "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 2182,
-                        "endColumn": 134,
-                        "endOffset": 2312
+                        "startOffset": 3444,
+                        "endColumn": 97,
+                        "endOffset": 3537
                     }
                 }
             },
@@ -804,18 +804,18 @@
                 "to": {
                     "startLine": 44,
                     "startColumn": 4,
-                    "startOffset": 6093,
-                    "endColumn": 211,
-                    "endOffset": 6300
+                    "startOffset": 6120,
+                    "endColumn": 93,
+                    "endOffset": 6209
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 20,
+                        "startLine": 29,
                         "startColumn": 4,
-                        "startOffset": 2963,
-                        "endColumn": 215,
-                        "endOffset": 3174
+                        "startOffset": 4401,
+                        "endColumn": 93,
+                        "endOffset": 4490
                     }
                 }
             },
@@ -823,18 +823,18 @@
                 "to": {
                     "startLine": 45,
                     "startColumn": 4,
-                    "startOffset": 6305,
-                    "endColumn": 136,
-                    "endOffset": 6437
+                    "startOffset": 6214,
+                    "endColumn": 108,
+                    "endOffset": 6318
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values-mk-rMK\\base_strings.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 30,
                         "startColumn": 4,
-                        "startOffset": 2826,
-                        "endColumn": 136,
-                        "endOffset": 2958
+                        "startOffset": 4495,
+                        "endColumn": 108,
+                        "endOffset": 4599
                     }
                 }
             },
@@ -842,145 +842,12 @@
                 "to": {
                     "startLine": 46,
                     "startColumn": 4,
-                    "startOffset": 6442,
-                    "endColumn": 97,
-                    "endOffset": 6535
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.1.0\\res\\values-mk-rMK\\common_strings.xml",
-                    "position": {
-                        "startLine": 29,
-                        "startColumn": 4,
-                        "startOffset": 4410,
-                        "endColumn": 97,
-                        "endOffset": 4503
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 47,
-                    "startColumn": 4,
-                    "startOffset": 6540,
-                    "endColumn": 115,
-                    "endOffset": 6651
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 297,
-                        "endColumn": 115,
-                        "endOffset": 408
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 48,
-                    "startColumn": 4,
-                    "startOffset": 6656,
-                    "endColumn": 114,
-                    "endOffset": 6766
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 413,
-                        "endColumn": 114,
-                        "endOffset": 523
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 49,
-                    "startColumn": 4,
-                    "startOffset": 6771,
-                    "endColumn": 106,
-                    "endOffset": 6873
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 528,
-                        "endColumn": 106,
-                        "endOffset": 630
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 50,
-                    "startColumn": 4,
-                    "startOffset": 6878,
-                    "endColumn": 104,
-                    "endOffset": 6978
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 635,
-                        "endColumn": 104,
-                        "endOffset": 735
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 51,
-                    "startColumn": 4,
-                    "startOffset": 6983,
-                    "endColumn": 85,
-                    "endOffset": 7064
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 740,
-                        "endColumn": 85,
-                        "endOffset": 821
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 52,
-                    "startColumn": 4,
-                    "startOffset": 7069,
-                    "endColumn": 91,
-                    "endOffset": 7156
-                },
-                "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\values-mk-rMK\\values-mk-rMK.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 826,
-                        "endColumn": 91,
-                        "endOffset": 913
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 53,
-                    "startColumn": 4,
-                    "startOffset": 7161,
+                    "startOffset": 6323,
                     "endColumn": 100,
-                    "endOffset": 7257
+                    "endOffset": 6419
                 },
                 "from": {
-                    "file": "C:\\Users\\Pravan\\CS2340\\CS-2340-Application\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
+                    "file": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.0.1\\res\\values-mk-rMK\\values-mk-rMK.xml",
                     "position": {
                         "startLine": 19,
                         "startColumn": 4,

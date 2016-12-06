@@ -38,6 +38,61 @@
         android:id="@+id/btnCancel"
         android:onClick="cancelOnClick" />
 
+    <TextView
+        android:text="Location:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textView10"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/textView7"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14" />
+
+    <TextView
+        android:text="Virus PPM:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="53dp"
+        android:id="@+id/textView15"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/textView14"
+        android:layout_alignRight="@+id/textView16"
+        android:layout_alignEnd="@+id/textView16" />
+
+    <TextView
+        android:text="Water Condition:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:id="@+id/textView14"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/textView13"
+        android:layout_alignRight="@+id/textView15"
+        android:layout_alignEnd="@+id/textView15" />
+
+    <TextView
+        android:text="Type of Water:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:id="@+id/textView13"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/textView10"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14" />
+
+    <TextView
+        android:text="Contaminant PPM:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView16"
+        android:layout_marginTop="44dp"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,11 +108,53 @@
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/spnWaterCond"
+        android:layout_alignBottom="@+id/textView14"
+        android:layout_alignLeft="@+id/spnWaterType"
+        android:layout_alignStart="@+id/spnWaterType" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/spnWaterType"
         android:layout_alignBottom="@+id/textView13"
         android:layout_alignRight="@+id/txtLocation"
-        android:layout_alignEnd="@+id/txtLocation"
-        android:minWidth="220dp" />
+        android:layout_alignEnd="@+id/txtLocation" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/txtLocation"
+        android:layout_alignStart="@+id/txtLocation"
+        android:id="@+id/txtVPPM"
+        tools:background="@color/common_action_bar_splitter" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:layout_below="@+id/txtVPPM"
+        android:layout_alignRight="@+id/txtVPPM"
+        android:layout_alignEnd="@+id/txtVPPM"
+        android:layout_marginTop="28dp"
+        android:id="@+id/txtCPPM"
+        android:background="@color/common_action_bar_splitter" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_below="@+id/textView16"
+        android:layout_alignRight="@+id/txtCPPM"
+        android:layout_alignEnd="@+id/txtCPPM"
+        android:layout_marginTop="26dp"
+        android:id="@+id/txtDescription"
+        tools:background="@color/common_action_bar_splitter" />
 
     <TextView
         android:text="Description:"
@@ -68,146 +165,5 @@
         android:layout_alignTop="@+id/txtDescription"
         android:layout_alignRight="@+id/textView16"
         android:layout_alignEnd="@+id/textView16" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:id="@+id/txtDescription"
-        tools:background="@color/common_action_bar_splitter"
-        android:layout_marginBottom="36dp"
-        android:layout_above="@+id/btnAdd"
-        android:layout_alignRight="@+id/btnAdd"
-        android:layout_alignEnd="@+id/btnAdd" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/txtCPPM"
-        android:background="@color/common_action_bar_splitter"
-        android:layout_above="@+id/txtDescription"
-        android:layout_alignLeft="@+id/txtDescription"
-        android:layout_alignStart="@+id/txtDescription"
-        android:layout_marginBottom="39dp" />
-
-    <TextView
-        android:text="Contaminant PPM:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView16"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_alignTop="@+id/txtCPPM"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/txtVPPM"
-        tools:background="@color/common_action_bar_splitter"
-        android:layout_above="@+id/txtCPPM"
-        android:layout_alignLeft="@+id/txtCPPM"
-        android:layout_alignStart="@+id/txtCPPM"
-        android:layout_marginBottom="22dp" />
-
-    <TextView
-        android:text="Type of Water:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView13"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_marginBottom="16dp"
-        android:layout_above="@+id/textView14"
-        android:layout_alignRight="@+id/textView15"
-        android:layout_alignEnd="@+id/textView15" />
-
-    <TextView
-        android:text="Water Condition:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView14"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_marginBottom="42dp"
-        android:layout_above="@+id/textView15"
-        android:layout_alignRight="@+id/textView13"
-        android:layout_alignEnd="@+id/textView13" />
-
-    <TextView
-        android:text="Virus PPM:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView15"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_above="@+id/txtVPPM"
-        android:layout_alignRight="@+id/textView16"
-        android:layout_alignEnd="@+id/textView16" />
-
-    <TextView
-        android:text="Location:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView10"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_above="@+id/textView13"
-        android:layout_alignLeft="@+id/textView15"
-        android:layout_alignStart="@+id/textView15"
-        android:layout_marginBottom="38dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:layout_below="@+id/textView7"
-        android:layout_alignRight="@+id/txtLocation"
-        android:layout_alignEnd="@+id/txtLocation"
-        android:id="@+id/txtLat"
-        tools:background="@color/common_action_bar_splitter" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:ems="10"
-        android:id="@+id/txtLong"
-        tools:background="@color/common_action_bar_splitter"
-        android:layout_alignTop="@+id/TextView21"
-        android:layout_alignLeft="@+id/txtLat"
-        android:layout_alignStart="@+id/txtLat" />
-
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spnWaterCond"
-        android:layout_alignBottom="@+id/textView14"
-        android:layout_alignRight="@+id/spnWaterType"
-        android:layout_alignEnd="@+id/spnWaterType"
-        android:minWidth="220dp" />
-
-    <TextView
-        android:text="Longitude:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/TextView21"
-        android:layout_marginTop="15dp"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_below="@+id/txtLat"
-        android:layout_toLeftOf="@+id/textView7"
-        android:layout_toStartOf="@+id/textView7" />
-
-    <TextView
-        android:text="Latitude:"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView20"
-        android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_below="@+id/textView7"
-        android:layout_toLeftOf="@+id/textView7"
-        android:layout_toStartOf="@+id/textView7" />
 
 </RelativeLayout>

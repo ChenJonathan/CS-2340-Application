@@ -19,11 +19,11 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.List;
-
 public class mainMap extends FragmentActivity implements OnMapReadyCallback {
-    private Model mainModel = Model.instance();
+    private double latitude;
+    private double longitude;
     private GoogleMap mMap;
+    private boolean gone = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +31,6 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        
 
     }
 
@@ -48,27 +47,18 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        List<Report> rList = mainModel.getReports();
 
-        for (Report r: rList) {
-            double lat = r.getLatitude();
-            double lon = r.getLongitude();
-            LatLng ltlg = new LatLng(lat, lon);
-            mMap.addMarker(new MarkerOptions().position(ltlg).title("Location: " + r.getLocation()
-                    + "\n Description: " + r.getDescription()));
-        }
-
-
+        // Add a marker in Sydney and move the camera
+        LatLng sydney = new LatLng(-34, 151);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     public void addOnClick(View v) {
         //Needs to do worker report depending on user level
-        Intent i;
-        if (mainModel.getCurrentUser().getAuth() != AuthorizationLevel.USER) {
-            i = new Intent(mainMap.this, workerReportController.class);
-        } else {
-            i = new Intent(mainMap.this, userReportController.class);
-        }
+        Intent i = new Intent(mainMap.this, userReportController.class);
+        String latLong = latitude + ", " + longitude;
+        i.putExtra("Latitude, Longitude", latLong);
         finish();
         startActivity(i);
     }
