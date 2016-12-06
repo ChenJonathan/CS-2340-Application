@@ -26,7 +26,7 @@
         android:layout_marginTop="58dp"
         android:id="@+id/txtPswrd"
         android:textAlignment="viewStart"
-        tools:background="@color/common_action_bar_splitter" />
+        tools:background="@color/common_signin_btn_dark_text_disabled" />
     <Button
         android:text="Login"
         android:layout_width="wrap_content"
@@ -62,7 +62,8 @@
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/btnOK"
         android:layout_alignEnd="@+id/btnOK"
-        tools:background="@color/common_action_bar_splitter" />
+        android:backgroundTint="@color/wallet_bright_foreground_disabled_holo_light"
+        tools:background="@color/common_signin_btn_light_text_disabled" />
 
     <TextView
         android:text="UserName:"

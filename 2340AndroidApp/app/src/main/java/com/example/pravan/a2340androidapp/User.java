@@ -1,11 +1,6 @@
 package com.example.pravan.a2340androidapp;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-import com.example.pravan.a2340androidapp.AuthorizationLevel;
-
 import java.io.Serializable;
 
 /**
@@ -15,7 +10,7 @@ import java.io.Serializable;
  *
  * Information Holder
  */
-public class User implements Parcelable{
+public class User implements Serializable{
     /**
      * Properties are a way of binding data under the JavaBeans specification.
      *
@@ -125,8 +120,6 @@ public class User implements Parcelable{
         _address = (address);
     }
 
-
-
 	/**
      * Make a new user.
      * @param name      the user's name
@@ -149,35 +142,5 @@ public class User implements Parcelable{
         setName("enter new name");
         setPassword("enter new password");
         this._auth = AuthorizationLevel.USER;
-    }
-
-    public int describeContents() {
-        return 0;
-    }
-
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(_name);
-        dest.writeString(_password);
-        dest.writeString(_email);
-        dest.writeString(_address);
-        dest.writeString(_numb);
-        dest.writeInt(_auth.getLevel());
-    }
-
-    public User(Parcel in) {
-        _name = in.readString();
-        _password = in.readString();
-        _email = in.readString();
-        _address = in.readString();
-        int level = in.readInt();
-        if (level == 0) {
-            _auth = AuthorizationLevel.USER;
-        } else if (level == 1) {
-            _auth = AuthorizationLevel.WORKER;
-        } else if (level == 2) {
-            _auth = AuthorizationLevel.MANAGER;
-        } else {
-            _auth = AuthorizationLevel.ADMIN;
-        }
     }
 }
