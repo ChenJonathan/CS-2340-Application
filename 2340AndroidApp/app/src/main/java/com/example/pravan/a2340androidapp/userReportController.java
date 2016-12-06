@@ -18,7 +18,7 @@ public class userReportController extends AppCompatActivity {
 
     private String[] waterType = {"Bottled", "Well", "Stream", "Lake", "Spring", "Other"};
     private String[] waterCond = {"Portable", "Treatable-Muddy", "Treatable-Clear", "Waste"};
-
+    ListDB listDB = ListDB.getInstance();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_report);
@@ -40,10 +40,12 @@ public class userReportController extends AppCompatActivity {
         EditText description = (EditText) findViewById(R.id.editText2);
         Spinner spnWaterType = (Spinner) findViewById(R.id.spinner4);
         Spinner spnWaterCond = (Spinner) findViewById(R.id.spinner6);
+        EditText txtLat = (EditText) findViewById(R.id.txtLat);
+        EditText txtLon = (EditText) findViewById(R.id.txtLong);
 
-        if (location.getText().toString().matches("") || spnWaterCond.getSelectedItem().toString().matches("")
-                || spnWaterType.getSelectedItem().toString().matches("")
-                || description.getText().toString().matches("")) {
+
+        if (location.getText().equals("") || txtLat.getText().toString().matches("")
+                || description.getText().equals("") || txtLon.getText().toString().matches("")) {
 
             //display dialog box
             new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
@@ -56,10 +58,29 @@ public class userReportController extends AppCompatActivity {
 
         } else {
             //add to database
+            try {
+                double lat = Double.parseDouble(txtLat.getText().toString());
+                double lon = Double.parseDouble(txtLon.getText().toString());
 
-            Intent i = new Intent(userReportController.this, mainMap.class);
-            finish();
-            startActivity(i);
+                Report r = new UserReport(location.getText().toString(), lat, lon,
+                        description.getText().toString(), listDB.getCurrentUser().getName(),
+                        spnWaterType.getSelectedItem().toString(), spnWaterCond.getSelectedItem().toString());
+
+                listDB.addReport(r);
+
+                Intent i = new Intent(userReportController.this, mainMap.class);
+                finish();
+                startActivity(i);
+            } catch (NumberFormatException nfe) {
+                new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
+                        .setMessage("Latitude and Longitude need to be numbers")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            }
+
         }
 
     }

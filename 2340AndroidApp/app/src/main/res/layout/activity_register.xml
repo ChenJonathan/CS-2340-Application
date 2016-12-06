@@ -98,16 +98,19 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id = "@+id/rdoWorker"
             android:text = "Worker"/>
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id = "@+id/rdoManager"
             android:text = "Manager" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id = "@+id/rdoAdmin"
             android:text = "Admin
             "/>
 
