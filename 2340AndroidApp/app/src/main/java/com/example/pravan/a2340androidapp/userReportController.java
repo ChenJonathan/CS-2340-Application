@@ -62,15 +62,26 @@ public class userReportController extends AppCompatActivity {
                 double lat = Double.parseDouble(txtLat.getText().toString());
                 double lon = Double.parseDouble(txtLon.getText().toString());
 
-                Report r = new UserReport(location.getText().toString(), lat, lon,
-                        description.getText().toString(), listDB.getCurrentUser().getName(),
-                        spnWaterType.getSelectedItem().toString(), spnWaterCond.getSelectedItem().toString());
+                if (lat < -90 || lat > 90 || lon < -90 || lon > 90) {
+                    new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
+                            .setMessage("Latitude and Longitude need to be between -90 and 90")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                } else {
+                    Report r = new UserReport(location.getText().toString(), lat, lon,
+                            description.getText().toString(), listDB.getCurrentUser().getName(),
+                            spnWaterType.getSelectedItem().toString(), spnWaterCond.getSelectedItem().toString());
 
-                listDB.addReport(r);
+                    listDB.addReport(r);
 
-                Intent i = new Intent(userReportController.this, mainMap.class);
-                finish();
-                startActivity(i);
+                    Intent i = new Intent(userReportController.this, mainMap.class);
+                    finish();
+                    startActivity(i);
+                }
+
             } catch (NumberFormatException nfe) {
                 new AlertDialog.Builder(userReportController.this).setTitle("Add Report Error")
                         .setMessage("Latitude and Longitude need to be numbers")

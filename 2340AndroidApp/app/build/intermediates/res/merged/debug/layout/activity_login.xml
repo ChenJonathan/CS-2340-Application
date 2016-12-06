@@ -20,6 +20,19 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
+        android:layout_marginTop="100dp"
+        android:id="@+id/txtUserName"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/btnOK"
+        android:layout_alignEnd="@+id/btnOK"
+        android:backgroundTint="@color/wallet_bright_foreground_disabled_holo_light"
+        tools:background="@color/common_signin_btn_light_text_disabled" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
         android:layout_below="@+id/txtUserName"
         android:layout_alignLeft="@+id/txtUserName"
         android:layout_alignStart="@+id/txtUserName"
@@ -52,18 +65,7 @@
         android:id="@+id/btnCancel"
         android:onClick = "cancelOnClick" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_marginTop="100dp"
-        android:id="@+id/txtUserName"
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/btnOK"
-        android:layout_alignEnd="@+id/btnOK"
-        android:backgroundTint="@color/wallet_bright_foreground_disabled_holo_light"
-        tools:background="@color/common_signin_btn_light_text_disabled" />
+
 
     <TextView
         android:text="UserName:"

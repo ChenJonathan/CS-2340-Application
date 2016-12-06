@@ -336,12 +336,12 @@
         "source": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-plus\\8.1.0\\res\\drawable-xhdpi\\ic_plusone_tall_off_client.png"
     },
     {
-        "merged": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_media_play.png",
-        "source": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-xhdpi\\ic_media_play.png"
-    },
-    {
         "merged": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\common_signin_btn_icon_pressed_dark.9.png",
         "source": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.1.0\\res\\drawable-xhdpi\\common_signin_btn_icon_pressed_dark.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_media_play.png",
+        "source": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\mediarouter-v7\\22.2.0\\res\\drawable-xhdpi\\ic_media_play.png"
     },
     {
         "merged": "C:\\Users\\Pravan\\Desktop\\2340AndroidApp\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\abc_btn_switch_to_on_mtrl_00001.9.png",

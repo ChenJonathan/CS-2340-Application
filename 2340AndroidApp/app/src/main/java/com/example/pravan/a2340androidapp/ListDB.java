@@ -22,7 +22,7 @@ public class ListDB {
         userList.add(new User("user", "1", AuthorizationLevel.USER));
         userList.add(new User("admin", "1,", AuthorizationLevel.ADMIN));
 
-        repList.add(new UserReport("Atlanta",33.7490, 84.3880, "Endless Rain TBH", "user", "Other", "Portable"));
+        repList.add(new UserReport("Atlanta",33.7490, -84.3880, "Endless Rain TBH", "user", "Other", "Portable"));
     }
 
     public boolean authenticateUser(String name, String pass) {

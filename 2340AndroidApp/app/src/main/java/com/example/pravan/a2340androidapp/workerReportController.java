@@ -74,16 +74,27 @@ public class workerReportController extends AppCompatActivity {
                 lat = Double.parseDouble(txtLat.getText().toString());
                 lon = Double.parseDouble(txtLon.getText().toString());
 
-                Report r = new WorkerReport(location.getText().toString(), lat, lon,
-                        description.getText().toString(), listDB.getCurrentUser().getName(),
-                        spnWaterType.getSelectedItem().toString(), spnWaterCond.getSelectedItem().toString(),
-                        vppm, cppm);
+                if (lat < -90 || lat > 90 || lon < -90 || lon > 90) {
+                    new AlertDialog.Builder(workerReportController.this).setTitle("Add Report Error")
+                            .setMessage("Latitude and Longitude need to be between -90 and 90")
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            }).show();
+                } else {
+                    Report r = new WorkerReport(location.getText().toString(), lat, lon,
+                            description.getText().toString(), listDB.getCurrentUser().getName(),
+                            spnWaterType.getSelectedItem().toString(), spnWaterCond.getSelectedItem().toString(),
+                            vppm, cppm);
 
-                listDB.addReport(r);
+                    listDB.addReport(r);
 
-                Intent i = new Intent(workerReportController.this, mainMap.class);
-                finish();
-                startActivity(i);
+                    Intent i = new Intent(workerReportController.this, mainMap.class);
+                    finish();
+                    startActivity(i);
+                }
+
             } catch (NumberFormatException nfe) {
                 //display dialog box
                 new AlertDialog.Builder(workerReportController.this).setTitle("Add Report Error")

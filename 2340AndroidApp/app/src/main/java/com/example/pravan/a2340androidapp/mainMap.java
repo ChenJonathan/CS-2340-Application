@@ -1,14 +1,17 @@
 package com.example.pravan.a2340androidapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
@@ -81,6 +84,43 @@ public class mainMap extends FragmentActivity implements OnMapReadyCallback {
         finish();
         startActivity(i);
 
+    }
+
+    public void searchOnClick(View v) {
+        EditText txtLat = (EditText) findViewById(R.id.txtLat);
+        EditText txtLon = (EditText) findViewById(R.id.txtLon);
+
+        if (txtLat.getText().toString().matches("") || txtLon.getText().toString().matches("")) {
+            new AlertDialog.Builder(mainMap.this).setTitle("Search Error")
+                    .setMessage("Please Enter a Latitude and Longitude.")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).show();
+        } else {
+            double lat = Double.parseDouble(txtLat.getText().toString());
+            double lon = Double.parseDouble(txtLon.getText().toString());
+
+            if (lat > 90 || lat < -90 || lon > 90 || lon < -90) {
+                new AlertDialog.Builder(mainMap.this).setTitle("Search Error")
+                        .setMessage("Latitude and Longitude have to be between -90 and 90.")
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        }).show();
+            } else {
+                LatLng ltlg = new LatLng(lat, lon);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(ltlg));
+            }
+        }
+    }
+
+    public void profileOnClick(View v) {
+        Intent i = new Intent(mainMap.this, ProfileController.class);
+        finish();
+        startActivity(i);
     }
 
 
